@@ -1,0 +1,17 @@
+
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 42, in WGAN_trainer
+    generator = nn.DataParallel(generator)
+  File "/opt/conda/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 124, in __init__
+    device_type = _get_available_device_type()
+  File "/opt/conda/lib/python3.7/site-packages/torch/_utils.py", line 429, in _get_available_device_type
+    if torch.cuda.is_available():
+  File "/opt/conda/lib/python3.7/site-packages/torch/cuda/__init__.py", line 52, in is_available
+    return torch._C._cuda_getDeviceCount() > 0
+KeyboardInterrupt

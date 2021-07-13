@@ -1,0 +1,52 @@
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 7752
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 1/40] [Batch 0/1938] [first Mask L1 Loss: 0.00146] [second Mask L1 Loss: 0.00111]
+[D Loss: 0.00598] [G Loss: -0.36557] time_left: 11 days, 11:37:58.341293
+[Epoch 1/40] [Batch 1/1938] [first Mask L1 Loss: 0.00598] [second Mask L1 Loss: 0.00254]
+[D Loss: -0.00029] [G Loss: -0.41170] time_left: 1 day, 7:59:17.383710
+[Epoch 1/40] [Batch 2/1938] [first Mask L1 Loss: 0.00271] [second Mask L1 Loss: 0.00354]
+[D Loss: -0.00033] [G Loss: -0.28863] time_left: 1 day, 11:29:05.080678
+[Epoch 1/40] [Batch 3/1938] [first Mask L1 Loss: 0.00303] [second Mask L1 Loss: 0.00312]
+[D Loss: 0.00050] [G Loss: -0.59256] time_left: 1 day, 0:49:47.367248
+[Epoch 1/40] [Batch 4/1938] [first Mask L1 Loss: 0.00404] [second Mask L1 Loss: 0.00297]
+[D Loss: 0.00309] [G Loss: -0.58963] time_left: 1 day, 13:47:15.377157
+[Epoch 1/40] [Batch 5/1938] [first Mask L1 Loss: 0.00295] [second Mask L1 Loss: 0.00292]
+[D Loss: 0.00228] [G Loss: -0.59003] time_left: 1 day, 1:05:25.264199
+[Epoch 1/40] [Batch 6/1938] [first Mask L1 Loss: 0.00326] [second Mask L1 Loss: 0.00233]
+[D Loss: -0.00129] [G Loss: -0.59168] time_left: 23:36:15.096551
+[Epoch 1/40] [Batch 7/1938] [first Mask L1 Loss: 0.00029] [second Mask L1 Loss: 0.00225]
+[D Loss: 0.00158] [G Loss: -0.53558] time_left: 23:46:19.404284
+[Epoch 1/40] [Batch 8/1938] [first Mask L1 Loss: 0.00175] [second Mask L1 Loss: 0.00055]
+[D Loss: 0.00060] [G Loss: -0.59876] time_left: 23:50:47.280998
+[Epoch 1/40] [Batch 9/1938] [first Mask L1 Loss: 0.00148] [second Mask L1 Loss: 0.00070]
+[D Loss: -0.00009] [G Loss: -0.60426] time_left: 23:30:42.992035
+[Epoch 1/40] [Batch 10/1938] [first Mask L1 Loss: 0.00060] [second Mask L1 Loss: 0.00041]
+[D Loss: -0.00108] [G Loss: -0.65019] time_left: 23:32:00.734951
+The trained model is successfully saved at epoch 1
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 186, in WGAN_trainer
+    utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, name_list = name_list)
+  File "/workspace/jaejun/inpainting/code/utils.py", line 148, in save_samples
+    first_out = img_list[3].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.

@@ -1,0 +1,60 @@
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 7752
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 1/40] [Batch 0/1938] [first Mask L1 Loss: 0.00099] [second Mask L1 Loss: 0.00054]
+[D Loss: 0.00755] [G Loss: 0.23995] time_left: 11 days, 7:25:03.228493
+[Epoch 1/40] [Batch 1/1938] [first Mask L1 Loss: 0.00441] [second Mask L1 Loss: 0.00395]
+[D Loss: -0.00020] [G Loss: 0.29821] time_left: 1 day, 2:19:20.885103
+[Epoch 1/40] [Batch 2/1938] [first Mask L1 Loss: 0.00109] [second Mask L1 Loss: 0.00159]
+[D Loss: -0.00218] [G Loss: 0.24040] time_left: 23:42:37.950466
+[Epoch 1/40] [Batch 3/1938] [first Mask L1 Loss: 0.00540] [second Mask L1 Loss: 0.00263]
+[D Loss: 0.00388] [G Loss: 0.31426] time_left: 23:51:20.522433
+[Epoch 1/40] [Batch 4/1938] [first Mask L1 Loss: 0.00404] [second Mask L1 Loss: 0.00221]
+[D Loss: 0.04542] [G Loss: 0.26063] time_left: 22:50:31.307293
+[Epoch 1/40] [Batch 5/1938] [first Mask L1 Loss: 0.00209] [second Mask L1 Loss: 0.00070]
+[D Loss: 0.00012] [G Loss: 0.24832] time_left: 23:09:56.805165
+[Epoch 1/40] [Batch 6/1938] [first Mask L1 Loss: 0.00284] [second Mask L1 Loss: 0.00117]
+[D Loss: 0.00021] [G Loss: 0.27229] time_left: 23:15:02.676523
+[Epoch 1/40] [Batch 7/1938] [first Mask L1 Loss: 0.00088] [second Mask L1 Loss: 0.00064]
+[D Loss: 0.00004] [G Loss: 0.22573] time_left: 23:54:07.885956
+[Epoch 1/40] [Batch 8/1938] [first Mask L1 Loss: 0.00062] [second Mask L1 Loss: 0.00051]
+[D Loss: -0.00016] [G Loss: 0.26745] time_left: 23:34:23.186495
+[Epoch 1/40] [Batch 9/1938] [first Mask L1 Loss: 0.00080] [second Mask L1 Loss: 0.00021]
+[D Loss: 0.00027] [G Loss: 0.23409] time_left: 23:26:06.696620
+[Epoch 1/40] [Batch 10/1938] [first Mask L1 Loss: 0.00126] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00004] [G Loss: 0.23065] time_left: 1 day, 0:05:52.684007
+The trained model is successfully saved at epoch 1
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 186, in WGAN_trainer
+    utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, name_list = name_list)
+  File "/workspace/jaejun/inpainting/code/utils.py", line 151, in save_samples
+    save_spectrogram(first_out, sample_folder, save_img_name)
+  File "/workspace/jaejun/inpainting/code/utils.py", line 185, in save_spectrogram
+    im = axs.imshow(librosa.amplitude_to_db(spec), origin='lower', aspect=aspect)
+  File "/opt/conda/lib/python3.7/site-packages/librosa/core/spectrum.py", line 1699, in amplitude_to_db
+    S = np.asarray(S)
+  File "/opt/conda/lib/python3.7/site-packages/numpy/core/_asarray.py", line 85, in asarray
+    return array(a, dtype, copy=False, order=order)
+  File "/opt/conda/lib/python3.7/site-packages/torch/_tensor.py", line 643, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.

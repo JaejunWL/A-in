@@ -1,0 +1,18 @@
+{
+    "os": "Linux-4.4.0-210-generic-x86_64-with-debian-buster-sid",
+    "python": "3.7.7",
+    "heartbeatAt": "2021-07-11T22:02:12.563815",
+    "startedAt": "2021-07-11T22:02:10.853729",
+    "docker": null,
+    "gpu": "GeForce RTX 2080 Ti",
+    "gpu_count": 15,
+    "cpu_count": 64,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "train.py",
+    "codePath": "train.py",
+    "host": "c4743ff7e348",
+    "username": "root",
+    "executable": "/opt/conda/bin/python"
+}

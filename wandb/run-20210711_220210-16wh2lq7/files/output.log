@@ -1,0 +1,132 @@
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+The overall number of images equals to 7752
+[Epoch 1/40] [Batch 0/1938] [first Mask L1 Loss: 0.00102] [second Mask L1 Loss: 0.00071]
+[D Loss: -0.00067] [G Loss: 0.11179] time_left: 11 days, 9:19:12.476120
+[Epoch 1/40] [Batch 1/1938] [first Mask L1 Loss: 0.00785] [second Mask L1 Loss: 0.00328]
+[D Loss: 0.01064] [G Loss: 0.10237] time_left: 1 day, 1:25:54.429675
+[Epoch 1/40] [Batch 2/1938] [first Mask L1 Loss: 0.00311] [second Mask L1 Loss: 0.00413]
+[D Loss: -0.00113] [G Loss: 0.07523] time_left: 23:32:57.531691
+[Epoch 1/40] [Batch 3/1938] [first Mask L1 Loss: 0.00286] [second Mask L1 Loss: 0.00481]
+[D Loss: -0.00075] [G Loss: -0.04433] time_left: 23:54:44.705968
+[Epoch 1/40] [Batch 4/1938] [first Mask L1 Loss: 0.00241] [second Mask L1 Loss: 0.00675]
+[D Loss: 0.00252] [G Loss: -0.09042] time_left: 23:21:18.231469
+[Epoch 1/40] [Batch 5/1938] [first Mask L1 Loss: 0.00621] [second Mask L1 Loss: 0.00581]
+[D Loss: 0.00021] [G Loss: -0.01297] time_left: 23:45:34.227089
+[Epoch 1/40] [Batch 6/1938] [first Mask L1 Loss: 0.00151] [second Mask L1 Loss: 0.00032]
+[D Loss: -0.00054] [G Loss: -0.01979] time_left: 22:58:44.193264
+[Epoch 1/40] [Batch 7/1938] [first Mask L1 Loss: 0.00076] [second Mask L1 Loss: 0.00164]
+[D Loss: 0.00210] [G Loss: -0.02748] time_left: 23:13:48.875761
+[Epoch 1/40] [Batch 8/1938] [first Mask L1 Loss: 0.00076] [second Mask L1 Loss: 0.00041]
+[D Loss: 0.00015] [G Loss: 0.04298] time_left: 23:45:04.619259
+[Epoch 1/40] [Batch 9/1938] [first Mask L1 Loss: 0.00049] [second Mask L1 Loss: 0.00053]
+[D Loss: 0.00002] [G Loss: 0.02247] time_left: 23:35:25.773951
+[Epoch 1/40] [Batch 10/1938] [first Mask L1 Loss: 0.00028] [second Mask L1 Loss: 0.00017]
+[D Loss: 0.00004] [G Loss: -0.00371] time_left: 23:58:37.243912
+[Epoch 1/40] [Batch 11/1938] [first Mask L1 Loss: 0.00039] [second Mask L1 Loss: 0.00023]
+[D Loss: 0.00008] [G Loss: -0.03615] time_left: 23:36:12.997041
+[Epoch 1/40] [Batch 12/1938] [first Mask L1 Loss: 0.00073] [second Mask L1 Loss: 0.00035]
+[D Loss: -0.00002] [G Loss: -0.00930] time_left: 23:48:41.478504
+[Epoch 1/40] [Batch 13/1938] [first Mask L1 Loss: 0.00040] [second Mask L1 Loss: 0.00039]
+[D Loss: 0.00026] [G Loss: -0.03880] time_left: 23:56:31.645247
+[Epoch 1/40] [Batch 14/1938] [first Mask L1 Loss: 0.00028] [second Mask L1 Loss: 0.00022]
+[D Loss: -0.00001] [G Loss: 0.01083] time_left: 1 day, 0:04:10.047267
+[Epoch 1/40] [Batch 15/1938] [first Mask L1 Loss: 0.00021] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00002] [G Loss: -0.00741] time_left: 23:46:26.814480
+[Epoch 1/40] [Batch 16/1938] [first Mask L1 Loss: 0.00031] [second Mask L1 Loss: 0.00059]
+[D Loss: 0.00013] [G Loss: -0.00386] time_left: 23:31:54.047424
+[Epoch 1/40] [Batch 17/1938] [first Mask L1 Loss: 0.00019] [second Mask L1 Loss: 0.00021]
+[D Loss: -0.00013] [G Loss: -0.05842] time_left: 23:35:05.829380
+[Epoch 1/40] [Batch 18/1938] [first Mask L1 Loss: 0.00032] [second Mask L1 Loss: 0.00048]
+[D Loss: -0.00001] [G Loss: -0.00536] time_left: 23:55:34.827257
+[Epoch 1/40] [Batch 19/1938] [first Mask L1 Loss: 0.00027] [second Mask L1 Loss: 0.00018]
+[D Loss: 0.00006] [G Loss: 0.01598] time_left: 23:58:37.772022
+[Epoch 1/40] [Batch 20/1938] [first Mask L1 Loss: 0.00040] [second Mask L1 Loss: 0.00042]
+[D Loss: 0.00059] [G Loss: -0.00812] time_left: 23:11:20.260372
+[Epoch 1/40] [Batch 21/1938] [first Mask L1 Loss: 0.00040] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00005] [G Loss: -0.07402] time_left: 23:18:24.787066
+[Epoch 1/40] [Batch 22/1938] [first Mask L1 Loss: 0.00025] [second Mask L1 Loss: 0.00031]
+[D Loss: -0.00003] [G Loss: -0.00815] time_left: 23:31:34.924921
+[Epoch 1/40] [Batch 23/1938] [first Mask L1 Loss: 0.00025] [second Mask L1 Loss: 0.00019]
+[D Loss: -0.00005] [G Loss: -0.06154] time_left: 23:40:08.667510
+[Epoch 1/40] [Batch 24/1938] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00004] [G Loss: -0.04520] time_left: 23:48:53.907663
+[Epoch 1/40] [Batch 25/1938] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00005]
+[D Loss: 0.00000] [G Loss: 0.08108] time_left: 23:39:57.766179
+[Epoch 1/40] [Batch 26/1938] [first Mask L1 Loss: 0.00019] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00000] [G Loss: 0.00191] time_left: 23:45:22.491207
+[Epoch 1/40] [Batch 27/1938] [first Mask L1 Loss: 0.00032] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00003] [G Loss: 0.03598] time_left: 23:14:18.789709
+[Epoch 1/40] [Batch 28/1938] [first Mask L1 Loss: 0.00038] [second Mask L1 Loss: 0.00011]
+[D Loss: 0.00002] [G Loss: -0.02244] time_left: 23:44:18.243166
+[Epoch 1/40] [Batch 29/1938] [first Mask L1 Loss: 0.00017] [second Mask L1 Loss: 0.00012]
+[D Loss: -0.00003] [G Loss: 0.01705] time_left: 23:43:30.748902
+[Epoch 1/40] [Batch 30/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00002] [G Loss: -0.01817] time_left: 1 day, 0:22:56.800160
+[Epoch 1/40] [Batch 31/1938] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00003] [G Loss: -0.02494] time_left: 1 day, 0:06:47.291388
+[Epoch 1/40] [Batch 32/1938] [first Mask L1 Loss: 0.00023] [second Mask L1 Loss: 0.00017]
+[D Loss: 0.00011] [G Loss: 0.05574] time_left: 23:20:42.577358
+[Epoch 1/40] [Batch 33/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00003] [G Loss: -0.03149] time_left: 23:34:09.874485
+[Epoch 1/40] [Batch 34/1938] [first Mask L1 Loss: 0.00038] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00009] [G Loss: -0.04419] time_left: 1 day, 0:08:58.311247
+[Epoch 1/40] [Batch 35/1938] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00005] [G Loss: -0.03723] time_left: 23:51:06.074648
+[Epoch 1/40] [Batch 36/1938] [first Mask L1 Loss: 0.00038] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00000] [G Loss: -0.00857] time_left: 1 day, 0:31:06.094391
+[Epoch 1/40] [Batch 37/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00004] [G Loss: 0.02049] time_left: 23:58:12.662574
+[Epoch 1/40] [Batch 38/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00007]
+[D Loss: 0.00003] [G Loss: -0.00949] time_left: 23:35:37.965877
+[Epoch 1/40] [Batch 39/1938] [first Mask L1 Loss: 0.00018] [second Mask L1 Loss: 0.00011]
+[D Loss: 0.00002] [G Loss: -0.03471] time_left: 23:23:52.756214
+[Epoch 1/40] [Batch 40/1938] [first Mask L1 Loss: 0.00019] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00001] [G Loss: -0.00479] time_left: 23:51:27.799492
+[Epoch 1/40] [Batch 41/1938] [first Mask L1 Loss: 0.00035] [second Mask L1 Loss: 0.00017]
+[D Loss: 0.00002] [G Loss: -0.01542] time_left: 23:49:06.799240
+[Epoch 1/40] [Batch 42/1938] [first Mask L1 Loss: 0.00026] [second Mask L1 Loss: 0.00009]
+[D Loss: 0.00003] [G Loss: -0.00764] time_left: 1 day, 0:07:20.428675
+[Epoch 1/40] [Batch 43/1938] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00019]
+[D Loss: 0.00005] [G Loss: 0.05866] time_left: 23:36:46.557280
+[Epoch 1/40] [Batch 44/1938] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00011]
+[D Loss: 0.00006] [G Loss: -0.01899] time_left: 22:51:42.770700
+[Epoch 1/40] [Batch 45/1938] [first Mask L1 Loss: 0.00021] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00001] [G Loss: -0.02190] time_left: 22:59:01.625154
+[Epoch 1/40] [Batch 46/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00008]
+[D Loss: 0.00004] [G Loss: 0.01454] time_left: 23:32:21.602127
+[Epoch 1/40] [Batch 47/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00002] [G Loss: 0.00302] time_left: 23:07:18.982049
+[Epoch 1/40] [Batch 48/1938] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00001] [G Loss: 0.05822] time_left: 1 day, 0:10:41.998444
+[Epoch 1/40] [Batch 49/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00007]
+[D Loss: 0.00000] [G Loss: 0.01175] time_left: 23:56:52.989010
+[Epoch 1/40] [Batch 50/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00008]
+[D Loss: 0.00001] [G Loss: -0.04192] time_left: 23:51:35.646379
+The trained model is successfully saved at epoch 1
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 186, in WGAN_trainer
+    utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, name_list = name_list)
+  File "/workspace/jaejun/inpainting/code/utils.py", line 131, in save_samples
+    img_list = [img[:,0,:,:], mask, masked_img[:,0,:,:], first_out[:,0,:,:], second_out[:,0,:,:]]
+UnboundLocalError: local variable 'img' referenced before assignment

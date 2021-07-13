@@ -1,0 +1,549 @@
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 7752
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 1/40] [Batch 0/1938] [first Mask L1 Loss: 0.00112] [second Mask L1 Loss: 0.00091]
+[D Loss: -0.00692] [G Loss: 0.21056] time_left: 12 days, 4:13:31.119518
+[Epoch 1/40] [Batch 1/1938] [first Mask L1 Loss: 0.00731] [second Mask L1 Loss: 0.00230]
+[D Loss: -0.00981] [G Loss: 0.14169] time_left: 1 day, 6:21:04.241291
+[Epoch 1/40] [Batch 2/1938] [first Mask L1 Loss: 0.00165] [second Mask L1 Loss: 0.00243]
+[D Loss: -0.01463] [G Loss: 0.15158] time_left: 23:27:45.079540
+[Epoch 1/40] [Batch 3/1938] [first Mask L1 Loss: 0.00552] [second Mask L1 Loss: 0.00393]
+[D Loss: -0.00108] [G Loss: 0.25956] time_left: 22:55:46.350208
+[Epoch 1/40] [Batch 4/1938] [first Mask L1 Loss: 0.00120] [second Mask L1 Loss: 0.00521]
+[D Loss: 0.02526] [G Loss: 0.22463] time_left: 23:55:34.714591
+[Epoch 1/40] [Batch 5/1938] [first Mask L1 Loss: 0.00284] [second Mask L1 Loss: 0.00079]
+[D Loss: 0.00084] [G Loss: 0.07506] time_left: 23:20:24.845537
+[Epoch 1/40] [Batch 6/1938] [first Mask L1 Loss: 0.00634] [second Mask L1 Loss: 0.00116]
+[D Loss: -0.00483] [G Loss: 0.19736] time_left: 23:32:03.000262
+[Epoch 1/40] [Batch 7/1938] [first Mask L1 Loss: 0.00361] [second Mask L1 Loss: 0.00232]
+[D Loss: -0.00580] [G Loss: 0.25485] time_left: 23:31:41.874355
+[Epoch 1/40] [Batch 8/1938] [first Mask L1 Loss: 0.00107] [second Mask L1 Loss: 0.00137]
+[D Loss: -0.00022] [G Loss: 0.17181] time_left: 23:56:24.731293
+[Epoch 1/40] [Batch 9/1938] [first Mask L1 Loss: 0.00182] [second Mask L1 Loss: 0.00023]
+[D Loss: -0.00019] [G Loss: 0.18685] time_left: 23:47:41.298918
+[Epoch 1/40] [Batch 10/1938] [first Mask L1 Loss: 0.00069] [second Mask L1 Loss: 0.00104]
+[D Loss: -0.00204] [G Loss: 0.12979] time_left: 1 day, 0:08:45.525801
+The trained model is successfully saved at epoch 1
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 2/40] [Batch 0/1938] [first Mask L1 Loss: 0.00041] [second Mask L1 Loss: 0.00039]
+[D Loss: 0.00004] [G Loss: 0.20698] time_left: 3 days, 9:52:42.635187
+[Epoch 2/40] [Batch 1/1938] [first Mask L1 Loss: 0.00029] [second Mask L1 Loss: 0.00069]
+[D Loss: 0.00439] [G Loss: 0.21043] time_left: 23:31:53.672932
+[Epoch 2/40] [Batch 2/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00033]
+[D Loss: 0.00033] [G Loss: 0.17969] time_left: 22:41:11.281247
+[Epoch 2/40] [Batch 3/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00009] [G Loss: 0.15236] time_left: 22:47:15.364560
+[Epoch 2/40] [Batch 4/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00024]
+[D Loss: -0.00003] [G Loss: 0.15772] time_left: 23:21:36.450368
+[Epoch 2/40] [Batch 5/1938] [first Mask L1 Loss: 0.00029] [second Mask L1 Loss: 0.00050]
+[D Loss: 0.00031] [G Loss: 0.16130] time_left: 23:28:31.107163
+[Epoch 2/40] [Batch 6/1938] [first Mask L1 Loss: 0.00018] [second Mask L1 Loss: 0.00012]
+[D Loss: 0.00006] [G Loss: 0.19551] time_left: 23:37:15.468956
+[Epoch 2/40] [Batch 7/1938] [first Mask L1 Loss: 0.00021] [second Mask L1 Loss: 0.00040]
+[D Loss: 0.00091] [G Loss: 0.20236] time_left: 22:55:04.800880
+[Epoch 2/40] [Batch 8/1938] [first Mask L1 Loss: 0.00073] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00003] [G Loss: 0.19464] time_left: 22:02:24.894496
+[Epoch 2/40] [Batch 9/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00027]
+[D Loss: 0.00025] [G Loss: 0.15235] time_left: 22:30:02.960727
+[Epoch 2/40] [Batch 10/1938] [first Mask L1 Loss: 0.00054] [second Mask L1 Loss: 0.00034]
+[D Loss: 0.00025] [G Loss: 0.19682] time_left: 22:39:25.448651
+The trained model is successfully saved at epoch 2
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 3/40] [Batch 0/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00012]
+[D Loss: -0.00001] [G Loss: 0.15057] time_left: 3 days, 6:23:34.923540
+[Epoch 3/40] [Batch 1/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00008]
+[D Loss: 0.00008] [G Loss: 0.12161] time_left: 22:24:58.906734
+[Epoch 3/40] [Batch 2/1938] [first Mask L1 Loss: 0.00028] [second Mask L1 Loss: 0.00026]
+[D Loss: 0.00063] [G Loss: 0.19134] time_left: 22:22:11.996749
+[Epoch 3/40] [Batch 3/1938] [first Mask L1 Loss: 0.00024] [second Mask L1 Loss: 0.00016]
+[D Loss: 0.00025] [G Loss: 0.19494] time_left: 22:19:59.064802
+[Epoch 3/40] [Batch 4/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00011]
+[D Loss: 0.00002] [G Loss: 0.20925] time_left: 21:57:42.629318
+[Epoch 3/40] [Batch 5/1938] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00016]
+[D Loss: 0.00002] [G Loss: 0.16817] time_left: 22:28:41.200695
+[Epoch 3/40] [Batch 6/1938] [first Mask L1 Loss: 0.00018] [second Mask L1 Loss: 0.00017]
+[D Loss: 0.00000] [G Loss: 0.10929] time_left: 21:43:17.396278
+[Epoch 3/40] [Batch 7/1938] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00012] [G Loss: 0.10343] time_left: 22:07:01.126350
+[Epoch 3/40] [Batch 8/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00032]
+[D Loss: 0.00005] [G Loss: 0.20223] time_left: 22:18:00.508971
+[Epoch 3/40] [Batch 9/1938] [first Mask L1 Loss: 0.00020] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00011] [G Loss: 0.10496] time_left: 22:33:06.640116
+[Epoch 3/40] [Batch 10/1938] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00003]
+[D Loss: 0.00002] [G Loss: 0.16013] time_left: 22:52:47.019534
+The trained model is successfully saved at epoch 3
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 4/40] [Batch 0/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00003] [G Loss: 0.13369] time_left: 2 days, 21:15:42.584843
+[Epoch 4/40] [Batch 1/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00004] [G Loss: 0.16693] time_left: 21:34:44.360099
+[Epoch 4/40] [Batch 2/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00005]
+[D Loss: 0.00002] [G Loss: 0.18404] time_left: 21:38:15.124962
+[Epoch 4/40] [Batch 3/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00016]
+[D Loss: 0.00007] [G Loss: 0.14631] time_left: 21:44:13.160161
+[Epoch 4/40] [Batch 4/1938] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00018]
+[D Loss: 0.00002] [G Loss: 0.16997] time_left: 21:33:51.158084
+[Epoch 4/40] [Batch 5/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00016]
+[D Loss: 0.00011] [G Loss: 0.17903] time_left: 22:12:52.428908
+[Epoch 4/40] [Batch 6/1938] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00041]
+[D Loss: 0.00009] [G Loss: 0.15308] time_left: 21:49:53.778419
+[Epoch 4/40] [Batch 7/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00020]
+[D Loss: 0.00001] [G Loss: 0.17673] time_left: 21:27:36.141570
+[Epoch 4/40] [Batch 8/1938] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00015]
+[D Loss: 0.00004] [G Loss: 0.20805] time_left: 20:47:34.842340
+[Epoch 4/40] [Batch 9/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00000] [G Loss: 0.19368] time_left: 21:24:06.227334
+[Epoch 4/40] [Batch 10/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00017]
+[D Loss: 0.00000] [G Loss: 0.20150] time_left: 21:24:59.322529
+The trained model is successfully saved at epoch 4
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 5/40] [Batch 0/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00008] [G Loss: 0.23988] time_left: 2 days, 22:22:25.708706
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 5/40] [Batch 1/1938] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00025]
+[D Loss: 0.00003] [G Loss: 0.23564] time_left: 21:28:53.792226
+[Epoch 5/40] [Batch 2/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00008] [G Loss: 0.13400] time_left: 21:03:35.857304
+[Epoch 5/40] [Batch 3/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00006] [G Loss: 0.21917] time_left: 1 day, 1:23:13.842602
+[Epoch 5/40] [Batch 4/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00010]
+[D Loss: 0.00007] [G Loss: 0.17572] time_left: 20:43:00.643813
+[Epoch 5/40] [Batch 5/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00008] [G Loss: 0.19308] time_left: 20:10:23.225384
+[Epoch 5/40] [Batch 6/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00001] [G Loss: 0.17899] time_left: 21:00:21.533373
+[Epoch 5/40] [Batch 7/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00004] [G Loss: 0.18440] time_left: 21:15:33.729989
+[Epoch 5/40] [Batch 8/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00014] [G Loss: 0.15163] time_left: 21:18:12.683411
+[Epoch 5/40] [Batch 9/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00012]
+[D Loss: 0.00003] [G Loss: 0.19778] time_left: 21:02:37.440013
+[Epoch 5/40] [Batch 10/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00015]
+[D Loss: 0.00026] [G Loss: 0.17354] time_left: 20:45:23.082410
+The trained model is successfully saved at epoch 5
+/workspace/jaejun/inpainting/code/utils.py:181: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axs = plt.subplots(1, 1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 6/40] [Batch 0/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00010]
+[D Loss: 0.00003] [G Loss: 0.18406] time_left: 2 days, 16:40:31.173270
+[Epoch 6/40] [Batch 1/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00011] [G Loss: 0.17927] time_left: 20:55:00.985576
+[Epoch 6/40] [Batch 2/1938] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00003] [G Loss: 0.18215] time_left: 20:39:09.802413
+[Epoch 6/40] [Batch 3/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00009]
+[D Loss: 0.00001] [G Loss: 0.17241] time_left: 21:09:24.281132
+[Epoch 6/40] [Batch 4/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00011]
+[D Loss: 0.00021] [G Loss: 0.19830] time_left: 20:26:04.077685
+[Epoch 6/40] [Batch 5/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00002] [G Loss: 0.17629] time_left: 20:14:39.342705
+[Epoch 6/40] [Batch 6/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00007] [G Loss: 0.18494] time_left: 20:37:25.273888
+[Epoch 6/40] [Batch 7/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00030]
+[D Loss: 0.00001] [G Loss: 0.19385] time_left: 20:51:26.310354
+[Epoch 6/40] [Batch 8/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00002] [G Loss: 0.15721] time_left: 20:39:10.291801
+[Epoch 6/40] [Batch 9/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00001] [G Loss: 0.17685] time_left: 20:22:06.133156
+[Epoch 6/40] [Batch 10/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00016]
+[D Loss: 0.00002] [G Loss: 0.21272] time_left: 20:00:58.652983
+The trained model is successfully saved at epoch 6
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 7/40] [Batch 0/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00005]
+[D Loss: 0.00003] [G Loss: 0.22789] time_left: 2 days, 15:56:58.680327
+[Epoch 7/40] [Batch 1/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00018]
+[D Loss: 0.00020] [G Loss: 0.22565] time_left: 19:35:12.178709
+[Epoch 7/40] [Batch 2/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00008]
+[D Loss: 0.00014] [G Loss: 0.13951] time_left: 19:49:47.740233
+[Epoch 7/40] [Batch 3/1938] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00011] [G Loss: 0.18949] time_left: 19:38:04.504392
+[Epoch 7/40] [Batch 4/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00003]
+[D Loss: 0.00001] [G Loss: 0.14674] time_left: 19:33:26.341911
+[Epoch 7/40] [Batch 5/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00003] [G Loss: 0.19877] time_left: 19:53:54.477930
+[Epoch 7/40] [Batch 6/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00002] [G Loss: 0.18043] time_left: 20:09:59.538700
+[Epoch 7/40] [Batch 7/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00003] [G Loss: 0.19387] time_left: 20:27:55.658590
+[Epoch 7/40] [Batch 8/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00025]
+[D Loss: 0.00003] [G Loss: 0.17322] time_left: 19:54:07.929513
+[Epoch 7/40] [Batch 9/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00005]
+[D Loss: 0.00000] [G Loss: 0.18436] time_left: 19:38:29.640242
+[Epoch 7/40] [Batch 10/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00015]
+[D Loss: 0.00000] [G Loss: 0.17993] time_left: 19:39:57.612758
+The trained model is successfully saved at epoch 7
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 8/40] [Batch 0/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00003] [G Loss: 0.18332] time_left: 3 days, 3:58:05.053928
+[Epoch 8/40] [Batch 1/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00007]
+[D Loss: 0.00003] [G Loss: 0.18452] time_left: 19:00:08.679313
+[Epoch 8/40] [Batch 2/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00002] [G Loss: 0.19073] time_left: 18:58:52.181026
+[Epoch 8/40] [Batch 3/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00007]
+[D Loss: 0.00006] [G Loss: 0.16904] time_left: 19:13:46.880045
+[Epoch 8/40] [Batch 4/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00013]
+[D Loss: -0.00001] [G Loss: 0.11267] time_left: 19:05:38.599122
+[Epoch 8/40] [Batch 5/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00012]
+[D Loss: 0.00001] [G Loss: 0.22947] time_left: 18:57:41.890381
+[Epoch 8/40] [Batch 6/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00010]
+[D Loss: 0.00000] [G Loss: 0.18261] time_left: 19:19:31.524705
+[Epoch 8/40] [Batch 7/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00005] [G Loss: 0.22722] time_left: 19:13:06.553883
+[Epoch 8/40] [Batch 8/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00002] [G Loss: 0.13689] time_left: 19:20:21.718543
+[Epoch 8/40] [Batch 9/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00000] [G Loss: 0.22510] time_left: 19:24:55.875220
+[Epoch 8/40] [Batch 10/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00002] [G Loss: 0.24086] time_left: 19:11:46.135670
+The trained model is successfully saved at epoch 8
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 9/40] [Batch 0/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00012]
+[D Loss: 0.00006] [G Loss: 0.17860] time_left: 2 days, 14:42:36.847000
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 9/40] [Batch 1/1938] [first Mask L1 Loss: 0.00000] [second Mask L1 Loss: 0.00009]
+[D Loss: 0.00001] [G Loss: 0.16981] time_left: 18:17:06.443026
+[Epoch 9/40] [Batch 2/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00005]
+[D Loss: 0.00004] [G Loss: 0.19704] time_left: 18:38:43.796143
+[Epoch 9/40] [Batch 3/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00014] [G Loss: 0.21084] time_left: 19:27:16.803010
+[Epoch 9/40] [Batch 4/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00013]
+[D Loss: 0.00013] [G Loss: 0.21491] time_left: 18:45:37.897756
+[Epoch 9/40] [Batch 5/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00000] [G Loss: 0.17916] time_left: 18:37:21.141001
+[Epoch 9/40] [Batch 6/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00024]
+[D Loss: -0.00019] [G Loss: 0.23002] time_left: 18:36:47.741325
+[Epoch 9/40] [Batch 7/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00010] [G Loss: 0.18737] time_left: 19:11:19.258166
+[Epoch 9/40] [Batch 8/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00005] [G Loss: 0.17048] time_left: 18:40:59.862513
+[Epoch 9/40] [Batch 9/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00012]
+[D Loss: 0.00010] [G Loss: 0.14658] time_left: 18:11:14.084325
+[Epoch 9/40] [Batch 10/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00012]
+[D Loss: 0.00009] [G Loss: 0.20089] time_left: 18:13:01.878456
+The trained model is successfully saved at epoch 9
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 10/40] [Batch 0/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00002] [G Loss: 0.20108] time_left: 2 days, 15:02:55.407176
+[Epoch 10/40] [Batch 1/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00002]
+[D Loss: 0.00001] [G Loss: 0.13516] time_left: 17:59:37.247657
+[Epoch 10/40] [Batch 2/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00000] [G Loss: 0.20825] time_left: 17:48:16.259799
+[Epoch 10/40] [Batch 3/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00005]
+[D Loss: 0.00001] [G Loss: 0.20140] time_left: 17:38:18.754674
+[Epoch 10/40] [Batch 4/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00003] [G Loss: 0.18049] time_left: 18:06:19.862609
+[Epoch 10/40] [Batch 5/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00007] [G Loss: 0.17429] time_left: 17:58:11.754670
+[Epoch 10/40] [Batch 6/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00007] [G Loss: 0.16686] time_left: 17:44:26.230007
+[Epoch 10/40] [Batch 7/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00009]
+[D Loss: 0.00007] [G Loss: 0.17570] time_left: 18:14:05.726131
+[Epoch 10/40] [Batch 8/1938] [first Mask L1 Loss: 0.00000] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00001] [G Loss: 0.21297] time_left: 17:58:56.444769
+[Epoch 10/40] [Batch 9/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00013]
+[D Loss: -0.00004] [G Loss: 0.18114] time_left: 18:26:38.859898
+[Epoch 10/40] [Batch 10/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00001] [G Loss: 0.18585] time_left: 18:08:46.232820
+The trained model is successfully saved at epoch 10
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+/opt/conda/lib/python3.7/site-packages/torchaudio/functional/functional.py:89: UserWarning: The use of pseudo complex type in spectrogram is now deprecated.Please migrate to native complex type by providing `return_complex=True`. Please refer to https://github.com/pytorch/audio/issues/1337 for more details about torchaudio's plan to migrate to native complex type.
+  "The use of pseudo complex type in spectrogram is now deprecated."
+[Epoch 11/40] [Batch 0/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00008]
+[D Loss: 0.00002] [G Loss: 0.16785] time_left: 2 days, 13:41:24.732556
+[Epoch 11/40] [Batch 1/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00002] [G Loss: 0.19045] time_left: 16:55:56.305439
+[Epoch 11/40] [Batch 2/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00007]
+[D Loss: 0.00002] [G Loss: 0.17869] time_left: 17:25:48.824283
+[Epoch 11/40] [Batch 3/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00007]
+[D Loss: 0.00002] [G Loss: 0.22633] time_left: 18:02:51.178510
+[Epoch 11/40] [Batch 4/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00000] [G Loss: 0.17900] time_left: 17:39:55.508949
+[Epoch 11/40] [Batch 5/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00003]
+[D Loss: 0.00001] [G Loss: 0.22803] time_left: 17:33:51.173857
+[Epoch 11/40] [Batch 6/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00003]
+[D Loss: 0.00000] [G Loss: 0.20139] time_left: 17:09:10.617987
+[Epoch 11/40] [Batch 7/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00006]
+[D Loss: 0.00002] [G Loss: 0.14902] time_left: 17:59:10.575657
+[Epoch 11/40] [Batch 8/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00003] [G Loss: 0.15957] time_left: 23:39:29.902952
+[Epoch 11/40] [Batch 9/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00001] [G Loss: 0.23508] time_left: 17:32:46.866971
+[Epoch 11/40] [Batch 10/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00001] [G Loss: 0.18976] time_left: 17:57:17.815199
+The trained model is successfully saved at epoch 11
+KeyboardInterrupt
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f88e7df0590> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f88e7df0590> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f88db3ad0a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f88e7df0590> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f88e7df0590> returned a result with an error set
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 186, in WGAN_trainer
+    def LSGAN_trainer(opt):
+  File "/workspace/jaejun/inpainting/code/utils.py", line 156, in save_samples
+    save_spectrogram(second_out, sample_folder, save_img_name)
+  File "/workspace/jaejun/inpainting/code/utils.py", line 189, in save_spectrogram
+    plt.savefig(os.path.join(sample_folder, sample_img_name))
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/pyplot.py", line 723, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/figure.py", line 2203, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 2105, in print_figure
+    **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py", line 537, in print_png
+    metadata={**default_metadata, **metadata})
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f88e7df0590> returned a result with an error set
