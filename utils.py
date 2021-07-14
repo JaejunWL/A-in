@@ -127,33 +127,31 @@ def save_sample_png(sample_folder, sample_name, img_list, name_list, pixel_max_c
         save_img_path = os.path.join(sample_folder, save_img_name)
         cv2.imwrite(save_img_path, img_copy)
 
-def save_samples(sample_folder, sample_name, img_list, name_list):
+def save_samples(sample_folder, sample_name, img_list):
     # Save image one-by-one
 
+    scaler = 10000
+    
     gt = img_list[0].detach().cpu().numpy()
-    gt = gt * 300
-    save_img_name = sample_name + '_' + name_list[0] + '.png'
-    save_spectrogram(gt, sample_folder, save_img_name)
-
     mask = img_list[1].detach().cpu().numpy()
-    mask = mask * 255
-    save_img_name = sample_name + '_' + name_list[1] + '.png'
-    save_spectrogram(mask, sample_folder, save_img_name)
+    masked_gt = img_list[2].detach().cpu().numpy()
+    first = img_list[3].detach().cpu().numpy()
+    firsted_img = img_list[4].detach().cpu().numpy()
+    second = img_list[5].detach().cpu().numpy()
+    seconded_img = img_list[6].detach().cpu().numpy()
 
-    masked_img = img_list[2].detach().cpu().numpy()
-    masked_img = masked_img * 300
-    save_img_name = sample_name + '_' + name_list[2] + '.png'
-    save_spectrogram(masked_img, sample_folder, save_img_name)
+    fig, axes = plt.subplots(2, 4)
+    plot_spectrogram(gt, axes[0, 0])
+    plot_spectrogram(mask*255, axes[0, 1])
+    plot_spectrogram(masked_gt, axes[0, 2])
+    plot_spectrogram(first, axes[1, 0])
+    plot_spectrogram(firsted_img, axes[1, 1])
+    plot_spectrogram(second, axes[1, 2])
+    plot_spectrogram(seconded_img, axes[1, 3])
+    fig.set_size_inches(24, 12)
+    fig.tight_layout()
+    plt.savefig(os.path.join(sample_folder, sample_name + '_.png'))
 
-    first_out = img_list[3].detach().cpu().numpy()
-    first_out = first_out * 300
-    save_img_name = sample_name + '_' + name_list[3] + '.png'
-    save_spectrogram(first_out, sample_folder, save_img_name)
-
-    second_out = img_list[4].detach().cpu().numpy()
-    second_out = second_out * 300
-    save_img_name = sample_name + '_' + name_list[4] + '.png'
-    save_spectrogram(second_out, sample_folder, save_img_name)
 
 def psnr(pred, target, pixel_max_cnt = 255):
     mse = torch.mul(target - pred, target - pred)
@@ -187,3 +185,12 @@ def save_spectrogram(spec, sample_folder, sample_img_name, title=None, ylabel='f
         axs.set_xlim((0, xmax))
         fig.colorbar(im, ax=axs)
     plt.savefig(os.path.join(sample_folder, sample_img_name))
+
+def plot_spectrogram(spec, ax , title=None, ylabel='freq_bin', aspect='auto', xmax=None):
+#   ax.set_title(title or 'Spectrogram (db)')
+#   ax.set_ylabel(ylabel)
+#   ax.set_xlabel('frame')
+  im = ax.imshow(librosa.power_to_db(spec), origin='lower', aspect=aspect)
+  if xmax:
+    ax.set_xlim((0, xmax))
+  return im

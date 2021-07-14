@@ -1,0 +1,28 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 7752
+[Epoch 1/200] [Batch 0/1938] [first Mask L1 Loss: 0.00340] [second Mask L1 Loss: 0.08293]
+[D Loss: -0.05133] [G Loss: -0.18392] time_left: 63 days, 12:39:12.871513
+[Epoch 1/200] [Batch 1/1938] [first Mask L1 Loss: 0.00344] [second Mask L1 Loss: 0.04474]
+[D Loss: -0.02704] [G Loss: -0.00515] time_left: 5 days, 18:06:38.859045
+[Epoch 1/200] [Batch 2/1938] [first Mask L1 Loss: 0.00764] [second Mask L1 Loss: 0.03974]
+[D Loss: -0.07521] [G Loss: 0.08386] time_left: 4 days, 20:44:43.154583
+[Epoch 1/200] [Batch 3/1938] [first Mask L1 Loss: 0.00111] [second Mask L1 Loss: 0.04869]
+[D Loss: -0.12925] [G Loss: 0.06760] time_left: 4 days, 20:10:37.306973
+[Epoch 1/200] [Batch 4/1938] [first Mask L1 Loss: 0.00498] [second Mask L1 Loss: 0.02100]
+[D Loss: 0.10370] [G Loss: -0.19952] time_left: 4 days, 21:16:01.716031
+[Epoch 1/200] [Batch 5/1938] [first Mask L1 Loss: 0.00108] [second Mask L1 Loss: 0.04020]
+[D Loss: -0.07689] [G Loss: -0.16914] time_left: 4 days, 19:11:36.960564
+The trained model is successfully saved at epoch 1
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 185, in WGAN_trainer
+    utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, name_list = name_list)
+  File "/workspace/jaejun/inpainting/code/utils.py", line 144, in save_samples
+    firsted_img = gt * (1 - mask) + first * mask
+ValueError: operands could not be broadcast together with shapes (512,428) (513,431)

@@ -1,0 +1,24 @@
+{
+    "os": "Linux-4.4.0-210-generic-x86_64-with-debian-buster-sid",
+    "python": "3.7.7",
+    "heartbeatAt": "2021-07-14T13:09:32.996042",
+    "startedAt": "2021-07-14T13:09:31.180178",
+    "docker": null,
+    "gpu": "GeForce RTX 2080 Ti",
+    "gpu_count": 15,
+    "cpu_count": 64,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "git@github.com:jaejunWL/A-in.git",
+        "commit": "752629095e419ffd10da86c4101cfa8b870220db"
+    },
+    "email": "jjlee0721@gmail.com",
+    "root": "/workspace/jaejun/inpainting/code",
+    "host": "c4743ff7e348",
+    "username": "root",
+    "executable": "/opt/conda/bin/python"
+}

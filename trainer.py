@@ -101,7 +101,8 @@ def WGAN_trainer(opt):
     for epoch in range(opt.epochs):
         for batch_idx, (img, mask) in enumerate(dataloader):
             # Load mask (shape: [B, 1, H, W]), masked_img (shape: [B, 3, H, W]), img (shape: [B, 3, H, W]) and put it to cuda
-            img = img / 300
+            scaler = 10000
+            img = img / scaler
             img = img[:,:,:512,:428]
 
             img = img.cuda()
@@ -175,12 +176,23 @@ def WGAN_trainer(opt):
         save_model(generator, (epoch + 1), opt)
 
         ### Sample data every epoch
-        masked_img = img * (1 - mask) + mask
-        mask = torch.cat((mask, mask, mask), 1)
+
+
+        # mask = torch.cat((mask, mask, mask), 1)
         if (epoch + 1) % 1 == 0:
-            img_list = [img[0,0,:,:], mask[0,0,:,:], masked_img[0,0,:,:], first_out[0,0,:,:], second_out[0,0,:,:]]
-            name_list = ['gt_mag', 'mask', 'masked_gt_mag', 'first_out', 'second_out']
-            utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, name_list = name_list)
+            gt = img[0,0,:,:] * scaler
+            mask = mask[0,0,:,:]
+            masked_gt = gt * (1 - mask) + mask
+            masked_gt = masked_gt * scaler
+            first = first_out[0,0,:,:] * scaler
+            firsted_img = gt * (1 - mask) + first * mask
+            second = second_out[0,0,:,:] * scaler
+            seconded_img = gt * (1 - mask) + second * mask
+
+            img_list = [gt, mask, masked_gt, first, firsted_img, second, seconded_img]
+
+            # name_list = ['gt_mag', 'mask', 'masked_gt_mag', 'first_out', 'second_out']
+            utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list)
 
 def LSGAN_trainer(opt):
     # ----------------------------------------

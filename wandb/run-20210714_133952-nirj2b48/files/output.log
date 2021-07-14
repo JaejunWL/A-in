@@ -1,0 +1,47 @@
+
+Generator is created!
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 7752
+[Epoch 1/200] [Batch 0/1938] [first Mask L1 Loss: 0.00133] [second Mask L1 Loss: 0.05943]
+[D Loss: -0.07419] [G Loss: 0.29712] time_left: 63 days, 17:36:15.449753
+[Epoch 1/200] [Batch 1/1938] [first Mask L1 Loss: 0.00253] [second Mask L1 Loss: 0.06056]
+[D Loss: -0.07764] [G Loss: 0.16756] time_left: 6 days, 8:41:29.950864
+[Epoch 1/200] [Batch 2/1938] [first Mask L1 Loss: 0.00578] [second Mask L1 Loss: 0.04261]
+[D Loss: -0.03117] [G Loss: 0.21039] time_left: 4 days, 18:51:12.773217
+[Epoch 1/200] [Batch 3/1938] [first Mask L1 Loss: 0.00233] [second Mask L1 Loss: 0.03139]
+[D Loss: -0.03035] [G Loss: 0.03431] time_left: 4 days, 19:49:14.189596
+[Epoch 1/200] [Batch 4/1938] [first Mask L1 Loss: 0.00140] [second Mask L1 Loss: 0.01600]
+[D Loss: 0.03518] [G Loss: 0.01104] time_left: 4 days, 20:08:20.385092
+[Epoch 1/200] [Batch 5/1938] [first Mask L1 Loss: 0.00188] [second Mask L1 Loss: 0.03287]
+[D Loss: -0.02324] [G Loss: 0.12906] time_left: 4 days, 19:49:50.573020
+[Epoch 1/200] [Batch 6/1938] [first Mask L1 Loss: 0.00110] [second Mask L1 Loss: 0.01110]
+[D Loss: -0.03374] [G Loss: 0.00308] time_left: 4 days, 22:30:35.674397
+The trained model is successfully saved at epoch 1
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 2/200] [Batch 0/1938] [first Mask L1 Loss: 0.00046] [second Mask L1 Loss: 0.00540]
+[D Loss: -0.07936] [G Loss: -0.00710] time_left: 19 days, 17:09:44.390316
+[Epoch 2/200] [Batch 1/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00183]
+[D Loss: -0.00745] [G Loss: -0.15427] time_left: 4 days, 20:25:13.701416
+[Epoch 2/200] [Batch 2/1938] [first Mask L1 Loss: 0.00034] [second Mask L1 Loss: 0.00671]
+[D Loss: 0.02285] [G Loss: 0.11044] time_left: 4 days, 22:49:23.130422
+[Epoch 2/200] [Batch 3/1938] [first Mask L1 Loss: 0.00046] [second Mask L1 Loss: 0.00589]
+[D Loss: 0.02200] [G Loss: 0.22330] time_left: 4 days, 21:25:50.932440
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 153, in WGAN_trainer
+    loss.backward()
+  File "/opt/conda/lib/python3.7/site-packages/torch/_tensor.py", line 255, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/autograd/__init__.py", line 149, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag

@@ -1,0 +1,746 @@
+2021-07-14 13:17:57,000 INFO    MainThread:59589 [internal.py:wandb_internal():91] W&B internal server running at pid: 59589, started at: 2021-07-14 13:17:56.999700
+2021-07-14 13:17:57,003 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: check_version
+2021-07-14 13:17:57,003 INFO    WriterThread:59589 [datastore.py:open_for_write():80] open: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/run-2vqyrf68.wandb
+2021-07-14 13:17:57,006 DEBUG   SenderThread:59589 [sender.py:send():179] send: header
+2021-07-14 13:17:57,006 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: check_version
+2021-07-14 13:17:57,310 DEBUG   SenderThread:59589 [sender.py:send():179] send: run
+2021-07-14 13:17:57,587 INFO    SenderThread:59589 [dir_watcher.py:__init__():168] watching files in: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files
+2021-07-14 13:17:57,588 INFO    SenderThread:59589 [sender.py:_start_run_threads():719] run started: 2vqyrf68 with start time 1626268676
+2021-07-14 13:17:57,588 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:17:57,588 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:17:57,592 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: run_start
+2021-07-14 13:17:57,667 DEBUG   HandlerThread:59589 [meta.py:__init__():39] meta init
+2021-07-14 13:17:57,667 DEBUG   HandlerThread:59589 [meta.py:__init__():53] meta init done
+2021-07-14 13:17:57,668 DEBUG   HandlerThread:59589 [meta.py:probe():210] probe
+2021-07-14 13:17:57,693 DEBUG   HandlerThread:59589 [meta.py:_setup_git():200] setup git
+2021-07-14 13:17:57,712 DEBUG   HandlerThread:59589 [meta.py:_setup_git():207] setup git done
+2021-07-14 13:17:57,712 DEBUG   HandlerThread:59589 [meta.py:_save_pip():57] save pip
+2021-07-14 13:17:57,713 DEBUG   HandlerThread:59589 [meta.py:_save_pip():71] save pip done
+2021-07-14 13:17:57,713 DEBUG   HandlerThread:59589 [meta.py:_save_conda():78] save conda
+2021-07-14 13:17:58,577 DEBUG   HandlerThread:59589 [meta.py:_save_conda():86] save conda done
+2021-07-14 13:17:58,578 DEBUG   HandlerThread:59589 [meta.py:probe():252] probe done
+2021-07-14 13:17:58,594 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/requirements.txt
+2021-07-14 13:17:58,595 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-metadata.json
+2021-07-14 13:17:58,595 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:17:58,596 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/conda-environment.yaml
+2021-07-14 13:17:58,651 DEBUG   SenderThread:59589 [sender.py:send():179] send: files
+2021-07-14 13:17:58,651 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-metadata.json with policy now
+2021-07-14 13:17:58,659 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:17:58,660 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:17:58,871 DEBUG   SenderThread:59589 [sender.py:send():179] send: run
+2021-07-14 13:17:59,164 INFO    SenderThread:59589 [sender.py:send_run():618] updated run: 2vqyrf68
+2021-07-14 13:17:59,164 DEBUG   SenderThread:59589 [sender.py:send():179] send: config
+2021-07-14 13:17:59,592 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/config.yaml
+2021-07-14 13:17:59,592 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:01,593 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:03,594 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:11,599 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:13,880 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:18:13,880 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:18:24,540 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:24,541 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:24,545 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:24,605 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:25,605 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:25,743 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:25,743 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:25,744 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:26,606 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:26,824 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:26,824 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:26,827 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:27,606 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:27,607 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:27,862 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:28,168 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:28,168 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:28,607 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:28,607 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/config.yaml
+2021-07-14 13:18:28,897 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:28,898 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:28,901 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:29,100 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:18:29,101 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:18:29,607 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:29,608 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:29,948 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:29,949 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:29,949 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:30,608 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:31,018 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:31,019 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:31,020 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:31,609 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:31,610 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:31,689 DEBUG   SenderThread:59589 [sender.py:send():179] send: stats
+2021-07-14 13:18:33,610 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:35,387 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:35,388 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:35,388 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:35,611 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:35,611 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:36,453 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:36,454 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:36,454 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:36,611 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:37,533 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:37,533 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:37,537 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:37,612 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:37,612 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:38,602 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:38,603 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:38,604 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:38,612 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:39,613 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:39,674 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:39,675 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:39,677 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:40,614 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:40,745 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:40,746 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:40,747 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:41,614 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:41,614 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:41,812 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:41,813 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:41,817 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:42,614 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:43,615 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:44,491 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:18:44,492 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:18:45,616 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:46,195 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:46,195 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:46,196 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:46,617 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:47,230 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:47,231 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:47,232 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:47,617 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:47,618 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:48,300 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:48,300 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:48,301 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:48,618 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:49,509 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:49,509 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:49,510 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:49,618 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:49,619 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:50,583 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:50,584 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:50,584 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:50,619 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:51,619 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:51,658 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:51,659 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:51,660 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:52,620 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:52,729 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:52,729 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:52,730 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:53,620 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:53,621 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:55,621 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:57,108 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:57,108 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:57,109 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:57,623 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:57,623 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:58,184 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:58,184 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:58,185 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:58,623 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:59,263 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:18:59,263 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:18:59,264 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:18:59,624 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:18:59,624 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:18:59,855 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:18:59,856 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:19:00,360 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:00,360 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:00,361 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:00,624 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:01,432 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:01,433 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:01,433 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:01,625 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:01,625 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:02,496 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:02,497 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:02,497 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:02,625 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:03,544 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:03,545 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:03,546 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:03,626 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:03,626 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:05,627 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:05,962 DEBUG   SenderThread:59589 [sender.py:send():179] send: stats
+2021-07-14 13:19:07,628 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:07,670 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:07,670 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:07,671 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:08,628 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:08,733 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:08,733 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:08,734 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:09,629 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:09,629 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:09,807 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:09,807 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:09,808 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:10,630 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:10,870 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:10,870 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:10,871 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:11,630 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:11,630 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:11,945 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:11,946 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:11,947 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:12,631 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:13,025 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:13,026 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:13,026 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:13,631 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:13,632 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:14,099 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:14,100 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:14,101 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:14,632 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:15,119 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:19:15,119 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:19:15,633 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:17,634 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:18,350 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:18,351 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:18,352 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:18,634 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:19,425 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:19,425 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:19,426 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:19,635 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:19,635 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:20,501 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:20,501 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:20,502 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:20,635 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:21,553 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:21,554 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:21,555 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:21,636 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:21,636 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:22,632 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:22,633 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:22,634 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:22,636 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:23,637 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:23,714 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:23,715 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:23,716 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:24,637 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:24,794 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:24,795 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:24,796 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:25,638 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:25,638 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:27,639 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:29,163 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:29,163 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:29,164 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:29,640 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:29,640 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:30,229 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:30,229 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:30,230 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:30,353 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:19:30,353 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:19:30,640 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:31,291 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:31,291 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:31,292 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:31,641 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:31,641 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:32,360 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:32,361 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:32,361 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:32,641 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:33,428 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:33,428 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:33,431 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:33,642 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:33,642 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:34,490 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:34,491 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:34,492 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:34,642 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:35,581 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:35,582 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:35,583 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:35,643 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:35,643 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:37,644 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:39,569 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:39,570 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:39,571 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:39,645 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:39,645 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:40,640 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:40,640 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:40,641 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:40,645 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:40,764 DEBUG   SenderThread:59589 [sender.py:send():179] send: stats
+2021-07-14 13:19:41,645 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:41,711 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:41,711 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:41,712 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:42,646 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:42,766 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:42,767 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:42,768 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:43,646 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:43,647 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:43,846 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:43,847 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:43,847 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:44,647 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:44,918 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:44,918 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:44,919 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:45,571 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-14 13:19:45,571 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: stop_status
+2021-07-14 13:19:45,647 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:45,648 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:46,230 DEBUG   SenderThread:59589 [sender.py:send():179] send: history
+2021-07-14 13:19:46,230 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:46,231 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:46,648 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:47,648 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:47,874 WARNING MainThread:59589 [internal.py:wandb_internal():147] Internal process interrupt: 1
+2021-07-14 13:19:49,649 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:50,610 DEBUG   SenderThread:59589 [sender.py:send():179] send: telemetry
+2021-07-14 13:19:50,611 DEBUG   SenderThread:59589 [sender.py:send():179] send: exit
+2021-07-14 13:19:50,611 INFO    SenderThread:59589 [sender.py:send_exit():287] handling exit code: 1
+2021-07-14 13:19:50,612 INFO    SenderThread:59589 [sender.py:send_exit():295] send defer
+2021-07-14 13:19:50,612 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:50,613 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:50,613 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: defer
+2021-07-14 13:19:50,614 INFO    HandlerThread:59589 [handler.py:handle_request_defer():141] handle defer: 0
+2021-07-14 13:19:50,614 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: defer
+2021-07-14 13:19:50,614 INFO    SenderThread:59589 [sender.py:send_request_defer():304] handle sender defer: 0
+2021-07-14 13:19:50,614 INFO    SenderThread:59589 [sender.py:transition_state():308] send defer: 1
+2021-07-14 13:19:50,615 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: defer
+2021-07-14 13:19:50,615 INFO    HandlerThread:59589 [handler.py:handle_request_defer():141] handle defer: 1
+2021-07-14 13:19:50,650 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:19:50,882 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: defer
+2021-07-14 13:19:50,883 INFO    SenderThread:59589 [sender.py:send_request_defer():304] handle sender defer: 1
+2021-07-14 13:19:50,883 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:50,883 INFO    SenderThread:59589 [sender.py:transition_state():308] send defer: 2
+2021-07-14 13:19:50,884 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:50,885 DEBUG   SenderThread:59589 [sender.py:send():179] send: stats
+2021-07-14 13:19:50,887 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: defer
+2021-07-14 13:19:50,887 INFO    HandlerThread:59589 [handler.py:handle_request_defer():141] handle defer: 2
+2021-07-14 13:19:50,887 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: defer
+2021-07-14 13:19:50,887 INFO    SenderThread:59589 [sender.py:send_request_defer():304] handle sender defer: 2
+2021-07-14 13:19:50,887 INFO    SenderThread:59589 [sender.py:transition_state():308] send defer: 3
+2021-07-14 13:19:50,888 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: defer
+2021-07-14 13:19:50,888 INFO    HandlerThread:59589 [handler.py:handle_request_defer():141] handle defer: 3
+2021-07-14 13:19:50,889 DEBUG   SenderThread:59589 [sender.py:send():179] send: summary
+2021-07-14 13:19:50,889 INFO    SenderThread:59589 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-14 13:19:50,890 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: defer
+2021-07-14 13:19:50,890 INFO    SenderThread:59589 [sender.py:send_request_defer():304] handle sender defer: 3
+2021-07-14 13:19:50,890 INFO    SenderThread:59589 [sender.py:transition_state():308] send defer: 4
+2021-07-14 13:19:50,891 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: defer
+2021-07-14 13:19:50,891 INFO    HandlerThread:59589 [handler.py:handle_request_defer():141] handle defer: 4
+2021-07-14 13:19:50,891 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: defer
+2021-07-14 13:19:50,891 INFO    SenderThread:59589 [sender.py:send_request_defer():304] handle sender defer: 4
+2021-07-14 13:19:50,988 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:51,167 INFO    SenderThread:59589 [sender.py:transition_state():308] send defer: 5
+2021-07-14 13:19:51,167 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:51,168 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: defer
+2021-07-14 13:19:51,168 INFO    HandlerThread:59589 [handler.py:handle_request_defer():141] handle defer: 5
+2021-07-14 13:19:51,168 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: defer
+2021-07-14 13:19:51,168 INFO    SenderThread:59589 [sender.py:send_request_defer():304] handle sender defer: 5
+2021-07-14 13:19:51,169 INFO    SenderThread:59589 [dir_watcher.py:finish():282] shutting down directory watcher
+2021-07-14 13:19:51,269 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:51,650 INFO    Thread-8  :59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:51,651 INFO    SenderThread:59589 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/config.yaml
+2021-07-14 13:19:51,651 INFO    SenderThread:59589 [dir_watcher.py:finish():312] scan: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files
+2021-07-14 13:19:51,652 INFO    SenderThread:59589 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/config.yaml config.yaml
+2021-07-14 13:19:51,652 INFO    SenderThread:59589 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json wandb-summary.json
+2021-07-14 13:19:51,653 INFO    SenderThread:59589 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/conda-environment.yaml conda-environment.yaml
+2021-07-14 13:19:51,668 INFO    SenderThread:59589 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/requirements.txt requirements.txt
+2021-07-14 13:19:51,669 INFO    SenderThread:59589 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log output.log
+2021-07-14 13:19:51,670 INFO    SenderThread:59589 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-metadata.json wandb-metadata.json
+2021-07-14 13:19:51,670 INFO    SenderThread:59589 [sender.py:transition_state():308] send defer: 6
+2021-07-14 13:19:51,683 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:51,686 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: defer
+2021-07-14 13:19:51,687 INFO    HandlerThread:59589 [handler.py:handle_request_defer():141] handle defer: 6
+2021-07-14 13:19:51,687 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: defer
+2021-07-14 13:19:51,688 INFO    SenderThread:59589 [sender.py:send_request_defer():304] handle sender defer: 6
+2021-07-14 13:19:51,688 INFO    SenderThread:59589 [file_pusher.py:finish():177] shutting down file pusher
+2021-07-14 13:19:51,788 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:51,788 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:51,890 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:51,890 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:51,992 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:51,992 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,097 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,097 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,199 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,200 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,302 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,302 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,404 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,404 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,412 INFO    Thread-14 :59589 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/requirements.txt
+2021-07-14 13:19:52,413 INFO    Thread-13 :59589 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/wandb-summary.json
+2021-07-14 13:19:52,413 INFO    Thread-12 :59589 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/config.yaml
+2021-07-14 13:19:52,506 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,506 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,608 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,608 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,710 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,710 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,812 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,813 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:52,914 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:52,915 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,016 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,017 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,118 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,118 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,220 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,220 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,322 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,322 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,424 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,425 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,526 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,527 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,628 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,629 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,730 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,731 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,833 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,833 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:53,935 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:53,935 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,037 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,037 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,139 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,139 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,241 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,241 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,343 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,343 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,445 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,445 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,547 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,548 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,649 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,650 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,751 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,752 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,853 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,854 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:54,956 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:54,956 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,058 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,059 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,161 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,161 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,263 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,263 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,365 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,365 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,467 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,467 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,569 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,570 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,672 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,672 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,774 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,774 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,876 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,877 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:55,978 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:55,979 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,081 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,081 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,183 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,184 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,286 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,286 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,388 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,388 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,490 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,490 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,592 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,592 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,694 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,695 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,796 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,796 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:56,898 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:56,898 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,000 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,000 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,102 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,103 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,204 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,205 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,307 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,307 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,409 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,409 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,511 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,511 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,615 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,615 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,717 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,717 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,819 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,819 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:57,921 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:57,921 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,023 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,024 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,125 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,126 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,228 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,228 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,330 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,330 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,432 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,432 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,534 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,534 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,635 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,635 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,737 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,738 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,840 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,840 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:58,942 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:58,942 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,044 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,044 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,146 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,147 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,249 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,249 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,351 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,351 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,453 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,453 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,555 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,555 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,657 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,657 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,759 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,759 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,861 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,862 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:19:59,964 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:19:59,964 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,066 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,067 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,169 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,169 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,271 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,272 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,374 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,374 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,476 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,476 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,577 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,578 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,679 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,680 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,781 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,782 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,884 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,884 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:00,986 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:00,986 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,088 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,088 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,190 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,191 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,292 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,293 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,394 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,395 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,497 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,497 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,598 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,599 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,700 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,701 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,802 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,803 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:01,904 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:01,905 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,007 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,007 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,109 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,109 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,211 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,211 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,313 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,313 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,420 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,421 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,523 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,523 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,625 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,625 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,727 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,727 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,829 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,830 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:02,931 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:02,932 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,034 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,034 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,136 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,136 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,238 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,239 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,341 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,341 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,443 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,443 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,545 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,546 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,647 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,648 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,750 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,750 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,852 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,852 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:03,954 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:03,954 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,056 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,057 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,159 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,159 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,261 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,261 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,363 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,363 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,465 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,465 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,567 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,567 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,669 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,669 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,771 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,772 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,873 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,874 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:04,976 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:04,976 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,080 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,080 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,182 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,182 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,284 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,284 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,386 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,386 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,488 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,488 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,590 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,591 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,693 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,693 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,795 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,796 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:05,897 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:05,898 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,000 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,000 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,102 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,102 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,204 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,204 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,306 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,306 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,408 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,408 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,510 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,510 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,526 INFO    Thread-11 :59589 [upload_job.py:push():137] Uploaded file /tmp/tmp7brlylz2wandb/2ddq1zyq-wandb-metadata.json
+2021-07-14 13:20:06,612 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,613 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,715 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,715 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,817 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,817 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:06,919 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:06,920 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,021 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,022 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,123 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,124 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,226 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,226 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,328 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,328 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,430 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,430 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,532 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,533 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,635 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,635 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,736 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,737 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,839 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,839 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:07,941 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:07,941 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,043 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,043 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,145 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,146 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,247 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,248 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,350 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,350 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,452 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,453 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,555 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,555 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,657 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,657 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,759 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,759 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,861 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,862 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:08,964 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:08,964 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:09,066 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:09,066 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:09,168 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:09,168 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:09,270 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:09,270 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:09,372 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:09,372 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:09,474 DEBUG   HandlerThread:59589 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-14 13:20:09,475 DEBUG   SenderThread:59589 [sender.py:send_request():193] send_request: poll_exit
+2021-07-14 13:20:09,545 WARNING MainThread:59589 [internal.py:wandb_internal():147] Internal process interrupt: 2
+2021-07-14 13:20:09,545 ERROR   MainThread:59589 [internal.py:wandb_internal():150] Internal process interrupted.
+2021-07-14 13:20:09,892 INFO    WriterThread:59589 [datastore.py:close():288] close: /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/run-2vqyrf68.wandb
+2021-07-14 13:20:10,475 INFO    SenderThread:59589 [sender.py:finish():945] shutting down sender
+2021-07-14 13:20:10,475 INFO    SenderThread:59589 [file_pusher.py:finish():177] shutting down file pusher
+2021-07-14 13:20:10,475 INFO    SenderThread:59589 [file_pusher.py:join():182] waiting for file pusher
+2021-07-14 13:20:10,476 INFO    HandlerThread:59589 [handler.py:finish():638] shutting down handler
+2021-07-14 13:21:59,720 INFO    Thread-15 :59589 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210714_131756-2vqyrf68/files/output.log
+2021-07-14 13:21:59,920 INFO    Thread-7  :59589 [sender.py:transition_state():308] send defer: 7
+2021-07-14 13:22:00,314 INFO    MainThread:59589 [internal.py:handle_exit():78] Internal process exited

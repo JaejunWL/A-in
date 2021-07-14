@@ -1,0 +1,27 @@
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+The overall number of images equals to 7752
+[Epoch 1/200] [Batch 0/1938] [first Mask L1 Loss: 0.00140] [second Mask L1 Loss: 0.05518]
+[D Loss: 0.05596] [G Loss: 0.26958] time_left: 62 days, 12:40:38.094234
+[Epoch 1/200] [Batch 1/1938] [first Mask L1 Loss: 0.00273] [second Mask L1 Loss: 0.02684]
+[D Loss: 0.05535] [G Loss: 0.25140] time_left: 5 days, 14:00:41.870350
+[Epoch 1/200] [Batch 2/1938] [first Mask L1 Loss: 0.00164] [second Mask L1 Loss: 0.04884]
+[D Loss: -0.12539] [G Loss: 0.39664] time_left: 4 days, 18:07:55.481894
+[Epoch 1/200] [Batch 3/1938] [first Mask L1 Loss: 0.00478] [second Mask L1 Loss: 0.03101]
+[D Loss: -0.09252] [G Loss: 0.20995] time_left: 4 days, 19:52:12.726346
+[Epoch 1/200] [Batch 4/1938] [first Mask L1 Loss: 0.00232] [second Mask L1 Loss: 0.02996]
+[D Loss: -0.25262] [G Loss: 0.28989] time_left: 4 days, 16:12:10.222261
+[Epoch 1/200] [Batch 5/1938] [first Mask L1 Loss: 0.00334] [second Mask L1 Loss: 0.01513]
+[D Loss: 0.25166] [G Loss: 0.13501] time_left: 4 days, 19:43:00.365700
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 197, in WGAN_trainer
+    utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, name_list = name_list)
+NameError: name 'name_list' is not defined
+[Epoch 1/200] [Batch 6/1938] [first Mask L1 Loss: 0.00075] [second Mask L1 Loss: 0.00902]
+[D Loss: 0.08797] [G Loss: -0.00531] time_left: 4 days, 19:58:28.099915
+The trained model is successfully saved at epoch 1

@@ -1,0 +1,656 @@
+
+Generator is created!
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 7752
+[Epoch 1/200] [Batch 0/1938] [first Mask L1 Loss: 0.00085] [second Mask L1 Loss: 0.04843]
+[D Loss: 0.02419] [G Loss: 0.39645] time_left: 64 days, 10:37:57.238083
+[Epoch 1/200] [Batch 1/1938] [first Mask L1 Loss: 0.00711] [second Mask L1 Loss: 0.07128]
+[D Loss: -0.07659] [G Loss: 0.44155] time_left: 5 days, 9:14:46.451679
+[Epoch 1/200] [Batch 2/1938] [first Mask L1 Loss: 0.00095] [second Mask L1 Loss: 0.02589]
+[D Loss: -0.14577] [G Loss: 0.36034] time_left: 4 days, 20:24:03.097219
+[Epoch 1/200] [Batch 3/1938] [first Mask L1 Loss: 0.00417] [second Mask L1 Loss: 0.03738]
+[D Loss: -0.08378] [G Loss: 0.50716] time_left: 4 days, 15:48:25.835125
+[Epoch 1/200] [Batch 4/1938] [first Mask L1 Loss: 0.00167] [second Mask L1 Loss: 0.03058]
+[D Loss: -0.01998] [G Loss: 0.31711] time_left: 4 days, 15:23:57.232059
+[Epoch 1/200] [Batch 5/1938] [first Mask L1 Loss: 0.00133] [second Mask L1 Loss: 0.02373]
+[D Loss: 0.15869] [G Loss: 0.10579] time_left: 4 days, 17:05:25.082343
+[Epoch 1/200] [Batch 6/1938] [first Mask L1 Loss: 0.00028] [second Mask L1 Loss: 0.00363]
+[D Loss: -0.00392] [G Loss: 0.21682] time_left: 4 days, 19:03:37.763314
+The trained model is successfully saved at epoch 1
+(512, 428) (512, 428) (512, 428)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 2/200] [Batch 0/1938] [first Mask L1 Loss: 0.00216] [second Mask L1 Loss: 0.00692]
+[D Loss: -0.00060] [G Loss: 0.26109] time_left: 19 days, 11:58:32.125820
+[Epoch 2/200] [Batch 1/1938] [first Mask L1 Loss: 0.00169] [second Mask L1 Loss: 0.01722]
+[D Loss: -0.00348] [G Loss: 0.35571] time_left: 4 days, 18:22:06.998775
+[Epoch 2/200] [Batch 2/1938] [first Mask L1 Loss: 0.00145] [second Mask L1 Loss: 0.01027]
+[D Loss: -0.04790] [G Loss: 0.32580] time_left: 4 days, 19:42:52.077365
+[Epoch 2/200] [Batch 3/1938] [first Mask L1 Loss: 0.00097] [second Mask L1 Loss: 0.00167]
+[D Loss: -0.00004] [G Loss: 0.22925] time_left: 4 days, 18:39:40.061954
+[Epoch 2/200] [Batch 4/1938] [first Mask L1 Loss: 0.00126] [second Mask L1 Loss: 0.00093]
+[D Loss: -0.00071] [G Loss: 0.18119] time_left: 4 days, 18:45:26.831037
+[Epoch 2/200] [Batch 5/1938] [first Mask L1 Loss: 0.00082] [second Mask L1 Loss: 0.00071]
+[D Loss: -0.00035] [G Loss: 0.28270] time_left: 4 days, 18:38:11.766224
+[Epoch 2/200] [Batch 6/1938] [first Mask L1 Loss: 0.00088] [second Mask L1 Loss: 0.00040]
+[D Loss: -0.00130] [G Loss: 0.34321] time_left: 4 days, 18:26:15.252193
+The trained model is successfully saved at epoch 2
+(512, 428) (512, 428) (512, 428)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 3/200] [Batch 0/1938] [first Mask L1 Loss: 0.00037] [second Mask L1 Loss: 0.00030]
+[D Loss: 0.00033] [G Loss: 0.29735] time_left: 19 days, 10:53:08.012936
+[Epoch 3/200] [Batch 1/1938] [first Mask L1 Loss: 0.00046] [second Mask L1 Loss: 0.00023]
+[D Loss: -0.00043] [G Loss: 0.25298] time_left: 4 days, 14:37:29.988917
+[Epoch 3/200] [Batch 2/1938] [first Mask L1 Loss: 0.00017] [second Mask L1 Loss: 0.00095]
+[D Loss: 0.00658] [G Loss: 0.19034] time_left: 4 days, 17:49:19.502244
+[Epoch 3/200] [Batch 3/1938] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00018]
+[D Loss: -0.00010] [G Loss: 0.34446] time_left: 5 days, 9:03:32.654395
+[Epoch 3/200] [Batch 4/1938] [first Mask L1 Loss: 0.00027] [second Mask L1 Loss: 0.00033]
+[D Loss: -0.00014] [G Loss: 0.19015] time_left: 4 days, 18:26:40.694180
+[Epoch 3/200] [Batch 5/1938] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00029]
+[D Loss: 0.00023] [G Loss: 0.23557] time_left: 4 days, 18:30:10.678077
+[Epoch 3/200] [Batch 6/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00010]
+[D Loss: 0.00008] [G Loss: 0.21070] time_left: 4 days, 18:13:38.083973
+The trained model is successfully saved at epoch 3
+(512, 428) (512, 428) (512, 428)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 4/200] [Batch 0/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00032]
+[D Loss: 0.00008] [G Loss: 0.42067] time_left: 19 days, 8:10:34.393940
+[Epoch 4/200] [Batch 1/1938] [first Mask L1 Loss: 0.00017] [second Mask L1 Loss: 0.00026]
+[D Loss: -0.00040] [G Loss: 0.28314] time_left: 4 days, 18:15:47.526554
+[Epoch 4/200] [Batch 2/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00027] [G Loss: 0.29817] time_left: 4 days, 18:16:38.697126
+[Epoch 4/200] [Batch 3/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00011]
+[D Loss: 0.00005] [G Loss: 0.24809] time_left: 4 days, 20:26:32.655580
+[Epoch 4/200] [Batch 4/1938] [first Mask L1 Loss: 0.00020] [second Mask L1 Loss: 0.00016]
+[D Loss: 0.00039] [G Loss: 0.19893] time_left: 4 days, 17:46:22.890343
+[Epoch 4/200] [Batch 5/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00004]
+[D Loss: 0.00005] [G Loss: 0.21128] time_left: 4 days, 16:53:36.833023
+[Epoch 4/200] [Batch 6/1938] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00018]
+[D Loss: -0.00005] [G Loss: 0.26839] time_left: 4 days, 15:00:37.525606
+The trained model is successfully saved at epoch 4
+(512, 428) (512, 428) (512, 428)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 5/200] [Batch 0/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00013] [G Loss: 0.18839] time_left: 18 days, 3:08:32.016598
+[Epoch 5/200] [Batch 1/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00012] [G Loss: 0.16901] time_left: 4 days, 16:27:22.634887
+[Epoch 5/200] [Batch 2/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00020] [G Loss: 0.37031] time_left: 4 days, 17:09:29.345217
+[Epoch 5/200] [Batch 3/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00001] [G Loss: 0.25754] time_left: 4 days, 16:16:03.732666
+[Epoch 5/200] [Batch 4/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00007] [G Loss: 0.32386] time_left: 4 days, 17:18:53.393089
+[Epoch 5/200] [Batch 5/1938] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00002] [G Loss: 0.20740] time_left: 4 days, 18:00:28.378740
+[Epoch 5/200] [Batch 6/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00013]
+[D Loss: 0.00014] [G Loss: 0.25260] time_left: 4 days, 17:15:00.494768
+The trained model is successfully saved at epoch 5
+(512, 428) (512, 428) (512, 428)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 6/200] [Batch 0/1938] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00018]
+[D Loss: -0.00041] [G Loss: 0.30110] time_left: 18 days, 14:20:27.584131
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 6/200] [Batch 1/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00007] [G Loss: 0.19992] time_left: 4 days, 16:56:36.647334
+[Epoch 6/200] [Batch 2/1938] [first Mask L1 Loss: 0.00040] [second Mask L1 Loss: 0.00062]
+[D Loss: -0.00059] [G Loss: 0.33541] time_left: 4 days, 16:56:20.614775
+[Epoch 6/200] [Batch 3/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00005] [G Loss: 0.26768] time_left: 4 days, 14:29:28.925316
+[Epoch 6/200] [Batch 4/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00006] [G Loss: 0.23425] time_left: 4 days, 17:06:30.240751
+[Epoch 6/200] [Batch 5/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00029]
+[D Loss: -0.00174] [G Loss: 0.29697] time_left: 4 days, 17:42:33.445107
+[Epoch 6/200] [Batch 6/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00010] [G Loss: 0.26584] time_left: 4 days, 17:22:28.004082
+The trained model is successfully saved at epoch 6
+(512, 428) (512, 428) (512, 428)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 7/200] [Batch 0/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00010] [G Loss: 0.28880] time_left: 19 days, 0:09:40.809048
+[Epoch 7/200] [Batch 1/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00031]
+[D Loss: -0.00005] [G Loss: 0.29849] time_left: 4 days, 15:18:00.561805
+[Epoch 7/200] [Batch 2/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00004] [G Loss: 0.36747] time_left: 4 days, 15:01:52.837377
+[Epoch 7/200] [Batch 3/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00003] [G Loss: 0.12801] time_left: 4 days, 15:29:21.292605
+[Epoch 7/200] [Batch 4/1938] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00011] [G Loss: 0.25230] time_left: 4 days, 15:34:03.211464
+[Epoch 7/200] [Batch 5/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00003] [G Loss: 0.37494] time_left: 4 days, 15:02:18.600842
+[Epoch 7/200] [Batch 6/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00030]
+[D Loss: -0.00015] [G Loss: 0.32353] time_left: 4 days, 17:47:44.866320
+The trained model is successfully saved at epoch 7
+(512, 428) (512, 428) (512, 428)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[Epoch 8/200] [Batch 0/1938] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00002] [G Loss: 0.31238] time_left: 17 days, 6:25:56.290189
+[Epoch 8/200] [Batch 1/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00011] [G Loss: 0.35038] time_left: 4 days, 15:22:49.004102
+[Epoch 8/200] [Batch 2/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00016] [G Loss: 0.39043] time_left: 4 days, 15:13:24.873699
+[Epoch 8/200] [Batch 3/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00013] [G Loss: 0.34589] time_left: 4 days, 13:30:14.012049
+[Epoch 8/200] [Batch 4/1938] [first Mask L1 Loss: 0.00022] [second Mask L1 Loss: 0.00027]
+[D Loss: -0.00082] [G Loss: 0.29766] time_left: 4 days, 16:11:45.554221
+[Epoch 8/200] [Batch 5/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00006] [G Loss: 0.23471] time_left: 4 days, 15:20:54.584345
+[Epoch 8/200] [Batch 6/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00025] [G Loss: 0.34934] time_left: 4 days, 16:48:25.844161
+The trained model is successfully saved at epoch 8
+(512, 428) (512, 428) (512, 428)
+KeyboardInterrupt
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.FileIO object at 0x7f541b9310a0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 186, in WGAN_trainer
+    utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, name_list = name_list)
+  File "/workspace/jaejun/inpainting/code/utils.py", line 161, in save_samples
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/pyplot.py", line 723, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/figure.py", line 2203, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 2105, in print_figure
+    **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py", line 537, in print_png
+    metadata={**default_metadata, **metadata})
+SystemError: <built-in method write of _io.BufferedWriter object at 0x7f54c56c7dd0> returned a result with an error set

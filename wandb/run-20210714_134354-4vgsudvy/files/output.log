@@ -1,0 +1,165 @@
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+The overall number of images equals to 7752
+[Epoch 1/200] [Batch 0/1938] [first Mask L1 Loss: 0.00083] [second Mask L1 Loss: 0.04368]
+[D Loss: -0.12010] [G Loss: 0.10508] time_left: 74 days, 19:04:23.824081
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 1/1938] [first Mask L1 Loss: 0.00456] [second Mask L1 Loss: 0.03415]
+[D Loss: 0.09686] [G Loss: -0.00191] time_left: 5 days, 20:28:56.231066
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 2/1938] [first Mask L1 Loss: 0.00754] [second Mask L1 Loss: 0.05478]
+[D Loss: 0.08318] [G Loss: 0.00876] time_left: 4 days, 16:06:37.225840
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 3/1938] [first Mask L1 Loss: 0.00702] [second Mask L1 Loss: 0.06164]
+[D Loss: 0.00490] [G Loss: -0.00311] time_left: 4 days, 17:24:47.394761
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 4/1938] [first Mask L1 Loss: 0.00253] [second Mask L1 Loss: 0.02601]
+[D Loss: 0.00914] [G Loss: -0.18075] time_left: 4 days, 15:38:04.262922
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 5/1938] [first Mask L1 Loss: 0.00104] [second Mask L1 Loss: 0.03019]
+[D Loss: 0.01467] [G Loss: -0.17215] time_left: 4 days, 15:27:55.816120
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 6/1938] [first Mask L1 Loss: 0.00199] [second Mask L1 Loss: 0.02410]
+[D Loss: -0.00851] [G Loss: -0.18981] time_left: 4 days, 14:56:36.925123
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 7/1938] [first Mask L1 Loss: 0.00259] [second Mask L1 Loss: 0.00829]
+[D Loss: 0.00046] [G Loss: -0.26996] time_left: 4 days, 15:44:36.572035
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 8/1938] [first Mask L1 Loss: 0.00097] [second Mask L1 Loss: 0.00722]
+[D Loss: 0.00238] [G Loss: -0.27076] time_left: 4 days, 16:06:26.172897
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 9/1938] [first Mask L1 Loss: 0.00048] [second Mask L1 Loss: 0.00787]
+[D Loss: -0.01809] [G Loss: -0.22008] time_left: 4 days, 15:15:45.156197
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 10/1938] [first Mask L1 Loss: 0.00191] [second Mask L1 Loss: 0.00253]
+[D Loss: -0.00151] [G Loss: -0.17319] time_left: 4 days, 14:55:56.763940
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 11/1938] [first Mask L1 Loss: 0.00057] [second Mask L1 Loss: 0.00095]
+[D Loss: 0.00089] [G Loss: -0.34476] time_left: 4 days, 12:52:22.822645
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 12/1938] [first Mask L1 Loss: 0.00136] [second Mask L1 Loss: 0.00131]
+[D Loss: 0.00044] [G Loss: -0.35612] time_left: 4 days, 13:54:09.227603
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 13/1938] [first Mask L1 Loss: 0.00068] [second Mask L1 Loss: 0.00157]
+[D Loss: -0.00089] [G Loss: -0.17965] time_left: 4 days, 14:47:28.478646
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 14/1938] [first Mask L1 Loss: 0.00041] [second Mask L1 Loss: 0.00061]
+[D Loss: -0.00049] [G Loss: -0.19664] time_left: 4 days, 15:20:14.902003
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 15/1938] [first Mask L1 Loss: 0.00033] [second Mask L1 Loss: 0.00075]
+[D Loss: -0.00004] [G Loss: -0.30235] time_left: 4 days, 14:05:29.980448
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 16/1938] [first Mask L1 Loss: 0.00036] [second Mask L1 Loss: 0.00042]
+[D Loss: -0.00045] [G Loss: -0.24105] time_left: 4 days, 14:00:40.924561
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 17/1938] [first Mask L1 Loss: 0.00017] [second Mask L1 Loss: 0.00034]
+[D Loss: -0.00004] [G Loss: -0.20636] time_left: 4 days, 15:47:48.194871
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 18/1938] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00027]
+[D Loss: -0.00023] [G Loss: -0.27050] time_left: 4 days, 16:15:11.626984
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 19/1938] [first Mask L1 Loss: 0.00021] [second Mask L1 Loss: 0.00024]
+[D Loss: -0.00025] [G Loss: -0.23457] time_left: 4 days, 12:46:42.531372
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 20/1938] [first Mask L1 Loss: 0.00023] [second Mask L1 Loss: 0.00033]
+[D Loss: -0.00017] [G Loss: -0.21225] time_left: 4 days, 15:17:04.901137
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 21/1938] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00015]
+[D Loss: 0.00002] [G Loss: -0.33889] time_left: 4 days, 15:16:54.534471
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 22/1938] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00014] [G Loss: -0.18892] time_left: 4 days, 17:39:27.505378
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 23/1938] [first Mask L1 Loss: 0.00030] [second Mask L1 Loss: 0.00064]
+[D Loss: -0.00017] [G Loss: -0.31576] time_left: 4 days, 18:09:32.146676
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 24/1938] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00002] [G Loss: -0.27413] time_left: 4 days, 16:10:10.505722
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 25/1938] [first Mask L1 Loss: 0.00047] [second Mask L1 Loss: 0.00053]
+[D Loss: -0.00004] [G Loss: -0.32006] time_left: 4 days, 16:40:27.441394
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 26/1938] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00027] [G Loss: -0.28172] time_left: 4 days, 17:38:32.090281
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 27/1938] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00044]
+[D Loss: -0.00040] [G Loss: -0.26920] time_left: 4 days, 17:56:15.258533
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 28/1938] [first Mask L1 Loss: 0.00024] [second Mask L1 Loss: 0.00028]
+[D Loss: -0.00026] [G Loss: -0.14752] time_left: 4 days, 16:33:38.646496
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 29/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00010] [G Loss: -0.23715] time_left: 4 days, 17:52:07.531728
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 30/1938] [first Mask L1 Loss: 0.00021] [second Mask L1 Loss: 0.00045]
+[D Loss: -0.00038] [G Loss: -0.16644] time_left: 4 days, 17:17:20.179045
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 31/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00013] [G Loss: -0.16430] time_left: 4 days, 14:59:00.632123
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 32/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00019] [G Loss: -0.25031] time_left: 4 days, 16:50:13.992077
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 33/1938] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00002] [G Loss: -0.17944] time_left: 4 days, 14:49:01.830651
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 34/1938] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00022] [G Loss: -0.15992] time_left: 4 days, 14:31:40.806268
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 35/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00007] [G Loss: -0.15491] time_left: 4 days, 13:07:45.033872
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 36/1938] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00013]
+[D Loss: -0.00010] [G Loss: -0.20490] time_left: 4 days, 15:01:17.685061
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 37/1938] [first Mask L1 Loss: 0.00030] [second Mask L1 Loss: 0.00035]
+[D Loss: -0.00109] [G Loss: -0.26380] time_left: 4 days, 14:33:22.972399
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 38/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00019]
+[D Loss: -0.00014] [G Loss: -0.25847] time_left: 4 days, 16:09:39.748953
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 39/1938] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00007] [G Loss: -0.25335] time_left: 4 days, 14:03:22.873008
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 40/1938] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00023]
+[D Loss: -0.00013] [G Loss: -0.26767] time_left: 4 days, 16:10:44.101944
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 41/1938] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00018]
+[D Loss: -0.00014] [G Loss: -0.16083] time_left: 4 days, 16:31:12.735976
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 42/1938] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00019]
+[D Loss: -0.00021] [G Loss: -0.22247] time_left: 4 days, 16:30:26.044679
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 43/1938] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00009] [G Loss: -0.10720] time_left: 4 days, 15:23:42.012614
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 44/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00009] [G Loss: -0.27824] time_left: 4 days, 16:16:09.711442
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 45/1938] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00004] [G Loss: -0.06911] time_left: 4 days, 14:38:17.645123
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+[Epoch 1/200] [Batch 46/1938] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00024] [G Loss: -0.18680] time_left: 4 days, 16:20:06.941898
+torch.Size([4, 1, 512, 428]) torch.Size([4, 1, 512, 428])
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 123, in WGAN_trainer
+    fake_scalar = discriminator(second_out_wholeimg.detach(), mask)
+  File "/opt/conda/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 168, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 178, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File "/opt/conda/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py", line 78, in parallel_apply
+    thread.join()
+  File "/opt/conda/lib/python3.7/threading.py", line 1044, in join
+    self._wait_for_tstate_lock()
+  File "/opt/conda/lib/python3.7/threading.py", line 1060, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt
