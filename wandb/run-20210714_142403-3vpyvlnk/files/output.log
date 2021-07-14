@@ -1,0 +1,17 @@
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 86, in WGAN_trainer
+    trainset = dataset.InpaintDataset(opt, split='TRAIN')
+  File "/workspace/jaejun/inpainting/code/dataset.py", line 28, in __init__
+    self.get_list()
+  File "/workspace/jaejun/inpainting/code/dataset.py", line 71, in get_list
+    train_list = self.dataset_merge(list(margs_train) + list(nuss_train) + list(vocals_train))
+  File "/workspace/jaejun/inpainting/code/dataset.py", line 84, in dataset_merge
+    train_len += dat.num_frames
+UnboundLocalError: local variable 'train_len' referenced before assignment

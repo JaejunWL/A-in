@@ -68,15 +68,23 @@ class InpaintDataset(Dataset):
         vocals_train, vocals_valid = train_test_split(vocals_trainvalid, test_size=0.1, shuffle=False, random_state=21)
 
         if self.split == 'TRAIN':
-            train_list = list(margs_train) + list(nuss_train) + list(vocals_train)
+            train_list = self.dataset_merge(list(margs_train) + list(nuss_train) + list(vocals_train))
             self.fl = train_list
         elif self.split == 'VALID':
-            valid_list = list(margs_valid) + list(nuss_valid) + list(vocals_valid)
+            valid_list = self.dataset_merge(list(margs_valid) + list(nuss_valid) + list(vocals_valid))
             self.fl = valid_list
         elif self.split == 'TEST':
-            test_list = list(margs_test) + list(nuss_valid) + list(vocals_test)
+            test_list = self.dataset_merge(list(margs_test) + list(nuss_test) + list(vocals_test))
             self.fl = test_list
     
+    def dataset_merge(self, dataset):
+        merged_dataset = []
+        for ix, lis in enumerate(dataset):
+            dat = torchaudio.info(os.path.join(self.opt.data_dir, lis))
+            if dat.num_frames > 44100*2.5:
+                merged_dataset.append(lis)
+        return merged_dataset
+
     def get_audio(self, index):
         fn = self.fl[index]
         audio_path = os.path.join(self.opt.data_dir, fn)

@@ -1,0 +1,490 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Generator is created!
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 6605
+[Epoch 1/200] [Batch 0/1652] [first Mask L1 Loss: 0.00132] [second Mask L1 Loss: 0.05226]
+[D Loss: -0.01103] [G Loss: 0.13862] time_left: 54 days, 20:14:44.471512
+[Epoch 1/200] [Batch 1/1652] [first Mask L1 Loss: 0.01383] [second Mask L1 Loss: 0.07968]
+[D Loss: 0.09440] [G Loss: 0.43565] time_left: 5 days, 3:26:01.378236
+[Epoch 1/200] [Batch 2/1652] [first Mask L1 Loss: 0.00358] [second Mask L1 Loss: 0.05233]
+[D Loss: 0.01537] [G Loss: 0.27307] time_left: 3 days, 18:17:10.563848
+[Epoch 1/200] [Batch 3/1652] [first Mask L1 Loss: 0.00225] [second Mask L1 Loss: 0.03453]
+[D Loss: -0.07514] [G Loss: 0.28946] time_left: 3 days, 18:12:17.569385
+[Epoch 1/200] [Batch 4/1652] [first Mask L1 Loss: 0.00327] [second Mask L1 Loss: 0.03616]
+[D Loss: -0.01482] [G Loss: 0.17983] time_left: 3 days, 16:50:20.076900
+[Epoch 1/200] [Batch 5/1652] [first Mask L1 Loss: 0.00207] [second Mask L1 Loss: 0.02292]
+[D Loss: 0.00709] [G Loss: 0.08117] time_left: 3 days, 15:29:37.447866
+[Epoch 1/200] [Batch 6/1652] [first Mask L1 Loss: 0.00153] [second Mask L1 Loss: 0.02153]
+[D Loss: 0.01712] [G Loss: 0.08718] time_left: 3 days, 18:01:29.083675
+[Epoch 1/200] [Batch 7/1652] [first Mask L1 Loss: 0.00083] [second Mask L1 Loss: 0.00712]
+[D Loss: 0.00549] [G Loss: 0.09268] time_left: 3 days, 18:48:01.115521
+[Epoch 1/200] [Batch 8/1652] [first Mask L1 Loss: 0.00071] [second Mask L1 Loss: 0.00194]
+[D Loss: 0.00145] [G Loss: 0.07635] time_left: 3 days, 18:00:07.011133
+[Epoch 1/200] [Batch 9/1652] [first Mask L1 Loss: 0.00080] [second Mask L1 Loss: 0.00291]
+[D Loss: -0.00248] [G Loss: 0.09885] time_left: 3 days, 18:30:13.281605
+[Epoch 1/200] [Batch 10/1652] [first Mask L1 Loss: 0.00035] [second Mask L1 Loss: 0.00155]
+[D Loss: -0.00125] [G Loss: 0.08798] time_left: 3 days, 17:49:50.241237
+[Epoch 1/200] [Batch 11/1652] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00026]
+[D Loss: -0.00037] [G Loss: 0.03233] time_left: 3 days, 18:29:12.309930
+[Epoch 1/200] [Batch 12/1652] [first Mask L1 Loss: 0.00060] [second Mask L1 Loss: 0.00093]
+[D Loss: -0.00279] [G Loss: 0.05908] time_left: 3 days, 18:17:34.361363
+[Epoch 1/200] [Batch 13/1652] [first Mask L1 Loss: 0.00026] [second Mask L1 Loss: 0.00050]
+[D Loss: -0.00001] [G Loss: 0.06802] time_left: 3 days, 19:00:51.461580
+[Epoch 1/200] [Batch 14/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00005] [G Loss: 0.04863] time_left: 3 days, 20:14:32.075289
+[Epoch 1/200] [Batch 15/1652] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00019]
+[D Loss: 0.00012] [G Loss: 0.09177] time_left: 3 days, 18:09:08.069991
+[Epoch 1/200] [Batch 16/1652] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00051]
+[D Loss: -0.00004] [G Loss: 0.07048] time_left: 3 days, 19:02:44.514164
+[Epoch 1/200] [Batch 17/1652] [first Mask L1 Loss: 0.00032] [second Mask L1 Loss: 0.00041]
+[D Loss: 0.00000] [G Loss: 0.08330] time_left: 3 days, 18:51:21.063617
+[Epoch 1/200] [Batch 18/1652] [first Mask L1 Loss: 0.00017] [second Mask L1 Loss: 0.00078]
+[D Loss: -0.00175] [G Loss: 0.12275] time_left: 3 days, 18:01:53.625276
+[Epoch 1/200] [Batch 19/1652] [first Mask L1 Loss: 0.00037] [second Mask L1 Loss: 0.00057]
+[D Loss: -0.00032] [G Loss: 0.10041] time_left: 3 days, 18:17:33.224503
+[Epoch 1/200] [Batch 20/1652] [first Mask L1 Loss: 0.00031] [second Mask L1 Loss: 0.00072]
+[D Loss: 0.00003] [G Loss: 0.08276] time_left: 3 days, 17:48:48.702044
+[Epoch 1/200] [Batch 21/1652] [first Mask L1 Loss: 0.00023] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00033] [G Loss: 0.10524] time_left: 3 days, 18:53:40.777323
+[Epoch 1/200] [Batch 22/1652] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00034]
+[D Loss: -0.00015] [G Loss: 0.10320] time_left: 3 days, 17:25:19.707421
+[Epoch 1/200] [Batch 23/1652] [first Mask L1 Loss: 0.00029] [second Mask L1 Loss: 0.00062]
+[D Loss: 0.00099] [G Loss: 0.09090] time_left: 3 days, 19:03:31.053146
+[Epoch 1/200] [Batch 24/1652] [first Mask L1 Loss: 0.00018] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00019] [G Loss: 0.06586] time_left: 3 days, 17:59:55.888872
+[Epoch 1/200] [Batch 25/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00032]
+[D Loss: -0.00040] [G Loss: 0.09995] time_left: 3 days, 18:16:18.951037
+[Epoch 1/200] [Batch 26/1652] [first Mask L1 Loss: 0.00032] [second Mask L1 Loss: 0.00036]
+[D Loss: -0.00039] [G Loss: 0.08826] time_left: 3 days, 18:40:01.056173
+[Epoch 1/200] [Batch 27/1652] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00013]
+[D Loss: 0.00010] [G Loss: 0.05508] time_left: 3 days, 18:50:58.324529
+[Epoch 1/200] [Batch 28/1652] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00025]
+[D Loss: -0.00026] [G Loss: 0.10896] time_left: 3 days, 19:25:07.950027
+[Epoch 1/200] [Batch 29/1652] [first Mask L1 Loss: 0.00041] [second Mask L1 Loss: 0.00025]
+[D Loss: -0.00008] [G Loss: 0.12487] time_left: 3 days, 19:22:47.852066
+[Epoch 1/200] [Batch 30/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00009] [G Loss: 0.06028] time_left: 3 days, 18:24:40.894139
+[Epoch 1/200] [Batch 31/1652] [first Mask L1 Loss: 0.00022] [second Mask L1 Loss: 0.00009]
+[D Loss: 0.00000] [G Loss: 0.11257] time_left: 3 days, 18:23:22.481854
+[Epoch 1/200] [Batch 32/1652] [first Mask L1 Loss: 0.00024] [second Mask L1 Loss: 0.00033]
+[D Loss: -0.00021] [G Loss: 0.10374] time_left: 3 days, 18:13:26.735809
+[Epoch 1/200] [Batch 33/1652] [first Mask L1 Loss: 0.00021] [second Mask L1 Loss: 0.00033]
+[D Loss: 0.00006] [G Loss: 0.08832] time_left: 3 days, 19:24:44.301704
+[Epoch 1/200] [Batch 34/1652] [first Mask L1 Loss: 0.00035] [second Mask L1 Loss: 0.00043]
+[D Loss: -0.00039] [G Loss: 0.10875] time_left: 3 days, 19:30:13.490111
+[Epoch 1/200] [Batch 35/1652] [first Mask L1 Loss: 0.00018] [second Mask L1 Loss: 0.00020]
+[D Loss: -0.00011] [G Loss: 0.11668] time_left: 3 days, 20:07:18.947599
+[Epoch 1/200] [Batch 36/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00011] [G Loss: 0.12120] time_left: 3 days, 18:18:29.828784
+[Epoch 1/200] [Batch 37/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00016] [G Loss: 0.14855] time_left: 3 days, 13:22:54.268769
+[Epoch 1/200] [Batch 38/1652] [first Mask L1 Loss: 0.00022] [second Mask L1 Loss: 0.00028]
+[D Loss: 0.00003] [G Loss: 0.08663] time_left: 3 days, 13:55:56.705684
+[Epoch 1/200] [Batch 39/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00002] [G Loss: 0.09649] time_left: 3 days, 13:58:19.907753
+[Epoch 1/200] [Batch 40/1652] [first Mask L1 Loss: 0.00023] [second Mask L1 Loss: 0.00013]
+[D Loss: -0.00016] [G Loss: 0.06345] time_left: 3 days, 13:02:01.650982
+[Epoch 1/200] [Batch 41/1652] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00005]
+[D Loss: 0.00002] [G Loss: 0.12844] time_left: 3 days, 12:55:28.953591
+[Epoch 1/200] [Batch 42/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00022]
+[D Loss: -0.00032] [G Loss: 0.16420] time_left: 3 days, 13:11:02.241842
+[Epoch 1/200] [Batch 43/1652] [first Mask L1 Loss: 0.00024] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00017] [G Loss: 0.11756] time_left: 3 days, 13:06:58.013901
+[Epoch 1/200] [Batch 44/1652] [first Mask L1 Loss: 0.00018] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00017] [G Loss: 0.11878] time_left: 3 days, 13:46:55.971303
+[Epoch 1/200] [Batch 45/1652] [first Mask L1 Loss: 0.00023] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00009] [G Loss: 0.07263] time_left: 3 days, 12:42:40.622845
+[Epoch 1/200] [Batch 46/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00010] [G Loss: 0.10521] time_left: 3 days, 13:03:02.881825
+[Epoch 1/200] [Batch 47/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00004] [G Loss: 0.15839] time_left: 3 days, 13:42:52.784393
+[Epoch 1/200] [Batch 48/1652] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00014] [G Loss: 0.11204] time_left: 3 days, 13:32:06.159000
+[Epoch 1/200] [Batch 49/1652] [first Mask L1 Loss: 0.00024] [second Mask L1 Loss: 0.00026]
+[D Loss: -0.00029] [G Loss: 0.07885] time_left: 3 days, 14:00:32.625533
+[Epoch 1/200] [Batch 50/1652] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00001] [G Loss: 0.15169] time_left: 3 days, 14:23:31.984897
+[Epoch 1/200] [Batch 51/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00006] [G Loss: 0.12632] time_left: 3 days, 14:42:45.763428
+[Epoch 1/200] [Batch 52/1652] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00007] [G Loss: 0.09007] time_left: 3 days, 15:42:15.768019
+[Epoch 1/200] [Batch 53/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00019]
+[D Loss: -0.00010] [G Loss: 0.12711] time_left: 3 days, 16:25:47.861382
+[Epoch 1/200] [Batch 54/1652] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00011] [G Loss: 0.10995] time_left: 3 days, 17:15:40.510260
+[Epoch 1/200] [Batch 55/1652] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00013] [G Loss: 0.11279] time_left: 3 days, 17:07:14.525928
+[Epoch 1/200] [Batch 56/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00007] [G Loss: 0.10491] time_left: 3 days, 16:23:37.536432
+[Epoch 1/200] [Batch 57/1652] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00013]
+[D Loss: -0.00028] [G Loss: 0.07706] time_left: 3 days, 17:04:36.875168
+[Epoch 1/200] [Batch 58/1652] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00009] [G Loss: 0.11160] time_left: 3 days, 17:38:20.027955
+[Epoch 1/200] [Batch 59/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00003] [G Loss: 0.09563] time_left: 3 days, 16:17:39.914077
+[Epoch 1/200] [Batch 60/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00016] [G Loss: 0.05119] time_left: 3 days, 17:04:58.142023
+[Epoch 1/200] [Batch 61/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00014] [G Loss: 0.11665] time_left: 3 days, 18:39:25.925756
+[Epoch 1/200] [Batch 62/1652] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00008] [G Loss: 0.12349] time_left: 3 days, 18:29:03.846544
+[Epoch 1/200] [Batch 63/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00001] [G Loss: 0.13627] time_left: 3 days, 17:48:54.741223
+[Epoch 1/200] [Batch 64/1652] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00014]
+[D Loss: -0.00009] [G Loss: 0.11434] time_left: 3 days, 18:01:33.228127
+[Epoch 1/200] [Batch 65/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00006] [G Loss: 0.13051] time_left: 3 days, 18:18:34.447124
+[Epoch 1/200] [Batch 66/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00006] [G Loss: 0.07803] time_left: 3 days, 16:55:37.311194
+[Epoch 1/200] [Batch 67/1652] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00015] [G Loss: 0.14490] time_left: 3 days, 18:01:50.052960
+[Epoch 1/200] [Batch 68/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00015] [G Loss: 0.10147] time_left: 3 days, 17:45:01.687352
+[Epoch 1/200] [Batch 69/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00014] [G Loss: 0.07340] time_left: 3 days, 17:18:33.045917
+[Epoch 1/200] [Batch 70/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00005] [G Loss: 0.10977] time_left: 3 days, 17:40:23.058457
+[Epoch 1/200] [Batch 71/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00019] [G Loss: 0.16218] time_left: 4 days, 4:08:50.333507
+[Epoch 1/200] [Batch 72/1652] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00003] [G Loss: 0.13420] time_left: 3 days, 19:28:39.761433
+[Epoch 1/200] [Batch 73/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00005] [G Loss: 0.12281] time_left: 3 days, 18:36:26.319603
+[Epoch 1/200] [Batch 74/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00011] [G Loss: 0.11955] time_left: 3 days, 17:17:05.406984
+[Epoch 1/200] [Batch 75/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00013] [G Loss: 0.12647] time_left: 3 days, 17:09:26.312504
+[Epoch 1/200] [Batch 76/1652] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00007] [G Loss: 0.13247] time_left: 3 days, 18:02:33.516077
+[Epoch 1/200] [Batch 77/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00008] [G Loss: 0.12814] time_left: 3 days, 18:21:11.487791
+[Epoch 1/200] [Batch 78/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00002] [G Loss: 0.10551] time_left: 3 days, 16:40:37.090050
+[Epoch 1/200] [Batch 79/1652] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00008]
+[D Loss: 0.00004] [G Loss: 0.13262] time_left: 3 days, 18:03:44.207728
+[Epoch 1/200] [Batch 80/1652] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00003]
+[D Loss: 0.00001] [G Loss: 0.11237] time_left: 3 days, 18:21:36.885262
+[Epoch 1/200] [Batch 81/1652] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00015]
+[D Loss: -0.00027] [G Loss: 0.11757] time_left: 3 days, 17:23:33.862861
+[Epoch 1/200] [Batch 82/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00014] [G Loss: 0.12682] time_left: 3 days, 18:32:38.968966
+[Epoch 1/200] [Batch 83/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00005] [G Loss: 0.10213] time_left: 3 days, 18:30:12.602815
+[Epoch 1/200] [Batch 84/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00011] [G Loss: 0.11284] time_left: 3 days, 19:02:31.944479
+[Epoch 1/200] [Batch 85/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00019] [G Loss: 0.11107] time_left: 3 days, 17:54:11.452700
+[Epoch 1/200] [Batch 86/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00021] [G Loss: 0.09664] time_left: 3 days, 18:16:59.908695
+[Epoch 1/200] [Batch 87/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00048] [G Loss: 0.11320] time_left: 3 days, 18:02:50.048764
+[Epoch 1/200] [Batch 88/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00013] [G Loss: 0.09713] time_left: 3 days, 18:59:11.015482
+[Epoch 1/200] [Batch 89/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00011]
+[D Loss: -0.00021] [G Loss: 0.09322] time_left: 3 days, 16:39:39.522828
+[Epoch 1/200] [Batch 90/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00017] [G Loss: 0.08202] time_left: 3 days, 17:52:37.012496
+[Epoch 1/200] [Batch 91/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00013]
+[D Loss: -0.00062] [G Loss: 0.10842] time_left: 3 days, 18:11:57.779530
+[Epoch 1/200] [Batch 92/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00005] [G Loss: 0.07310] time_left: 3 days, 18:52:48.253894
+[Epoch 1/200] [Batch 93/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00010] [G Loss: 0.10865] time_left: 3 days, 19:42:33.434915
+[Epoch 1/200] [Batch 94/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00017] [G Loss: 0.06731] time_left: 3 days, 19:53:06.617885
+[Epoch 1/200] [Batch 95/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00029] [G Loss: 0.05560] time_left: 3 days, 21:01:03.729134
+[Epoch 1/200] [Batch 96/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00003] [G Loss: 0.11112] time_left: 3 days, 22:12:39.506134
+[Epoch 1/200] [Batch 97/1652] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00017]
+[D Loss: -0.00072] [G Loss: 0.13625] time_left: 3 days, 22:14:37.786137
+[Epoch 1/200] [Batch 98/1652] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00012] [G Loss: 0.02959] time_left: 3 days, 23:11:02.384706
+[Epoch 1/200] [Batch 99/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00025] [G Loss: 0.03884] time_left: 3 days, 23:38:06.351370
+[Epoch 1/200] [Batch 100/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00022] [G Loss: 0.11777] time_left: 3 days, 23:25:49.708486
+[Epoch 1/200] [Batch 101/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00044] [G Loss: 0.11250] time_left: 3 days, 23:54:33.280631
+[Epoch 1/200] [Batch 102/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00008] [G Loss: 0.09458] time_left: 3 days, 23:32:40.667706
+[Epoch 1/200] [Batch 103/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00033] [G Loss: 0.13203] time_left: 3 days, 23:14:16.196174
+[Epoch 1/200] [Batch 104/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00009] [G Loss: 0.11481] time_left: 4 days, 1:01:54.756760
+[Epoch 1/200] [Batch 105/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00014] [G Loss: 0.09768] time_left: 3 days, 23:32:26.361330
+[Epoch 1/200] [Batch 106/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00017] [G Loss: 0.12730] time_left: 4 days, 1:24:04.116606
+[Epoch 1/200] [Batch 107/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00005] [G Loss: 0.13067] time_left: 4 days, 0:46:44.564694
+[Epoch 1/200] [Batch 108/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00020] [G Loss: 0.15344] time_left: 4 days, 0:53:46.306525
+[Epoch 1/200] [Batch 109/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00001] [G Loss: 0.08867] time_left: 4 days, 0:20:58.058840
+[Epoch 1/200] [Batch 110/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00009]
+[D Loss: -0.00006] [G Loss: 0.14948] time_left: 4 days, 0:01:49.660921
+[Epoch 1/200] [Batch 111/1652] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00024] [G Loss: 0.07237] time_left: 4 days, 0:23:44.004693
+[Epoch 1/200] [Batch 112/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00003] [G Loss: 0.08860] time_left: 4 days, 0:27:31.240986
+[Epoch 1/200] [Batch 113/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00023] [G Loss: 0.15105] time_left: 4 days, 1:15:10.343332
+[Epoch 1/200] [Batch 114/1652] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00012]
+[D Loss: -0.00077] [G Loss: 0.09936] time_left: 4 days, 0:28:32.056577
+[Epoch 1/200] [Batch 115/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00001] [G Loss: 0.15664] time_left: 4 days, 0:03:42.782854
+[Epoch 1/200] [Batch 116/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00003] [G Loss: 0.11334] time_left: 4 days, 0:21:43.152458
+[Epoch 1/200] [Batch 117/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00083] [G Loss: 0.14479] time_left: 4 days, 1:50:50.031061
+[Epoch 1/200] [Batch 118/1652] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00028] [G Loss: 0.09560] time_left: 3 days, 23:08:52.258965
+[Epoch 1/200] [Batch 119/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00000] [G Loss: -0.01341] time_left: 4 days, 0:41:42.124609
+[Epoch 1/200] [Batch 120/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00029] [G Loss: 0.14482] time_left: 4 days, 0:38:35.232716
+[Epoch 1/200] [Batch 121/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00026] [G Loss: 0.03826] time_left: 4 days, 8:33:51.475533
+[Epoch 1/200] [Batch 122/1652] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00193] [G Loss: 0.06331] time_left: 3 days, 22:11:45.878481
+[Epoch 1/200] [Batch 123/1652] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00010]
+[D Loss: -0.00049] [G Loss: 0.18814] time_left: 3 days, 23:01:17.286797
+[Epoch 1/200] [Batch 124/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00005] [G Loss: 0.12891] time_left: 4 days, 0:20:31.597281
+[Epoch 1/200] [Batch 125/1652] [first Mask L1 Loss: 0.00013] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00014] [G Loss: 0.17795] time_left: 3 days, 22:15:57.927871
+[Epoch 1/200] [Batch 126/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00007] [G Loss: 0.10681] time_left: 3 days, 21:27:35.676411
+[Epoch 1/200] [Batch 127/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00001] [G Loss: 0.14312] time_left: 4 days, 0:29:11.931823
+[Epoch 1/200] [Batch 128/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00020] [G Loss: 0.18447] time_left: 3 days, 23:08:03.461487
+[Epoch 1/200] [Batch 129/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00006] [G Loss: 0.13781] time_left: 3 days, 23:36:49.882799
+[Epoch 1/200] [Batch 130/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00012] [G Loss: 0.12943] time_left: 3 days, 23:24:22.912853
+[Epoch 1/200] [Batch 131/1652] [first Mask L1 Loss: 0.00019] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00001] [G Loss: 0.16711] time_left: 3 days, 23:16:55.089291
+[Epoch 1/200] [Batch 132/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00029] [G Loss: 0.13600] time_left: 4 days, 0:02:07.500958
+[Epoch 1/200] [Batch 133/1652] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00026] [G Loss: 0.13601] time_left: 4 days, 0:44:03.041722
+[Epoch 1/200] [Batch 134/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00001]
+[D Loss: 0.00000] [G Loss: 0.09672] time_left: 4 days, 1:05:55.711320
+[Epoch 1/200] [Batch 135/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00010] [G Loss: 0.13064] time_left: 4 days, 1:11:48.280146
+[Epoch 1/200] [Batch 136/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00008] [G Loss: 0.12357] time_left: 4 days, 0:25:05.377047
+[Epoch 1/200] [Batch 137/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00004] [G Loss: 0.11673] time_left: 4 days, 0:33:26.220136
+[Epoch 1/200] [Batch 138/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00022] [G Loss: 0.16158] time_left: 4 days, 1:05:12.501099
+[Epoch 1/200] [Batch 139/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00008] [G Loss: 0.07554] time_left: 4 days, 0:28:26.870257
+[Epoch 1/200] [Batch 140/1652] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00035] [G Loss: 0.13224] time_left: 4 days, 0:16:19.283557
+[Epoch 1/200] [Batch 141/1652] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00068] [G Loss: 0.11210] time_left: 4 days, 0:41:13.583233
+[Epoch 1/200] [Batch 142/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00051] [G Loss: 0.12515] time_left: 4 days, 0:30:46.076692
+[Epoch 1/200] [Batch 143/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00006] [G Loss: 0.10844] time_left: 4 days, 0:41:58.404036
+[Epoch 1/200] [Batch 144/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00048] [G Loss: 0.11602] time_left: 3 days, 23:49:42.192570
+[Epoch 1/200] [Batch 145/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00000]
+[D Loss: -0.00002] [G Loss: 0.11655] time_left: 3 days, 23:31:38.487722
+[Epoch 1/200] [Batch 146/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00014] [G Loss: 0.10991] time_left: 3 days, 23:04:53.224351
+[Epoch 1/200] [Batch 147/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00003] [G Loss: 0.10659] time_left: 3 days, 22:56:09.679536
+[Epoch 1/200] [Batch 148/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00013] [G Loss: 0.03736] time_left: 3 days, 23:13:03.029057
+[Epoch 1/200] [Batch 149/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00001] [G Loss: 0.13227] time_left: 3 days, 23:10:39.239166
+[Epoch 1/200] [Batch 150/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00022] [G Loss: 0.11518] time_left: 3 days, 23:39:50.352488
+[Epoch 1/200] [Batch 151/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00123] [G Loss: 0.11854] time_left: 4 days, 0:43:20.991916
+[Epoch 1/200] [Batch 152/1652] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00026] [G Loss: 0.11986] time_left: 3 days, 23:22:09.014509
+[Epoch 1/200] [Batch 153/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00077] [G Loss: 0.15710] time_left: 3 days, 23:45:30.123760
+[Epoch 1/200] [Batch 154/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00028] [G Loss: 0.14661] time_left: 4 days, 0:25:46.377851
+[Epoch 1/200] [Batch 155/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00160] [G Loss: 0.14147] time_left: 4 days, 0:22:53.129855
+[Epoch 1/200] [Batch 156/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00057] [G Loss: 0.15657] time_left: 3 days, 23:16:06.133464
+[Epoch 1/200] [Batch 157/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00024] [G Loss: 0.08008] time_left: 3 days, 23:55:21.901628
+[Epoch 1/200] [Batch 158/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00047] [G Loss: 0.14008] time_left: 3 days, 22:43:31.565344
+[Epoch 1/200] [Batch 159/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00003] [G Loss: 0.13871] time_left: 4 days, 0:47:40.100579
+[Epoch 1/200] [Batch 160/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00441] [G Loss: 0.12755] time_left: 4 days, 0:12:14.057007
+[Epoch 1/200] [Batch 161/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00068] [G Loss: 0.20157] time_left: 4 days, 0:36:47.638206
+[Epoch 1/200] [Batch 162/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00185] [G Loss: 0.19460] time_left: 4 days, 0:41:34.046034
+[Epoch 1/200] [Batch 163/1652] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00001] [G Loss: 0.15398] time_left: 4 days, 0:15:12.000467
+[Epoch 1/200] [Batch 164/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00069] [G Loss: 0.14775] time_left: 4 days, 0:40:48.161569
+[Epoch 1/200] [Batch 165/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00106] [G Loss: 0.14621] time_left: 4 days, 0:58:23.168912
+[Epoch 1/200] [Batch 166/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00082] [G Loss: 0.21520] time_left: 4 days, 0:06:09.840195
+[Epoch 1/200] [Batch 167/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00005] [G Loss: 0.19445] time_left: 3 days, 22:56:49.370825
+[Epoch 1/200] [Batch 168/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00046] [G Loss: 0.19635] time_left: 3 days, 23:13:23.841438
+[Epoch 1/200] [Batch 169/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00313] [G Loss: 0.15482] time_left: 3 days, 23:46:29.005951
+[Epoch 1/200] [Batch 170/1652] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00094] [G Loss: 0.12752] time_left: 4 days, 0:01:01.976538
+[Epoch 1/200] [Batch 171/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00002] [G Loss: 0.14177] time_left: 3 days, 22:18:37.178768
+[Epoch 1/200] [Batch 172/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00004] [G Loss: 0.13539] time_left: 3 days, 23:09:36.954944
+[Epoch 1/200] [Batch 173/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00005] [G Loss: 0.17481] time_left: 4 days, 0:31:57.389888
+[Epoch 1/200] [Batch 174/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00089] [G Loss: 0.18454] time_left: 3 days, 22:35:49.892761
+[Epoch 1/200] [Batch 175/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00200] [G Loss: 0.21032] time_left: 3 days, 22:05:14.411134
+[Epoch 1/200] [Batch 176/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00013] [G Loss: 0.22638] time_left: 3 days, 22:42:46.918205
+[Epoch 1/200] [Batch 177/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00129] [G Loss: 0.16844] time_left: 3 days, 23:57:21.917452
+[Epoch 1/200] [Batch 178/1652] [first Mask L1 Loss: 0.00010] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00049] [G Loss: 0.13650] time_left: 3 days, 22:04:13.624143
+[Epoch 1/200] [Batch 179/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00105] [G Loss: 0.17075] time_left: 3 days, 23:27:10.984652
+[Epoch 1/200] [Batch 180/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00093] [G Loss: 0.23060] time_left: 3 days, 23:07:57.643228
+[Epoch 1/200] [Batch 181/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00135] [G Loss: 0.23321] time_left: 3 days, 23:34:37.587669
+[Epoch 1/200] [Batch 182/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00060] [G Loss: 0.20192] time_left: 3 days, 23:03:17.809173
+[Epoch 1/200] [Batch 183/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00259] [G Loss: 0.18341] time_left: 3 days, 23:14:44.242101
+[Epoch 1/200] [Batch 184/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00064] [G Loss: 0.13757] time_left: 4 days, 0:04:17.215496
+[Epoch 1/200] [Batch 185/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00034] [G Loss: 0.16186] time_left: 4 days, 0:13:01.371897
+[Epoch 1/200] [Batch 186/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00008]
+[D Loss: -0.00752] [G Loss: 0.15062] time_left: 4 days, 0:25:32.658723
+[Epoch 1/200] [Batch 187/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00116] [G Loss: 0.20078] time_left: 3 days, 20:53:09.647630
+[Epoch 1/200] [Batch 188/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00067] [G Loss: 0.16926] time_left: 3 days, 21:15:00.963280
+[Epoch 1/200] [Batch 189/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00004]
+[D Loss: 0.00046] [G Loss: 0.22847] time_left: 3 days, 21:31:32.003697
+[Epoch 1/200] [Batch 190/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00038] [G Loss: 0.19992] time_left: 3 days, 22:48:18.630645
+[Epoch 1/200] [Batch 191/1652] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00016]
+[D Loss: -0.00114] [G Loss: 0.28531] time_left: 3 days, 22:56:23.112398
+[Epoch 1/200] [Batch 192/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00050] [G Loss: 0.29745] time_left: 3 days, 23:54:38.454216
+[Epoch 1/200] [Batch 193/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00029] [G Loss: 0.26767] time_left: 3 days, 23:11:32.942740
+[Epoch 1/200] [Batch 194/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00059] [G Loss: 0.29894] time_left: 3 days, 23:59:38.518105
+[Epoch 1/200] [Batch 195/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00103] [G Loss: 0.17157] time_left: 4 days, 0:02:50.667626
+[Epoch 1/200] [Batch 196/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00086] [G Loss: 0.28095] time_left: 4 days, 1:30:02.116427
+[Epoch 1/200] [Batch 197/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00129] [G Loss: 0.20322] time_left: 4 days, 0:37:45.139569
+[Epoch 1/200] [Batch 198/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00051] [G Loss: 0.18716] time_left: 4 days, 0:29:44.328059
+[Epoch 1/200] [Batch 199/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00036] [G Loss: 0.19200] time_left: 3 days, 21:26:58.311328
+[Epoch 1/200] [Batch 200/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00091] [G Loss: 0.24875] time_left: 4 days, 0:45:35.593605
+[Epoch 1/200] [Batch 201/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00074] [G Loss: 0.11445] time_left: 3 days, 23:37:52.771293
+[Epoch 1/200] [Batch 202/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00010] [G Loss: 0.20659] time_left: 4 days, 9:02:49.835777
+[Epoch 1/200] [Batch 203/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00446] [G Loss: 0.20037] time_left: 3 days, 23:04:12.646847
+[Epoch 1/200] [Batch 204/1652] [first Mask L1 Loss: 0.00014] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00162] [G Loss: 0.32091] time_left: 3 days, 23:41:25.349546
+[Epoch 1/200] [Batch 205/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00110] [G Loss: 0.24127] time_left: 3 days, 22:33:00.864036
+[Epoch 1/200] [Batch 206/1652] [first Mask L1 Loss: 0.00009] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00008] [G Loss: 0.24824] time_left: 3 days, 22:34:28.240672
+[Epoch 1/200] [Batch 207/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00032] [G Loss: 0.30495] time_left: 3 days, 23:35:06.311924
+[Epoch 1/200] [Batch 208/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00121] [G Loss: 0.25113] time_left: 3 days, 23:37:30.515396
+[Epoch 1/200] [Batch 209/1652] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00003] [G Loss: 0.19123] time_left: 4 days, 0:09:38.045264
+[Epoch 1/200] [Batch 210/1652] [first Mask L1 Loss: 0.00019] [second Mask L1 Loss: 0.00019]
+[D Loss: -0.00649] [G Loss: 0.24149] time_left: 3 days, 23:00:52.755039
+[Epoch 1/200] [Batch 211/1652] [first Mask L1 Loss: 0.00018] [second Mask L1 Loss: 0.00005]
+[D Loss: -0.00141] [G Loss: 0.31556] time_left: 3 days, 23:46:59.862720
+[Epoch 1/200] [Batch 212/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00206] [G Loss: 0.32674] time_left: 3 days, 22:51:31.986382
+[Epoch 1/200] [Batch 213/1652] [first Mask L1 Loss: 0.00008] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00021] [G Loss: 0.32306] time_left: 3 days, 23:21:57.319143
+[Epoch 1/200] [Batch 214/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00016] [G Loss: 0.24905] time_left: 4 days, 0:04:03.349610
+[Epoch 1/200] [Batch 215/1652] [first Mask L1 Loss: 0.00015] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00117] [G Loss: 0.26858] time_left: 4 days, 1:01:40.648851
+[Epoch 1/200] [Batch 216/1652] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00026] [G Loss: 0.30109] time_left: 4 days, 0:22:24.622324
+[Epoch 1/200] [Batch 217/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00140] [G Loss: 0.35388] time_left: 4 days, 0:35:39.842182
+[Epoch 1/200] [Batch 218/1652] [first Mask L1 Loss: 0.00016] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00034] [G Loss: 0.34086] time_left: 3 days, 23:11:25.575708
+[Epoch 1/200] [Batch 219/1652] [first Mask L1 Loss: 0.00003] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00069] [G Loss: 0.34929] time_left: 3 days, 23:59:33.136666
+[Epoch 1/200] [Batch 220/1652] [first Mask L1 Loss: 0.00012] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00482] [G Loss: 0.36668] time_left: 3 days, 22:52:34.561443
+[Epoch 1/200] [Batch 221/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00048] [G Loss: 0.30424] time_left: 4 days, 0:50:00.141404
+[Epoch 1/200] [Batch 222/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00042] [G Loss: 0.35547] time_left: 3 days, 23:41:09.798133
+[Epoch 1/200] [Batch 223/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00006]
+[D Loss: -0.00488] [G Loss: 0.33373] time_left: 3 days, 22:48:34.273737
+[Epoch 1/200] [Batch 224/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00151] [G Loss: 0.19367] time_left: 3 days, 22:30:44.378586
+[Epoch 1/200] [Batch 225/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00021] [G Loss: 0.30803] time_left: 3 days, 22:37:03.564988
+[Epoch 1/200] [Batch 226/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00095] [G Loss: 0.37371] time_left: 3 days, 22:17:16.464890
+[Epoch 1/200] [Batch 227/1652] [first Mask L1 Loss: 0.00056] [second Mask L1 Loss: 0.00056]
+[D Loss: -0.01483] [G Loss: 0.31282] time_left: 4 days, 0:30:58.122196
+[Epoch 1/200] [Batch 228/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00351] [G Loss: 0.43099] time_left: 3 days, 22:25:51.593527
+[Epoch 1/200] [Batch 229/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00046] [G Loss: 0.40704] time_left: 3 days, 22:43:57.278331
+[Epoch 1/200] [Batch 230/1652] [first Mask L1 Loss: 0.00011] [second Mask L1 Loss: 0.00007]
+[D Loss: -0.00580] [G Loss: 0.49538] time_left: 3 days, 22:17:04.087217
+[Epoch 1/200] [Batch 231/1652] [first Mask L1 Loss: 0.00007] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00524] [G Loss: 0.58304] time_left: 3 days, 22:30:47.241086
+[Epoch 1/200] [Batch 232/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00015] [G Loss: 0.48354] time_left: 3 days, 21:12:27.679510
+[Epoch 1/200] [Batch 233/1652] [first Mask L1 Loss: 0.00006] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00083] [G Loss: 0.48856] time_left: 3 days, 20:46:23.875814
+[Epoch 1/200] [Batch 234/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00031] [G Loss: 0.47321] time_left: 3 days, 23:06:14.093272
+[Epoch 1/200] [Batch 235/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00000]
+[D Loss: -0.00013] [G Loss: 0.40151] time_left: 3 days, 21:58:50.992920
+[Epoch 1/200] [Batch 236/1652] [first Mask L1 Loss: 0.00001] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00100] [G Loss: 0.52619] time_left: 3 days, 23:42:07.375843
+[Epoch 1/200] [Batch 237/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00002]
+[D Loss: -0.00001] [G Loss: 0.53202] time_left: 3 days, 23:35:36.053486
+[Epoch 1/200] [Batch 238/1652] [first Mask L1 Loss: 0.00004] [second Mask L1 Loss: 0.00004]
+[D Loss: -0.00904] [G Loss: 0.36011] time_left: 3 days, 23:36:26.806789
+[Epoch 1/200] [Batch 239/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00001]
+[D Loss: -0.00146] [G Loss: 0.39886] time_left: 4 days, 0:28:07.588643
+[Epoch 1/200] [Batch 240/1652] [first Mask L1 Loss: 0.00005] [second Mask L1 Loss: 0.00003]
+[D Loss: -0.00723] [G Loss: 0.48466] time_left: 3 days, 22:56:28.755760
+[Epoch 1/200] [Batch 241/1652] [first Mask L1 Loss: 0.00002] [second Mask L1 Loss: 0.00002]
