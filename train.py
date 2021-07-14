@@ -72,7 +72,7 @@ if __name__ == "__main__":
     wandb.init()
     wandb.config.update(opt)
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = '0, 1'
+    os.environ["CUDA_VISIBLE_DEVICES"] = '6, 7'
 
     if opt.gan_type == 'WGAN':
         trainer.WGAN_trainer(opt)
