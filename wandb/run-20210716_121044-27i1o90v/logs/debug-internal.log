@@ -1,0 +1,478 @@
+2021-07-16 12:10:45,320 INFO    MainThread:46919 [internal.py:wandb_internal():91] W&B internal server running at pid: 46919, started at: 2021-07-16 12:10:45.320426
+2021-07-16 12:10:45,323 INFO    WriterThread:46919 [datastore.py:open_for_write():80] open: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/run-27i1o90v.wandb
+2021-07-16 12:10:45,324 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: check_version
+2021-07-16 12:10:45,326 DEBUG   SenderThread:46919 [sender.py:send():179] send: header
+2021-07-16 12:10:45,326 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: check_version
+2021-07-16 12:10:45,629 DEBUG   SenderThread:46919 [sender.py:send():179] send: run
+2021-07-16 12:10:45,895 INFO    SenderThread:46919 [dir_watcher.py:__init__():168] watching files in: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files
+2021-07-16 12:10:45,895 INFO    SenderThread:46919 [sender.py:_start_run_threads():719] run started: 27i1o90v with start time 1626437444
+2021-07-16 12:10:45,895 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:10:45,896 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:10:45,900 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: run_start
+2021-07-16 12:10:46,016 DEBUG   HandlerThread:46919 [meta.py:__init__():39] meta init
+2021-07-16 12:10:46,017 DEBUG   HandlerThread:46919 [meta.py:__init__():53] meta init done
+2021-07-16 12:10:46,017 DEBUG   HandlerThread:46919 [meta.py:probe():210] probe
+2021-07-16 12:10:46,076 DEBUG   HandlerThread:46919 [meta.py:_setup_git():200] setup git
+2021-07-16 12:10:46,093 DEBUG   HandlerThread:46919 [meta.py:_setup_git():207] setup git done
+2021-07-16 12:10:46,094 DEBUG   HandlerThread:46919 [meta.py:_save_pip():57] save pip
+2021-07-16 12:10:46,094 DEBUG   HandlerThread:46919 [meta.py:_save_pip():71] save pip done
+2021-07-16 12:10:46,094 DEBUG   HandlerThread:46919 [meta.py:_save_conda():78] save conda
+2021-07-16 12:10:46,899 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:10:46,900 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/conda-environment.yaml
+2021-07-16 12:10:46,900 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/requirements.txt
+2021-07-16 12:10:46,958 DEBUG   HandlerThread:46919 [meta.py:_save_conda():86] save conda done
+2021-07-16 12:10:46,958 DEBUG   HandlerThread:46919 [meta.py:probe():252] probe done
+2021-07-16 12:10:47,027 DEBUG   SenderThread:46919 [sender.py:send():179] send: files
+2021-07-16 12:10:47,028 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-metadata.json with policy now
+2021-07-16 12:10:47,034 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-16 12:10:47,035 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: stop_status
+2021-07-16 12:10:47,246 DEBUG   SenderThread:46919 [sender.py:send():179] send: run
+2021-07-16 12:10:47,538 INFO    SenderThread:46919 [sender.py:send_run():618] updated run: 27i1o90v
+2021-07-16 12:10:47,539 DEBUG   SenderThread:46919 [sender.py:send():179] send: config
+2021-07-16 12:10:47,666 INFO    Thread-11 :46919 [upload_job.py:push():137] Uploaded file /tmp/tmphek6v9hvwandb/22m6qqvv-wandb-metadata.json
+2021-07-16 12:10:47,896 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/config.yaml
+2021-07-16 12:10:47,897 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:10:47,898 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_created():216] file/dir created: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-metadata.json
+2021-07-16 12:10:49,898 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:10:51,899 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:10:59,903 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:02,248 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-16 12:11:02,249 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: stop_status
+2021-07-16 12:11:13,411 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:13,412 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:13,415 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:13,910 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:14,958 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:14,959 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:14,960 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:15,911 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:15,911 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:16,025 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:16,332 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:16,333 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:16,912 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:16,912 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/config.yaml
+2021-07-16 12:11:17,057 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:17,057 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:17,058 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:17,468 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-16 12:11:17,469 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: stop_status
+2021-07-16 12:11:17,912 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:17,913 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:18,137 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:18,137 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:18,141 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:18,913 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:19,208 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:19,208 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:19,209 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:19,913 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:19,914 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:20,286 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:20,287 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:20,289 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:20,433 DEBUG   SenderThread:46919 [sender.py:send():179] send: stats
+2021-07-16 12:11:20,914 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:21,347 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:21,347 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:21,348 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:21,914 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:21,915 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:22,436 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:22,437 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:22,442 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:22,915 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:23,507 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:23,507 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:23,508 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:23,916 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:23,916 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:24,565 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:24,565 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:24,568 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:24,916 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:25,616 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:25,616 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:25,617 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:25,917 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:25,917 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:26,695 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:26,696 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:26,699 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:26,917 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:27,775 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:27,776 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:27,777 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:27,918 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:27,918 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:28,856 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:28,857 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:28,859 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:28,918 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:29,919 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:29,930 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:29,930 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:29,931 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:30,919 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:30,989 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:30,990 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:30,992 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:31,920 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:31,921 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:32,038 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:32,038 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:32,039 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:32,691 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-16 12:11:32,692 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: stop_status
+2021-07-16 12:11:32,921 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:33,091 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:33,092 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:33,094 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:33,921 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:33,922 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:34,112 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:34,113 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:34,114 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:34,922 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:35,162 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:35,163 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:35,165 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:35,923 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:35,923 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:36,195 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:36,195 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:36,196 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:36,923 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:37,253 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:37,253 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:37,256 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:37,924 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:37,924 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:38,327 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:38,327 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:38,329 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:38,924 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:39,408 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:39,408 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:39,409 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:39,925 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:39,925 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:40,494 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:40,495 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:40,495 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:40,926 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:41,531 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:41,532 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:41,532 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:41,926 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:41,926 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:42,592 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:42,592 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:42,593 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:42,927 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:43,642 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:43,642 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:43,643 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:43,927 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:43,928 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:44,682 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:44,683 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:44,683 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:44,928 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:45,765 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:45,766 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:45,767 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:45,928 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:45,929 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:46,845 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:46,846 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:46,846 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:46,929 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:47,907 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-16 12:11:47,907 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: stop_status
+2021-07-16 12:11:47,930 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:48,113 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:48,114 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:48,115 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:48,930 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:48,976 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:48,976 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:48,977 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:49,931 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:49,931 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:50,044 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:50,044 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:50,045 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:50,931 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:51,091 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:51,091 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:51,092 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:51,932 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:51,933 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:52,149 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:52,150 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:52,150 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:52,933 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:53,203 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:53,204 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:53,204 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:53,934 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:53,934 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:54,278 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:54,279 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:54,280 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:54,934 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:55,338 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:55,339 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:55,339 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:55,934 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:55,935 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:56,056 DEBUG   SenderThread:46919 [sender.py:send():179] send: stats
+2021-07-16 12:11:56,399 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:56,400 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:56,400 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:56,935 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:57,459 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:57,460 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:57,461 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:57,935 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:57,936 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:58,503 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:58,503 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:58,504 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:58,936 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:11:59,571 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:11:59,572 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:11:59,572 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:11:59,936 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:11:59,937 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:00,600 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:00,600 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:00,601 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:00,937 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:01,690 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:01,691 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:01,692 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:01,938 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:01,938 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:02,778 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:02,778 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:02,779 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:02,938 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:03,116 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-16 12:12:03,116 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: stop_status
+2021-07-16 12:12:03,851 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:03,851 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:03,852 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:03,939 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:03,939 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:04,930 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:04,930 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:04,931 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:04,939 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:05,940 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:05,978 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:05,979 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:05,979 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:06,940 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:07,042 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:07,042 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:07,043 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:07,941 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:07,942 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:08,096 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:08,096 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:08,097 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:08,941 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:09,165 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:09,166 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:09,166 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:09,942 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:09,942 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:10,246 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:10,247 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:10,248 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:10,943 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:11,337 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:11,337 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:11,338 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:11,943 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:11,943 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:12,424 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:12,425 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:12,425 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:12,943 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:13,480 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:13,481 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:13,481 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:13,944 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:13,944 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:14,541 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:14,542 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:14,543 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:14,944 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:15,602 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:15,602 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:15,603 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:15,945 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:15,945 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:16,671 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:16,671 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:16,672 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:16,946 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:17,734 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:17,735 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:17,736 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:17,946 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:17,947 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:18,374 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-16 12:12:18,375 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: stop_status
+2021-07-16 12:12:18,808 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:18,809 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:18,810 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:18,947 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:19,885 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:19,885 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:19,886 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:19,948 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:19,948 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:20,952 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:20,952 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:20,953 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:21,948 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:21,949 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:21,996 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:21,997 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:21,998 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:22,949 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:23,044 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:23,044 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:23,045 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:23,949 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:23,950 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:24,092 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:24,092 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:24,093 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:24,950 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:25,145 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:25,145 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:25,146 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:25,950 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:25,951 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:26,220 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:26,221 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:26,222 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:26,951 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:27,301 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:27,302 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:27,303 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:27,951 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:27,951 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:28,378 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:28,379 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:28,379 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:28,952 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:29,430 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:29,431 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:29,431 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:29,952 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:29,953 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:30,513 DEBUG   SenderThread:46919 [sender.py:send():179] send: history
+2021-07-16 12:12:30,514 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:30,514 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:30,575 WARNING MainThread:46919 [internal.py:wandb_internal():147] Internal process interrupt: 1
+2021-07-16 12:12:30,783 DEBUG   SenderThread:46919 [sender.py:send():179] send: stats
+2021-07-16 12:12:30,953 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:31,953 INFO    Thread-8  :46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:33,333 DEBUG   SenderThread:46919 [sender.py:send():179] send: telemetry
+2021-07-16 12:12:33,333 DEBUG   SenderThread:46919 [sender.py:send():179] send: exit
+2021-07-16 12:12:33,333 INFO    SenderThread:46919 [sender.py:send_exit():287] handling exit code: 255
+2021-07-16 12:12:33,334 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:33,334 INFO    SenderThread:46919 [sender.py:send_exit():295] send defer
+2021-07-16 12:12:33,335 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:33,336 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: defer
+2021-07-16 12:12:33,336 INFO    HandlerThread:46919 [handler.py:handle_request_defer():141] handle defer: 0
+2021-07-16 12:12:33,337 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: defer
+2021-07-16 12:12:33,337 INFO    SenderThread:46919 [sender.py:send_request_defer():304] handle sender defer: 0
+2021-07-16 12:12:33,337 INFO    SenderThread:46919 [sender.py:transition_state():308] send defer: 1
+2021-07-16 12:12:33,337 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: defer
+2021-07-16 12:12:33,337 INFO    HandlerThread:46919 [handler.py:handle_request_defer():141] handle defer: 1
+2021-07-16 12:12:33,565 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: defer
+2021-07-16 12:12:33,565 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:33,565 INFO    SenderThread:46919 [sender.py:send_request_defer():304] handle sender defer: 1
+2021-07-16 12:12:33,567 INFO    SenderThread:46919 [sender.py:transition_state():308] send defer: 2
+2021-07-16 12:12:33,567 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:33,567 DEBUG   SenderThread:46919 [sender.py:send():179] send: stats
+2021-07-16 12:12:33,573 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: defer
+2021-07-16 12:12:33,574 INFO    HandlerThread:46919 [handler.py:handle_request_defer():141] handle defer: 2
+2021-07-16 12:12:33,574 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: defer
+2021-07-16 12:12:33,574 INFO    SenderThread:46919 [sender.py:send_request_defer():304] handle sender defer: 2
+2021-07-16 12:12:33,574 INFO    SenderThread:46919 [sender.py:transition_state():308] send defer: 3
+2021-07-16 12:12:33,575 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: defer
+2021-07-16 12:12:33,575 INFO    HandlerThread:46919 [handler.py:handle_request_defer():141] handle defer: 3
+2021-07-16 12:12:33,575 DEBUG   SenderThread:46919 [sender.py:send():179] send: summary
+2021-07-16 12:12:33,576 INFO    SenderThread:46919 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-16 12:12:33,577 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: defer
+2021-07-16 12:12:33,577 INFO    SenderThread:46919 [sender.py:send_request_defer():304] handle sender defer: 3
+2021-07-16 12:12:33,577 INFO    SenderThread:46919 [sender.py:transition_state():308] send defer: 4
+2021-07-16 12:12:33,577 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: defer
+2021-07-16 12:12:33,577 INFO    HandlerThread:46919 [handler.py:handle_request_defer():141] handle defer: 4
+2021-07-16 12:12:33,578 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: defer
+2021-07-16 12:12:33,578 INFO    SenderThread:46919 [sender.py:send_request_defer():304] handle sender defer: 4
+2021-07-16 12:12:33,674 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:33,842 INFO    SenderThread:46919 [sender.py:transition_state():308] send defer: 5
+2021-07-16 12:12:33,842 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:33,843 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: defer
+2021-07-16 12:12:33,843 INFO    HandlerThread:46919 [handler.py:handle_request_defer():141] handle defer: 5
+2021-07-16 12:12:33,843 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: defer
+2021-07-16 12:12:33,844 INFO    SenderThread:46919 [sender.py:send_request_defer():304] handle sender defer: 5
+2021-07-16 12:12:33,844 INFO    SenderThread:46919 [dir_watcher.py:finish():282] shutting down directory watcher
+2021-07-16 12:12:33,944 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:33,955 INFO    SenderThread:46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:33,955 INFO    SenderThread:46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:33,955 INFO    SenderThread:46919 [dir_watcher.py:_on_file_modified():229] file/dir modified: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/config.yaml
+2021-07-16 12:12:33,955 INFO    SenderThread:46919 [dir_watcher.py:finish():312] scan: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files
+2021-07-16 12:12:33,956 INFO    SenderThread:46919 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/config.yaml config.yaml
+2021-07-16 12:12:33,956 INFO    SenderThread:46919 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json wandb-summary.json
+2021-07-16 12:12:33,956 INFO    SenderThread:46919 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/conda-environment.yaml conda-environment.yaml
+2021-07-16 12:12:33,964 INFO    SenderThread:46919 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/requirements.txt requirements.txt
+2021-07-16 12:12:33,970 INFO    SenderThread:46919 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log output.log
+2021-07-16 12:12:33,971 INFO    SenderThread:46919 [dir_watcher.py:finish():318] scan save: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-metadata.json wandb-metadata.json
+2021-07-16 12:12:33,971 INFO    SenderThread:46919 [sender.py:transition_state():308] send defer: 6
+2021-07-16 12:12:33,973 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:33,980 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: defer
+2021-07-16 12:12:33,981 INFO    HandlerThread:46919 [handler.py:handle_request_defer():141] handle defer: 6
+2021-07-16 12:12:33,987 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: defer
+2021-07-16 12:12:33,987 INFO    SenderThread:46919 [sender.py:send_request_defer():304] handle sender defer: 6
+2021-07-16 12:12:33,988 INFO    SenderThread:46919 [file_pusher.py:finish():177] shutting down file pusher
+2021-07-16 12:12:34,075 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,075 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,177 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,177 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,279 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,280 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,381 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,382 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,483 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,483 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,584 INFO    Thread-13 :46919 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/wandb-summary.json
+2021-07-16 12:12:34,585 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,585 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,589 INFO    Thread-15 :46919 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/output.log
+2021-07-16 12:12:34,687 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,688 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,790 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,790 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,892 DEBUG   HandlerThread:46919 [handler.py:handle_request():124] handle_request: poll_exit
+2021-07-16 12:12:34,892 DEBUG   SenderThread:46919 [sender.py:send_request():193] send_request: poll_exit
+2021-07-16 12:12:34,932 WARNING MainThread:46919 [internal.py:wandb_internal():147] Internal process interrupt: 2
+2021-07-16 12:12:34,933 ERROR   MainThread:46919 [internal.py:wandb_internal():150] Internal process interrupted.
+2021-07-16 12:12:35,576 INFO    WriterThread:46919 [datastore.py:close():288] close: /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/run-27i1o90v.wandb
+2021-07-16 12:12:35,892 INFO    SenderThread:46919 [sender.py:finish():945] shutting down sender
+2021-07-16 12:12:35,893 INFO    SenderThread:46919 [file_pusher.py:finish():177] shutting down file pusher
+2021-07-16 12:12:35,893 INFO    SenderThread:46919 [file_pusher.py:join():182] waiting for file pusher
+2021-07-16 12:12:35,893 INFO    HandlerThread:46919 [handler.py:finish():638] shutting down handler
+2021-07-16 12:14:41,804 INFO    Thread-14 :46919 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/requirements.txt
+2021-07-16 12:14:41,809 INFO    Thread-12 :46919 [upload_job.py:push():137] Uploaded file /workspace/jaejun/inpainting/code/wandb/run-20210716_121044-27i1o90v/files/config.yaml
+2021-07-16 12:14:42,009 INFO    Thread-7  :46919 [sender.py:transition_state():308] send defer: 7
+2021-07-16 12:14:42,234 INFO    MainThread:46919 [internal.py:handle_exit():78] Internal process exited

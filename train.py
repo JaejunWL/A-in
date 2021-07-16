@@ -8,12 +8,12 @@ if __name__ == "__main__":
     # ----------------------------------------
     parser = argparse.ArgumentParser()
     # General parameters
-    parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210714/freeform/models', help = 'saving path that is a folder')
-    parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210714/freeform/samples', help = 'training samples path that is a folder')
+    parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210716/time/models', help = 'saving path that is a folder')
+    parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210716/time/samples', help = 'training samples path that is a folder')
     parser.add_argument('--data_dir', type = str, default = '../dataset', help = 'dataset directory')
     parser.add_argument('--gan_type', type = str, default = 'WGAN', help = 'the type of GAN for training')
     parser.add_argument('--multi_gpu', type = bool, default = True, help = 'nn.Parallel needs or not')
-    parser.add_argument('--gpu_ids', type = str, default = "6, 7", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+    parser.add_argument('--gpu_ids', type = str, default = "2, 3", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
     parser.add_argument('--cudnn_benchmark', type = bool, default = True, help = 'True for unchanged input data type')
     parser.add_argument('--checkpoint_interval', type = int, default = 1, help = 'interval between model checkpoints')
     parser.add_argument('--load_name', type = str, default = '', help = 'load model name')
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     parser.add_argument('--init_gain', type = float, default = 0.02, help = 'the initialization gain')
     # Dataset parameters
     parser.add_argument('--baseroot', type = str, default = "C:\\Users\\yzzha\\Desktop\\dataset\\ILSVRC2012_val_256", help = 'the training folder')
-    parser.add_argument('--mask_type', type = str, default = 'freeform', help = 'mask type')
+    parser.add_argument('--mask_type', type = str, default = 'time', help = 'mask type')
     parser.add_argument('--image_height', type = int, default = 513, help = 'height of image')
     parser.add_argument('--image_width', type = int, default = 431, help = 'width of image')
     parser.add_argument('--input_length', type = int, default = 220500, help = 'input length (sample)')
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     import trainer
     import wandb
     # wandb.init(project="Audio inpainting")
-    wandb.init(project="210714_powerspec")
+    wandb.init(project="210716_powerspec")
 
     wandb.run.name = opt.mask_type
     wandb.run.save()

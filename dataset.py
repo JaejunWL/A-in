@@ -88,11 +88,14 @@ class InpaintDataset(Dataset):
     def get_audio(self, index):
         fn = self.fl[index]
         audio_path = os.path.join(self.opt.data_dir, fn)
-        audio, sr = torchaudio.load(audio_path)
-        random_idx = int(np.floor(np.random.random(1) * (audio.shape[-1]-self.opt.input_length)))
-        audio = audio[:,random_idx:random_idx+self.opt.input_length]
-        audio_pad = torch.nn.functional.pad(audio, (0, 44100*5-audio.shape[-1]), mode='constant', value=0)
-        return audio_pad
+        num_frames = torchaudio.info(audio_path).num_frames
+        if num_frames <= self.opt.input_length:
+            audio, sr = torchaudio.load(audio_path)
+            audio = torch.nn.functional.pad(audio, (0, self.opt.input_length-num_frames), mode='constant', value=0)
+        else:
+            random_idx = np.random.randint(num_frames - self.opt.input_length)
+            audio, sr = torchaudio.load(audio_path, frame_offset=random_idx, num_frames=self.opt.input_length)
+        return audio
 
     def get_comlex_spectrogram(self, waveform, n_fft = 1024, win_len = 1024, hop_len = 512, power=None):
         spectrogram = T.Spectrogram(

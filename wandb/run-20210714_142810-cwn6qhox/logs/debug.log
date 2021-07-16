@@ -23,3 +23,29 @@ config: {}
 2021-07-14 14:28:13,118 INFO    MainThread:30050 [wandb_run.py:_config_callback():872] config_cb None None {'save_path': '/data2/personal/jaejun/inpainting/results/210714/bbox/models', 'sample_path': '/data2/personal/jaejun/inpainting/results/210714/bbox/samples', 'data_dir': '../dataset', 'gan_type': 'WGAN', 'multi_gpu': True, 'gpu_ids': '4, 5', 'cudnn_benchmark': True, 'checkpoint_interval': 1, 'load_name': '', 'epochs': 200, 'batch_size': 4, 'lr_g': 0.0001, 'lr_d': 0.0004, 'b1': 0.5, 'b2': 0.999, 'weight_decay': 0, 'lr_decrease_epoch': 5, 'lr_decrease_factor': 0.5, 'lambda_l1': 100, 'lambda_perceptual': 10, 'lambda_gan': 1, 'num_workers': 8, 'in_channels': 2, 'out_channels': 1, 'latent_channels': 64, 'pad_type': 'zero', 'activation': 'lrelu', 'norm': 'in', 'init_type': 'xavier', 'init_gain': 0.02, 'baseroot': 'C:\\Users\\yzzha\\Desktop\\dataset\\ILSVRC2012_val_256', 'mask_type': 'bbox', 'image_height': 513, 'image_width': 431, 'input_length': 220500, 'margin': 10, 'bbox_shape': 120}
 2021-07-14 14:28:13,798 INFO    MainThread:30050 [wandb_watch.py:watch():40] Watching
 2021-07-14 14:28:13,802 INFO    MainThread:30050 [wandb_watch.py:watch():40] Watching
+2021-07-15 03:01:28,407 INFO    MainThread:30050 [wandb_run.py:_atexit_cleanup():1593] got exitcode: 255
+2021-07-15 03:01:28,408 INFO    MainThread:30050 [wandb_run.py:_restore():1565] restore
+2021-07-15 03:01:30,799 INFO    MainThread:30050 [wandb_run.py:_wait_for_finish():1715] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 713
+  total_bytes: 713
+}
+
+2021-07-15 03:01:31,217 INFO    MainThread:30050 [wandb_run.py:_wait_for_finish():1715] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 713
+  total_bytes: 713
+}
+
+2021-07-15 03:01:31,569 INFO    MainThread:30050 [wandb_run.py:_wait_for_finish():1715] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 713
+  total_bytes: 713
+}
+

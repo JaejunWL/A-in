@@ -1,0 +1,33 @@
+
+Generator is created!
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Initialize generator with xavier type
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 6605
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 102, in WGAN_trainer
+    for batch_idx, (img, mask) in enumerate(dataloader):
+  File "/opt/conda/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/opt/conda/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+    return self._process_data(data)
+  File "/opt/conda/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+    data.reraise()
+  File "/opt/conda/lib/python3.7/site-packages/torch/_utils.py", line 425, in reraise
+    raise self.exc_type(msg)
+UnboundLocalError: Caught UnboundLocalError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/opt/conda/lib/python3.7/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/opt/conda/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/opt/conda/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/workspace/jaejun/inpainting/code/dataset.py", line 31, in __getitem__
+    audio = self.get_audio(index)
+  File "/workspace/jaejun/inpainting/code/dataset.py", line 97, in get_audio
+    audio = audio[0,random_idx:random_idx+self.opt.input_length]
+UnboundLocalError: local variable 'audio' referenced before assignment

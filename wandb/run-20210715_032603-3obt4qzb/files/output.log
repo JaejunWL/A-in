@@ -1,0 +1,16 @@
+Generator is created!
+Initialize generator with xavier type
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Discriminator is created!
+Initialize discriminator with xavier type
+The overall number of images equals to 6605
+Traceback (most recent call last):
+  File "train.py", line 78, in <module>
+    trainer.WGAN_trainer(opt)
+  File "/workspace/jaejun/inpainting/code/trainer.py", line 153, in WGAN_trainer
+    loss.backward()
+  File "/opt/conda/lib/python3.7/site-packages/torch/_tensor.py", line 255, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/opt/conda/lib/python3.7/site-packages/torch/autograd/__init__.py", line 149, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag
+RuntimeError: CUDA out of memory. Tried to allocate 2.90 GiB (GPU 1; 10.76 GiB total capacity; 4.78 GiB already allocated; 2.90 GiB free; 6.72 GiB reserved in total by PyTorch)

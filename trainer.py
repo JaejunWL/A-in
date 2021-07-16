@@ -137,8 +137,8 @@ def WGAN_trainer(opt):
             second_MaskL1Loss = L1Loss(second_out_wholeimg, img)
             
             # GAN Loss
-            fake_scalar = discriminator(second_out_wholeimg, mask)
-            GAN_Loss = - torch.mean(fake_scalar)
+            # fake_scalar = discriminator(second_out_wholeimg, mask)
+            # GAN_Loss = - torch.mean(fake_scalar)
 
             # Get the deep semantic feature maps, and compute Perceptual Loss
             # img_featuremaps = perceptualnet(img)                            # feature maps
@@ -148,8 +148,9 @@ def WGAN_trainer(opt):
             # Compute losses
             # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
                 # opt.lambda_perceptual * second_PerceptualLoss + opt.lambda_gan * GAN_Loss
-            loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
-                + opt.lambda_gan * GAN_Loss
+            # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
+                # + opt.lambda_gan * GAN_Loss
+            loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss
             loss.backward()
             optimizer_g.step()
 
@@ -164,9 +165,11 @@ def WGAN_trainer(opt):
                 ((epoch + 1), opt.epochs, batch_idx, len(dataloader), first_MaskL1Loss.item(), second_MaskL1Loss.item()))
             # print("\r[D Loss: %.5f] [G Loss: %.5f] [Perceptual Loss: %.5f] time_left: %s" %
                 # (loss_D.item(), GAN_Loss.item(), second_PerceptualLoss.item(), time_left))
-            print("\r[D Loss: %.5f] [G Loss: %.5f] time_left: %s" %
-                (loss_D.item(), GAN_Loss.item(), time_left))
-            wandb.log({"D_loss": loss_D, "G_loss": GAN_Loss, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
+            # print("\r[D Loss: %.5f] [G Loss: %.5f] time_left: %s" %
+                # (loss_D.item(), GAN_Loss.item(), time_left))
+            # wandb.log({"D_loss": loss_D, "G_loss": GAN_Loss, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
+            print("\rtime_left: %s" % (time_left))
+            wandb.log({"epoch": epoch, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
 
         # Learning rate decrease
         adjust_learning_rate(opt.lr_g, optimizer_g, (epoch + 1), opt)
