@@ -99,14 +99,19 @@ def WGAN_trainer(opt):
     example_images = []
     # Training loop
     for epoch in range(opt.epochs):
-        for batch_idx, (img, mask) in enumerate(dataloader):
+        loss_Ds = []
+        GAN_Losses = []
+        first_MaskL1Losses = []
+        second_MaskL1Losses = []
+
+        for batch_idx, (_, img, mask) in enumerate(dataloader):
             # Load mask (shape: [B, 1, H, W]), masked_img (shape: [B, 3, H, W]), img (shape: [B, 3, H, W]) and put it to cuda
-            scaler = 10000
+            scaler = 1
             img = img / scaler
-            img = img[:,:,:512,:428]
+            img = img[:,:,:1024,:428]
 
             img = img.cuda()
-            mask = mask[:,:,:512,:428]
+            mask = mask[:,:,:1024,:428]
             mask = mask.cuda()
 
             ### Train Discriminator
@@ -133,12 +138,16 @@ def WGAN_trainer(opt):
             optimizer_g.zero_grad()
 
             # Mask L1 Loss
-            first_MaskL1Loss = L1Loss(first_out_wholeimg, img)
-            second_MaskL1Loss = L1Loss(second_out_wholeimg, img)
+            if opt.loss_mask == True:
+                first_MaskL1Loss = L1Loss(first_out_wholeimg*mask, img*mask) / torch.sum(mask)
+                second_MaskL1Loss = L1Loss(second_out_wholeimg*mask, img*mask) / torch.sum(mask)
+            else:
+                first_MaskL1Loss = L1Loss(first_out_wholeimg, img)
+                second_MaskL1Loss = L1Loss(second_out_wholeimg, img)
             
             # GAN Loss
-            # fake_scalar = discriminator(second_out_wholeimg, mask)
-            # GAN_Loss = - torch.mean(fake_scalar)
+            fake_scalar = discriminator(second_out_wholeimg, mask)
+            GAN_Loss = - torch.mean(fake_scalar)
 
             # Get the deep semantic feature maps, and compute Perceptual Loss
             # img_featuremaps = perceptualnet(img)                            # feature maps
@@ -148,9 +157,10 @@ def WGAN_trainer(opt):
             # Compute losses
             # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
                 # opt.lambda_perceptual * second_PerceptualLoss + opt.lambda_gan * GAN_Loss
-            # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
-                # + opt.lambda_gan * GAN_Loss
-            loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss
+            loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
+                + opt.lambda_gan * GAN_Loss
+            # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss
+
             loss.backward()
             optimizer_g.step()
 
@@ -160,17 +170,23 @@ def WGAN_trainer(opt):
             time_left = datetime.timedelta(seconds = batches_left * (time.time() - prev_time))
             prev_time = time.time()
 
+            loss_Ds.append(loss_D)
+            GAN_Losses.append(GAN_Loss)
+            first_MaskL1Losses.append(first_MaskL1Loss)
+            second_MaskL1Losses.append(second_MaskL1Loss)
+
             # Print log
             print("\r[Epoch %d/%d] [Batch %d/%d] [first Mask L1 Loss: %.5f] [second Mask L1 Loss: %.5f]" %
                 ((epoch + 1), opt.epochs, batch_idx, len(dataloader), first_MaskL1Loss.item(), second_MaskL1Loss.item()))
             # print("\r[D Loss: %.5f] [G Loss: %.5f] [Perceptual Loss: %.5f] time_left: %s" %
                 # (loss_D.item(), GAN_Loss.item(), second_PerceptualLoss.item(), time_left))
-            # print("\r[D Loss: %.5f] [G Loss: %.5f] time_left: %s" %
-                # (loss_D.item(), GAN_Loss.item(), time_left))
-            # wandb.log({"D_loss": loss_D, "G_loss": GAN_Loss, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
-            print("\rtime_left: %s" % (time_left))
-            wandb.log({"epoch": epoch, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
+            print("\r[D Loss: %.5f] [G Loss: %.5f] time_left: %s" %
+                (loss_D.item(), GAN_Loss.item(), time_left))
+            wandb.log({"epoch": epoch, "D_loss": loss_D, "G_loss": GAN_Loss, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
+            # print("\rtime_left: %s" % (time_left))
+            # wandb.log({"epoch": epoch, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
 
+        wandb.log({"Avg_D_loss": torch.mean(torch.tensor(loss_Ds)), "Avg_G_loss": torch.mean(torch.tensor(GAN_Losses)), "Avg_fm_loss": torch.mean(torch.tensor(first_MaskL1Losses)), "Avg_sm_loss": torch.mean(torch.tensor(second_MaskL1Losses))})
         # Learning rate decrease
         adjust_learning_rate(opt.lr_g, optimizer_g, (epoch + 1), opt)
         adjust_learning_rate(opt.lr_d, optimizer_d, (epoch + 1), opt)
@@ -195,7 +211,7 @@ def WGAN_trainer(opt):
             img_list = [gt, mask, masked_gt, first, firsted_img, second, seconded_img]
 
             # name_list = ['gt_mag', 'mask', 'masked_gt_mag', 'first_out', 'second_out']
-            utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list)
+            utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, scaler = scaler)
 
 def LSGAN_trainer(opt):
     # ----------------------------------------
@@ -270,7 +286,7 @@ def LSGAN_trainer(opt):
     print('The overall number of images equals to %d' % len(trainset))
 
     # Define the dataloader
-    dataloader = DataLoader(trainset, batch_size = opt.batch_size, shuffle = True, num_workers = opt.num_workers, pin_memory = True)
+    dataloader = DataLoader(trainset, batch_size = opt.batch_size, shuffle = True, num_workers = opt.num_workers, pin_memory = True, worker_init_fn = lambda _: np.random.seed())
     
     # ----------------------------------------
     #            Training and Testing

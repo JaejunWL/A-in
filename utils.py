@@ -19,7 +19,8 @@ def create_generator(opt):
     generator = network.GatedGenerator(opt)
     print('Generator is created!')
     if opt.load_name:
-        generator = load_dict(generator, opt.load_name)
+        # generator = load_dict(generator, opt.load_name)
+        generator.load_state_dict(torch.load(opt.load_name))
     else:
         # Init the networks
         network.weights_init(generator, init_type = opt.init_type, init_gain = opt.init_gain)
@@ -127,10 +128,10 @@ def save_sample_png(sample_folder, sample_name, img_list, name_list, pixel_max_c
         save_img_path = os.path.join(sample_folder, save_img_name)
         cv2.imwrite(save_img_path, img_copy)
 
-def save_samples(sample_folder, sample_name, img_list):
+def save_samples(sample_folder, sample_name, img_list, scaler):
     # Save image one-by-one
 
-    scaler = 10000
+    scaler = scaler
     
     gt = img_list[0].detach().cpu().numpy()
     mask = img_list[1].detach().cpu().numpy()
@@ -190,7 +191,9 @@ def plot_spectrogram(spec, ax , title=None, ylabel='freq_bin', aspect='auto', xm
 #   ax.set_title(title or 'Spectrogram (db)')
 #   ax.set_ylabel(ylabel)
 #   ax.set_xlabel('frame')
-  im = ax.imshow(librosa.power_to_db(spec), origin='lower', aspect=aspect)
+
+#   im = ax.imshow(librosa.power_to_db(spec), origin='lower', aspect=aspect)
+  im = ax.imshow(spec, origin='lower', aspect=aspect)
   if xmax:
     ax.set_xlim((0, xmax))
   return im

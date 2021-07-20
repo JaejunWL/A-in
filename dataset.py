@@ -24,14 +24,10 @@ class InpaintDataset(Dataset):
     def __init__(self, opt, split):
         self.opt = opt
         self.split = split
-        
+        self.pow_to_db = torchaudio.transforms.AmplitudeToDB('power')
         self.get_list()
         
     def __getitem__(self, index):
-        audio = self.get_audio(index)
-        # spec = self.get_comlex_spectrogram(audio)
-        spec = self.get_spectrogram(audio).unsqueeze(-1)
-
         if self.split == 'TRAIN':
             if self.opt.mask_type == 'time':
                 mask = self.time_mask()
@@ -39,21 +35,25 @@ class InpaintDataset(Dataset):
                 mask = self.bbox2mask()
             if self.opt.mask_type == 'freeform':
                 mask = self.random_ff_mask()
+            audio = self.get_audio(index)
         elif self.split in ['VALID', 'TEST']:
             if self.opt.mask_type == 'time':
                 masks_dir = '../split/fixedmask_time'
-                mask = np.load(os.path.join(masks_dir, str(index)))
+                mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
             if self.opt.mask_type == 'bbox':
                 masks_dir = '../split/fixedmask_bbox'
-                mask = np.load(os.path.join(masks_dir, str(index)))
+                mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
             if self.opt.mask_type == 'freeform':
                 masks_dir = '../split/fixedmask_freeform'
-                mask = np.load(os.path.join(masks_dir, str(index)))
-
+                mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
+            audio = self.get_valid_audio(index)
+        # spec = self.get_comlex_spectrogram(audio)
+        spec = self.get_spectrogram(audio).unsqueeze(-1)
+        spec = self.pow_to_db(spec)
         spec = spec.squeeze(0).permute(2, 0, 1).contiguous()
         mask = torch.from_numpy(mask.astype(np.float32)).contiguous()
+        return audio, spec, mask
 
-        return spec, mask
     
     def get_list(self):
         margs_trainvalid = np.loadtxt('../split/margs_trainvalid.txt', delimiter=',', dtype=str)
@@ -97,7 +97,18 @@ class InpaintDataset(Dataset):
             audio, sr = torchaudio.load(audio_path, frame_offset=random_idx, num_frames=self.opt.input_length)
         return audio
 
-    def get_comlex_spectrogram(self, waveform, n_fft = 1024, win_len = 1024, hop_len = 512, power=None):
+    def get_valid_audio(self, index):
+        fn = self.fl[index]
+        audio_path = os.path.join(self.opt.data_dir, fn)
+        num_frames = torchaudio.info(audio_path).num_frames
+        if num_frames <= self.opt.input_length:
+            audio, sr = torchaudio.load(audio_path)
+            audio = torch.nn.functional.pad(audio, (0, self.opt.input_length-num_frames), mode='constant', value=0)
+        else:
+            audio, sr = torchaudio.load(audio_path, frame_offset=0, num_frames=self.opt.input_length)
+        return audio
+
+    def get_comlex_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=None):
         spectrogram = T.Spectrogram(
         n_fft=n_fft,
         win_length=win_len,
@@ -109,7 +120,7 @@ class InpaintDataset(Dataset):
         )
         return spectrogram(waveform)
 
-    def get_spectrogram(self, waveform, n_fft = 1024, win_len = 1024, hop_len = 512, power=2):
+    def get_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=2):
         spectrogram = T.Spectrogram(
         n_fft=n_fft,
         win_length=win_len,

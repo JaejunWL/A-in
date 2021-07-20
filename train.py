@@ -1,3 +1,4 @@
+from pathlib import Path
 import argparse
 import os
 
@@ -8,15 +9,17 @@ if __name__ == "__main__":
     # ----------------------------------------
     parser = argparse.ArgumentParser()
     # General parameters
-    parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210716/time/models', help = 'saving path that is a folder')
-    parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210716/time/samples', help = 'training samples path that is a folder')
-    parser.add_argument('--data_dir', type = str, default = '../dataset', help = 'dataset directory')
+    parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210719/1/models', help = 'saving path that is a folder')
+    parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210719/1/samples', help = 'training samples path that is a folder')
+    parser.add_argument('--data_dir', type = str, default = '/data1/singing_inpainting/dataset', help = 'dataset directory')
     parser.add_argument('--gan_type', type = str, default = 'WGAN', help = 'the type of GAN for training')
     parser.add_argument('--multi_gpu', type = bool, default = True, help = 'nn.Parallel needs or not')
-    parser.add_argument('--gpu_ids', type = str, default = "2, 3", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+    parser.add_argument('--gpu_ids', type = str, default = "7, 8", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
     parser.add_argument('--cudnn_benchmark', type = bool, default = True, help = 'True for unchanged input data type')
     parser.add_argument('--checkpoint_interval', type = int, default = 1, help = 'interval between model checkpoints')
-    parser.add_argument('--load_name', type = str, default = '', help = 'load model name')
+    # parser.add_argument('--load_name', type = str, default = '/data2/personal/jaejun/inpainting/results/210717/time/models/deepfillv2_WGAN_epoch30_batchsize4.pth', help = '')
+    parser.add_argument('--load_name', type = str, default = '', help = '')
+
     # Training parameters
     parser.add_argument('--epochs', type = int, default = 200, help = 'number of epochs of training')
     parser.add_argument('--batch_size', type = int, default = 4, help = 'size of the batches')
@@ -31,10 +34,11 @@ if __name__ == "__main__":
     parser.add_argument('--lambda_perceptual', type = float, default = 10, help = 'the parameter of FML1Loss (perceptual loss)')
     parser.add_argument('--lambda_gan', type = float, default = 1, help = 'the parameter of valid loss of AdaReconL1Loss; 0 is recommended')
     parser.add_argument('--num_workers', type = int, default = 8, help = 'number of cpu threads to use during batch generation')
+    parser.add_argument('--loss_mask', type=str, default=None, help= 'True if loss normalization by sum(mask region)')
     # Network parameters
     parser.add_argument('--in_channels', type = int, default = 2, help = 'input real&complex spec + 1 channel mask')
     parser.add_argument('--out_channels', type = int, default = 1, help = 'output real&complex spec')
-    parser.add_argument('--latent_channels', type = int, default = 64, help = 'latent channels')
+    parser.add_argument('--latent_channels', type = int, default = 32, help = 'latent channels')
     parser.add_argument('--pad_type', type = str, default = 'zero', help = 'the padding type')
     parser.add_argument('--activation', type = str, default = 'lrelu', help = 'the activation type')
     parser.add_argument('--norm', type = str, default = 'in', help = 'normalization type')
@@ -43,7 +47,7 @@ if __name__ == "__main__":
     # Dataset parameters
     parser.add_argument('--baseroot', type = str, default = "C:\\Users\\yzzha\\Desktop\\dataset\\ILSVRC2012_val_256", help = 'the training folder')
     parser.add_argument('--mask_type', type = str, default = 'time', help = 'mask type')
-    parser.add_argument('--image_height', type = int, default = 513, help = 'height of image')
+    parser.add_argument('--image_height', type = int, default = 1025, help = 'height of image')
     parser.add_argument('--image_width', type = int, default = 431, help = 'width of image')
     parser.add_argument('--input_length', type = int, default = 220500, help = 'input length (sample)')
 
@@ -67,11 +71,11 @@ if __name__ == "__main__":
     # Enter main function
     import trainer
     import wandb
-    # wandb.init(project="Audio inpainting")
-    wandb.init(project="210716_powerspec")
+    wandb.init(project="210719")
+    # wandb.init(project="test")
 
-    wandb.run.name = opt.mask_type
-    wandb.run.save()
+    wandb.run.name = '1'
+    wandb.run.save(Path(opt.save_path).parent)
     wandb.config.update(opt)
 
     if opt.gan_type == 'WGAN':
