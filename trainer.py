@@ -52,7 +52,6 @@ def WGAN_trainer(opt):
 
     # Loss functions
     L1Loss = nn.L1Loss()
-
     # Optimizers
     optimizer_g = torch.optim.Adam(generator.parameters(), lr = opt.lr_g, betas = (opt.b1, opt.b2), weight_decay = opt.weight_decay)
     optimizer_d = torch.optim.Adam(discriminator.parameters(), lr = opt.lr_d, betas = (opt.b1, opt.b2), weight_decay = opt.weight_decay)
@@ -95,7 +94,7 @@ def WGAN_trainer(opt):
 
     # Initialize start time
     prev_time = time.time()
-
+    steps = 0
     example_images = []
     # Training loop
     for epoch in range(opt.epochs):
@@ -103,44 +102,23 @@ def WGAN_trainer(opt):
         GAN_Losses = []
         first_MaskL1Losses = []
         second_MaskL1Losses = []
-
-        for batch_idx, (_, img, mask, lerp_mask) in enumerate(dataloader):
+        for batch_idx, (_, img, mask, mask_init) in enumerate(dataloader):
             # Load mask (shape: [B, 1, H, W]), masked_img (shape: [B, 3, H, W]), img (shape: [B, 3, H, W]) and put it to cuda
             scaler = 1
             img = img / scaler
-            img = img[:,:,:opt.image_height,:opt.image_width]
-            mask = mask[:,:,:opt.image_height,:opt.image_width]
-
-            ###
-            img_pad = torch.nn.functional.pad(img, (1, 1, 0, 0), mode='constant', value=0)
-            mask_pad = torch.nn.functional.pad(mask, (1, 1, 0, 0), mode='constant', value=0)
-            mask_range = torch.where(mask_pad[:,0,0,:]==1)
-            start = torch.min(mask_range[0])-1
-            end = torch.max(mask_range[0])-1
-
-            where_0, where_b = torch.where(mask_pad[:,0,0,]==1)
-
-            lerp_idxs = torch.zeros([opt.batch_size, 2])
-            for i2 in range(opt.batch_size):
-                start = torch.min(torch.where(where_0==i2)[0])
-                end = torch.max(torch.where(where_0==i2)[0])
-                lerp_idxs[i2][0] = start
-                lerp_idxs[i2][1] = end + 2
-                merged = torch.cat([img_pad[i2,0,:,start].unsqueeze(-1), img_pad[i2,0,:,end].unsqueeze(-1)], -1).unsqueeze(0)
-                interpolated_mask = torch.nn.functional.interpolate(merged, size=end-start, mode='linear')
-            interpolated_mask.cuda()
-            ###
+            img = img[:,:,:opt.image_height-1,:opt.image_width-3]
+            mask = mask[:,:,:opt.image_height-1,:opt.image_width-3]
+            mask_init = mask_init[:,:,:opt.image_height-1,:opt.image_width-3]
 
             img = img.cuda()
             mask = mask.cuda()
+            mask_init = mask_init.cuda()
+
             ### Train Discriminator
             optimizer_d.zero_grad()
 
             # Generator output
-            if opt.mask_init == 'lerp':
-                first_out, second_out = generator(img, mask, lerp_mask)
-            else:
-                first_out, second_out = generator(img, mask, mask)
+            first_out, second_out = generator(img, mask, mask_init)
 
             # forward propagation
             first_out_wholeimg = img * (1 - mask) + first_out * mask        # in range [0, 1]
@@ -160,12 +138,17 @@ def WGAN_trainer(opt):
             optimizer_g.zero_grad()
 
             # Mask L1 Loss
-            if opt.loss_mask == True:
-                first_MaskL1Loss = L1Loss(first_out_wholeimg*mask, img*mask) / torch.sum(mask)
-                second_MaskL1Loss = L1Loss(second_out_wholeimg*mask, img*mask) / torch.sum(mask)
-            else:
+            if opt.loss_region == 1:
                 first_MaskL1Loss = L1Loss(first_out_wholeimg, img)
                 second_MaskL1Loss = L1Loss(second_out_wholeimg, img)
+            elif opt.loss_region == 2:
+                first_MaskL1Loss = L1Loss(first_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
+                second_MaskL1Loss = L1Loss(second_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
+            elif opt.loss_region == 3:
+                step_lr = max(0.1, 0.9**(steps/1000))
+                first_MaskL1Loss = step_lr*L1Loss(first_out_wholeimg, img) + L1Loss(first_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
+                second_MaskL1Loss = step_lr*L1Loss(second_out_wholeimg, img) + L1Loss(second_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
+                steps += 1
             
             # GAN Loss
             fake_scalar = discriminator(second_out_wholeimg, mask)
@@ -208,6 +191,9 @@ def WGAN_trainer(opt):
             # print("\rtime_left: %s" % (time_left))
             # wandb.log({"epoch": epoch, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
 
+            # if batch_idx > 5:
+                # break
+
         wandb.log({"Avg_D_loss": torch.mean(torch.tensor(loss_Ds)), "Avg_G_loss": torch.mean(torch.tensor(GAN_Losses)), "Avg_fm_loss": torch.mean(torch.tensor(first_MaskL1Losses)), "Avg_sm_loss": torch.mean(torch.tensor(second_MaskL1Losses))})
         # Learning rate decrease
         adjust_learning_rate(opt.lr_g, optimizer_g, (epoch + 1), opt)
@@ -223,14 +209,15 @@ def WGAN_trainer(opt):
         if (epoch + 1) % 1 == 0:
             gt = img[0,0,:,:] * scaler
             mask = mask[0,0,:,:]
-            masked_gt = gt * (1 - mask) + mask
+            mask_init = mask_init[0,0,:,:]
+            masked_gt = gt * (1 - mask) + mask_init
             masked_gt = masked_gt * scaler
             first = first_out[0,0,:,:] * scaler
             firsted_img = gt * (1 - mask) + first * mask
             second = second_out[0,0,:,:] * scaler
             seconded_img = gt * (1 - mask) + second * mask
 
-            img_list = [gt.detach().cpu(), mask.detach().cpu(), masked_gt.detach().cpu(), first.detach().cpu(), firsted_img.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
+            img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt.detach().cpu(), first.detach().cpu(), firsted_img.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
 
             # name_list = ['gt_mag', 'mask', 'masked_gt_mag', 'first_out', 'second_out']
             utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, scaler = scaler)

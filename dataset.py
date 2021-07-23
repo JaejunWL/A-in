@@ -57,7 +57,7 @@ class InpaintDataset(Dataset):
             lerp_mask = self.make_lerp_mask(spec, mask)
             return audio, spec, mask, lerp_mask
         else:
-            return audio, spec, mask, _
+            return audio, spec, mask, mask
 
     
     def get_list(self):

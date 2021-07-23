@@ -41,6 +41,7 @@ def weights_init(net, init_type = 'kaiming', init_gain = 0.02):
 # Output: filled image
 class GatedGenerator(nn.Module):
     def __init__(self, opt):
+        self.opt = opt
         super(GatedGenerator, self).__init__()
         self.coarse = nn.Sequential(
             # encoder
@@ -92,14 +93,23 @@ class GatedGenerator(nn.Module):
         # img * (1 - mask): ground truth unmask region
         # Coarse
         # print(img.shape, mask.shape)
-        first_masked_img = img * (1 - mask) + mask_init
-        first_in = torch.cat((first_masked_img, mask), 1)       # in: [B, 4, H, W]
-        first_out = self.coarse(first_in)                       # out: [B, 3, H, W]
-        # Refinement
-        second_masked_img = img * (1 - mask) + first_out * mask
-        second_in = torch.cat((second_masked_img, mask), 1)     # in: [B, 4, H, W]
-        second_out = self.refinement(second_in)                 # out: [B, 3, H, W]
-        return first_out, second_out
+        
+        if self.opt.stage_num == 2:
+            first_masked_img = img * (1 - mask) + mask_init
+            first_in = torch.cat((first_masked_img, mask), 1)       # in: [B, 4, H, W]
+            first_out = self.coarse(first_in)                       # out: [B, 3, H, W]
+            # Refinement
+            second_masked_img = img * (1 - mask) + first_out * mask
+            second_in = torch.cat((second_masked_img, mask), 1)     # in: [B, 4, H, W]
+            second_out = self.refinement(second_in)                 # out: [B, 3, H, W]
+            return first_out, second_out
+        elif self.opt.stage_num == 1:
+            # Refinement
+            second_masked_img = img * (1 - mask) + mask_init
+            second_in = torch.cat((second_masked_img, mask), 1)
+            second_out = self.refinement(second_in)
+            return second_out, second_out
+
 
 #-----------------------------------------------
 #                  Discriminator

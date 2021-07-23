@@ -11,7 +11,7 @@ import librosa
 
 import matplotlib
 import matplotlib.pyplot as plt
-import sklimage.measure
+import skimage.measure
 
 # ----------------------------------------
 #                 Network
@@ -100,13 +100,13 @@ def get_names(path):
             ret.append(filespath)
     return ret
 
-def text_save(content, filename, mode = 'a'):
-    # save a list to a txt
-    # Try to save a list variable in txt file.
-    file = open(filename, mode)psnr(spec.unsqueeze(0), (spec*(1-mask) + lerp_mask).unsqueeze(0))
+# def text_save(content, filename, mode = 'a'):
+#     # save a list to a txt
+#     # Try to save a list variable in txt file.
+#     file = open(filename, mode)psnr(spec.unsqueeze(0), (spec*(1-mask) + lerp_mask).unsqueeze(0))
 
-        file.write(str(content[i]) + '\n')
-    file.close()
+#         file.write(str(content[i]) + '\n')
+#     file.close()
 
 def check_path(path):
     if not os.path.exists(path):
@@ -137,23 +137,25 @@ def save_samples(sample_folder, sample_name, img_list, scaler):
     
     gt = img_list[0].numpy()
     mask = img_list[1].numpy()
-    masked_gt = img_list[2].numpy()
-    first = img_list[3].cpu().numpy()
-    firsted_img = img_list[4].numpy()
-    second = img_list[5].numpy()
-    seconded_img = img_list[6].numpy()
+    mask_init = img_list[2].numpy()
+    masked_gt = img_list[3].numpy()
+    first = img_list[4].cpu().numpy()
+    firsted_img = img_list[5].numpy()
+    second = img_list[6].numpy()
+    seconded_img = img_list[7].numpy()
 
     fig, axes = plt.subplots(2, 4)
     plot_spectrogram(gt, axes[0, 0])
-    plot_spectrogram(mask*255, axes[0, 1])
-    plot_spectrogram(masked_gt, axes[0, 2])
+    plot_spectrogram(mask, axes[0, 1])
+    plot_spectrogram(mask_init, axes[0, 2])
+    plot_spectrogram(masked_gt, axes[0, 3])
     plot_spectrogram(first, axes[1, 0])
     plot_spectrogram(firsted_img, axes[1, 1])
     plot_spectrogram(second, axes[1, 2])
     plot_spectrogram(seconded_img, axes[1, 3])
     fig.set_size_inches(24, 12)
     fig.tight_layout()
-    # plt.savefig(os.path.join(sample_folder, sample_name + '_.png'))
+    plt.savefig(os.path.join(sample_folder, sample_name + '_.png'))
 
 
 def psnr(pred, target, pixel_max_cnt = 100):
