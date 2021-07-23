@@ -11,6 +11,8 @@ import librosa
 
 import matplotlib
 import matplotlib.pyplot as plt
+import sklimage.measure
+
 # ----------------------------------------
 #                 Network
 # ----------------------------------------
@@ -101,8 +103,8 @@ def get_names(path):
 def text_save(content, filename, mode = 'a'):
     # save a list to a txt
     # Try to save a list variable in txt file.
-    file = open(filename, mode)
-    for i in range(len(content)):
+    file = open(filename, mode)psnr(spec.unsqueeze(0), (spec*(1-mask) + lerp_mask).unsqueeze(0))
+
         file.write(str(content[i]) + '\n')
     file.close()
 
@@ -133,13 +135,13 @@ def save_samples(sample_folder, sample_name, img_list, scaler):
 
     scaler = scaler
     
-    gt = img_list[0].detach().cpu().numpy()
-    mask = img_list[1].detach().cpu().numpy()
-    masked_gt = img_list[2].detach().cpu().numpy()
-    first = img_list[3].detach().cpu().numpy()
-    firsted_img = img_list[4].detach().cpu().numpy()
-    second = img_list[5].detach().cpu().numpy()
-    seconded_img = img_list[6].detach().cpu().numpy()
+    gt = img_list[0].numpy()
+    mask = img_list[1].numpy()
+    masked_gt = img_list[2].numpy()
+    first = img_list[3].cpu().numpy()
+    firsted_img = img_list[4].numpy()
+    second = img_list[5].numpy()
+    seconded_img = img_list[6].numpy()
 
     fig, axes = plt.subplots(2, 4)
     plot_spectrogram(gt, axes[0, 0])
@@ -151,10 +153,10 @@ def save_samples(sample_folder, sample_name, img_list, scaler):
     plot_spectrogram(seconded_img, axes[1, 3])
     fig.set_size_inches(24, 12)
     fig.tight_layout()
-    plt.savefig(os.path.join(sample_folder, sample_name + '_.png'))
+    # plt.savefig(os.path.join(sample_folder, sample_name + '_.png'))
 
 
-def psnr(pred, target, pixel_max_cnt = 255):
+def psnr(pred, target, pixel_max_cnt = 100):
     mse = torch.mul(target - pred, target - pred)
     rmse_avg = (torch.mean(mse).item()) ** 0.5
     p = 20 * np.log10(pixel_max_cnt / rmse_avg)

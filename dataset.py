@@ -38,13 +38,13 @@ class InpaintDataset(Dataset):
             audio = self.get_audio(index)
         elif self.split in ['VALID', 'TEST']:
             if self.opt.mask_type == 'time':
-                masks_dir = '../split/fixedmask_time'
+                masks_dir = '../split/fixedmask_time_2048'
                 mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
             if self.opt.mask_type == 'bbox':
-                masks_dir = '../split/fixedmask_bbox'
+                masks_dir = '../split/fixedmask_bbox_2048'
                 mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
             if self.opt.mask_type == 'freeform':
-                masks_dir = '../split/fixedmask_freeform'
+                masks_dir = '../split/fixedmask_freeform_2048'
                 mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
             audio = self.get_valid_audio(index)
         # spec = self.get_comlex_spectrogram(audio)
@@ -52,7 +52,12 @@ class InpaintDataset(Dataset):
         spec = self.pow_to_db(spec)
         spec = spec.squeeze(0).permute(2, 0, 1).contiguous()
         mask = torch.from_numpy(mask.astype(np.float32)).contiguous()
-        return audio, spec, mask
+
+        if self.opt.mask_init == 'lerp':
+            lerp_mask = self.make_lerp_mask(spec, mask)
+            return audio, spec, mask, lerp_mask
+        else:
+            return audio, spec, mask, _
 
     
     def get_list(self):
@@ -189,5 +194,16 @@ class InpaintDataset(Dataset):
                 start_x, start_y = end_x, end_y
         return mask.reshape((1, ) + mask.shape).astype(np.float32)
 
+    def make_lerp_mask(self, spec, mask):
+        spec_pad = torch.nn.functional.pad(spec, (1, 1, 0, 0), mode='constant', value=0)
+        mask_range = torch.where(mask[:,0,:]==1)
+        start = torch.min(mask_range[-1])
+        end = torch.max(mask_range[-1])
+        merged = torch.cat([spec_pad[:,:,start], spec_pad[:,:,end+2]], 0)
+        lerp = torch.nn.functional.interpolate(merged.permute(1, 0).unsqueeze(0), size=end-start+1, mode='linear')
+        lerp_mask = torch.zeros(mask.shape)
+        lerp_mask[:, :, start:end+1] = lerp
+        return lerp_mask
+        
     def __len__(self):
         return len(self.fl)

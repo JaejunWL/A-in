@@ -9,8 +9,8 @@ if __name__ == "__main__":
     # ----------------------------------------
     parser = argparse.ArgumentParser()
     # General parameters
-    parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210719/1/models', help = 'saving path that is a folder')
-    parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210719/1/samples', help = 'training samples path that is a folder')
+    parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210723/1/models', help = 'saving path that is a folder')
+    parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210723/1/samples', help = 'training samples path that is a folder')
     parser.add_argument('--data_dir', type = str, default = '/data1/singing_inpainting/dataset', help = 'dataset directory')
     parser.add_argument('--gan_type', type = str, default = 'WGAN', help = 'the type of GAN for training')
     parser.add_argument('--multi_gpu', type = bool, default = True, help = 'nn.Parallel needs or not')
@@ -47,8 +47,9 @@ if __name__ == "__main__":
     # Dataset parameters
     parser.add_argument('--baseroot', type = str, default = "C:\\Users\\yzzha\\Desktop\\dataset\\ILSVRC2012_val_256", help = 'the training folder')
     parser.add_argument('--mask_type', type = str, default = 'time', help = 'mask type')
-    parser.add_argument('--image_height', type = int, default = 1025, help = 'height of image')
-    parser.add_argument('--image_width', type = int, default = 431, help = 'width of image')
+    parser.add_argument('--mask_init', type = str, default = 'lerp', help = 'mask initialie point')
+    parser.add_argument('--image_height', type = int, default = 1024, help = 'height of image')
+    parser.add_argument('--image_width', type = int, default = 428, help = 'width of image')
     parser.add_argument('--input_length', type = int, default = 220500, help = 'input length (sample)')
 
     parser.add_argument('--margin', type = int, default = 10, help = 'margin of image')
@@ -71,8 +72,8 @@ if __name__ == "__main__":
     # Enter main function
     import trainer
     import wandb
-    wandb.init(project="210719")
-    # wandb.init(project="test")
+    # wandb.init(project="210723")
+    wandb.init(project="test")
 
     wandb.run.name = '1'
     wandb.run.save(Path(opt.save_path).parent)

@@ -85,14 +85,14 @@ class GatedGenerator(nn.Module):
             GatedConv2d(opt.latent_channels, opt.out_channels, 7, 1, 3, pad_type = opt.pad_type, activation = 'none', norm = 'none')
         )
         
-    def forward(self, img, mask):
+    def forward(self, img, mask, mask_init):
         # img: entire img
         # mask: 1 for mask region; 0 for unmask region
         # 1 - mask: unmask
         # img * (1 - mask): ground truth unmask region
         # Coarse
         # print(img.shape, mask.shape)
-        first_masked_img = img * (1 - mask) + mask
+        first_masked_img = img * (1 - mask) + mask_init
         first_in = torch.cat((first_masked_img, mask), 1)       # in: [B, 4, H, W]
         first_out = self.coarse(first_in)                       # out: [B, 3, H, W]
         # Refinement
