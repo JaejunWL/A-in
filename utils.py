@@ -31,7 +31,10 @@ def create_generator(opt):
 
 def create_discriminator(opt):
     # Initialize the networks
-    discriminator = network.PatchDiscriminator(opt)
+    if opt.discriminator == 'patch':
+        discriminator = network.PatchDiscriminator(opt)
+    elif opt.discriminator == 'jj':
+        discriminator = network.jj_Discriminator(opt)
     print('Discriminator is created!')
     # Init the networks
     network.weights_init(discriminator, init_type = opt.init_type, init_gain = opt.init_gain)
@@ -130,29 +133,28 @@ def save_sample_png(sample_folder, sample_name, img_list, name_list, pixel_max_c
         save_img_path = os.path.join(sample_folder, save_img_name)
         cv2.imwrite(save_img_path, img_copy)
 
-def save_samples(sample_folder, sample_name, img_list, scaler):
+def save_samples(sample_folder, sample_name, img_list, dbpow):
     # Save image one-by-one
 
-    scaler = scaler
-    
     gt = img_list[0].numpy()
     mask = img_list[1].numpy()
     mask_init = img_list[2].numpy()
     masked_gt = img_list[3].numpy()
-    first = img_list[4].cpu().numpy()
-    firsted_img = img_list[5].numpy()
-    second = img_list[6].numpy()
-    seconded_img = img_list[7].numpy()
+    # first = img_list[4].cpu().numpy()
+    # firsted_img = img_list[5].numpy()
+    second = img_list[4].numpy()
+    seconded_img = img_list[5].numpy()
 
-    fig, axes = plt.subplots(2, 4)
-    plot_spectrogram(gt, axes[0, 0])
-    plot_spectrogram(mask, axes[0, 1])
-    plot_spectrogram(mask_init, axes[0, 2])
-    plot_spectrogram(masked_gt, axes[0, 3])
-    plot_spectrogram(first, axes[1, 0])
-    plot_spectrogram(firsted_img, axes[1, 1])
-    plot_spectrogram(second, axes[1, 2])
-    plot_spectrogram(seconded_img, axes[1, 3])
+    fig, axes = plt.subplots(2, 3)
+    plot_spectrogram(gt, axes[0, 0], dbpow=dbpow)
+    plot_spectrogram(mask, axes[0, 1], dbpow=dbpow)
+    plot_spectrogram(mask_init, axes[0, 2], dbpow=dbpow)
+    plot_spectrogram(masked_gt, axes[1, 0], dbpow=dbpow)
+    # plot_spectrogram(first, axes[1, 0], dbpow=dbpow)
+    # plot_spectrogram(firsted_img, axes[1, 1], dbpow=dbpow)
+    plot_spectrogram(second, axes[1, 1], dbpow=dbpow)
+    plot_spectrogram(seconded_img, axes[1, 2], dbpow=dbpow)
+
     fig.set_size_inches(24, 12)
     fig.tight_layout()
     plt.savefig(os.path.join(sample_folder, sample_name + '_.png'))
@@ -160,6 +162,16 @@ def save_samples(sample_folder, sample_name, img_list, scaler):
 
 def psnr(pred, target, pixel_max_cnt = 100):
     mse = torch.mul(target - pred, target - pred)
+    rmse_avg = (torch.mean(mse).item()) ** 0.5
+    p = 20 * np.log10(pixel_max_cnt / rmse_avg)
+    return p
+
+def mask_psnr(pred, target, mask_idx, pixel_max_cnt = 100):
+    start_idx = mask_idx.min()
+    end_idx = mask_idx.max()
+    pred_mask = pred[...,start_idx:end_idx+1]
+    target_mask = target[...,start_idx:end_idx+1]
+    mse = torch.mul(target_mask - pred_mask, target_mask - pred_mask)
     rmse_avg = (torch.mean(mse).item()) ** 0.5
     p = 20 * np.log10(pixel_max_cnt / rmse_avg)
     return p
@@ -180,6 +192,18 @@ def ssim(pred, target):
     ssim = skimage.measure.compare_ssim(target, pred, multichannel = True)
     return ssim
 
+def mask_ssim(pred, target, mask_idx):
+    start_idx = mask_idx.min()
+    end_idx = mask_idx.max()
+    pred_mask = pred[...,start_idx:end_idx+1]
+    target_mask = target[...,start_idx:end_idx+1]
+    pred = pred_mask[0]
+    target = target_mask[0]
+    pred = pred.clone().data.permute(1, 2, 0).cpu().numpy()
+    target = target.clone().data.permute(1, 2, 0).cpu().numpy()
+    ssim = skimage.measure.compare_ssim(target, pred, multichannel = True)
+    return ssim
+
 def save_spectrogram(spec, sample_folder, sample_img_name, title=None, ylabel='freq_bin', aspect='auto', xmax=None):
     fig, axs = plt.subplots(1, 1)
     axs.set_title(title or 'Spectrogram (db)')
@@ -191,13 +215,15 @@ def save_spectrogram(spec, sample_folder, sample_img_name, title=None, ylabel='f
         fig.colorbar(im, ax=axs)
     plt.savefig(os.path.join(sample_folder, sample_img_name))
 
-def plot_spectrogram(spec, ax , title=None, ylabel='freq_bin', aspect='auto', xmax=None):
+def plot_spectrogram(spec, ax , title=None, ylabel='freq_bin', aspect='auto', xmax=None, dbpow='db'):
 #   ax.set_title(title or 'Spectrogram (db)')
 #   ax.set_ylabel(ylabel)
 #   ax.set_xlabel('frame')
+    if dbpow == 'db':
+        im = ax.imshow(spec, origin='lower', aspect=aspect)
+    elif dbpow == 'pow':
+        im = ax.imshow(librosa.power_to_db(spec), origin='lower', aspect=aspect)
 
-#   im = ax.imshow(librosa.power_to_db(spec), origin='lower', aspect=aspect)
-  im = ax.imshow(spec, origin='lower', aspect=aspect)
-  if xmax:
-    ax.set_xlim((0, xmax))
-  return im
+    if xmax:
+        ax.set_xlim((0, xmax))
+    return im

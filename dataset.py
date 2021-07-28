@@ -53,6 +53,16 @@ class InpaintDataset(Dataset):
         spec = spec.squeeze(0).permute(2, 0, 1).contiguous()
         mask = torch.from_numpy(mask.astype(np.float32)).contiguous()
 
+        phase = 0
+        if self.opt.phase == 1:
+            complex_spec = self.get_complex_spectrogram(audio)
+            complex_spec_comp = torch.view_as_complex(complex_spec)
+            phase = torch.angle(complex_spec_comp)
+            phase_np = np.asarray(phase)
+            phase_unwrapped = np.unwrap(phase_np)
+            phase = torch.tensor(phase_unwrapped).float()
+            spec = torch.cat([spec, phase], 0)
+
         if self.opt.mask_init == 'lerp':
             lerp_mask = self.make_lerp_mask(spec, mask)
             return audio, spec, mask, lerp_mask
@@ -113,7 +123,7 @@ class InpaintDataset(Dataset):
             audio, sr = torchaudio.load(audio_path, frame_offset=0, num_frames=self.opt.input_length)
         return audio
 
-    def get_comlex_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=None):
+    def get_complex_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=None):
         spectrogram = T.Spectrogram(
         n_fft=n_fft,
         win_length=win_len,

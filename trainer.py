@@ -4,6 +4,7 @@ import datetime
 import numpy as np
 import cv2
 import torch
+import torchaudio
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
 from torch.utils.data import DataLoader
@@ -11,6 +12,8 @@ from torch.utils.data import DataLoader
 import network
 import dataset
 import utils
+import audio_utils
+
 import wandb
 
 def WGAN_trainer(opt):
@@ -92,17 +95,34 @@ def WGAN_trainer(opt):
     #            Training and Testing
     # ----------------------------------------
 
+    db_to_power = torchaudio.functional.DB_to_amplitude
+    custom_gflim = audio_utils.Custom_GriffinLim(n_fft=2048, n_iter=60, win_length=2048, hop_length=512)
+    custom_gflim.cuda()
+
+    def get_loss_function():
+        return nn.BCELoss()
+
     # Initialize start time
     prev_time = time.time()
     steps = 0
     example_images = []
+    mag_L1Loss = 0
+    phase_L1Loss = 0
     # Training loop
     for epoch in range(opt.epochs):
         loss_Ds = []
         GAN_Losses = []
         first_MaskL1Losses = []
         second_MaskL1Losses = []
-        for batch_idx, (_, img, mask, mask_init) in enumerate(dataloader):
+        mag_L1Losses = []
+        phase_L1Losses = []
+        if opt.discriminator == 'jj':
+            reconst_loss = get_loss_function()
+
+        for batch_idx, (audio, img, mask, mask_init) in enumerate(dataloader):
+            if opt.discriminator == 'jj':
+                real_labels = torch.ones(mask.shape[0], 1).to('cuda')
+                fake_labels = torch.zeros(mask.shape[0], 1).to('cuda') 
             # Load mask (shape: [B, 1, H, W]), masked_img (shape: [B, 3, H, W]), img (shape: [B, 3, H, W]) and put it to cuda
             scaler = 1
             img = img / scaler
@@ -110,6 +130,7 @@ def WGAN_trainer(opt):
             mask = mask[:,:,:opt.image_height-1,:opt.image_width-3]
             mask_init = mask_init[:,:,:opt.image_height-1,:opt.image_width-3]
 
+            mask_sum = torch.sum(mask)
             img = img.cuda()
             mask = mask.cuda()
             mask_init = mask_init.cuda()
@@ -121,16 +142,23 @@ def WGAN_trainer(opt):
             first_out, second_out = generator(img, mask, mask_init)
 
             # forward propagation
-            first_out_wholeimg = img * (1 - mask) + first_out * mask        # in range [0, 1]
+            # first_out_wholeimg = img * (1 - mask) + first_out * mask        # in range [0, 1]
             second_out_wholeimg = img * (1 - mask) + second_out * mask      # in range [0, 1]
 
-            # Fake samples
-            fake_scalar = discriminator(second_out_wholeimg.detach(), mask)
-            # True samples
-            true_scalar = discriminator(img, mask)
-            
-            # Overall Loss and optimize
-            loss_D = - torch.mean(true_scalar) + torch.mean(fake_scalar)
+            if opt.discriminator == 'patch':
+                # Fake samples
+                fake_scalar = discriminator(second_out_wholeimg.detach(), mask)
+                # True samples
+                true_scalar = discriminator(img, mask)
+                # Overall Loss and optimize
+                loss_D = - torch.mean(true_scalar) + torch.mean(fake_scalar)
+            elif opt.discriminator == 'jj':
+                fake_scalar = discriminator(second_out_wholeimg.detach(), mask)
+                D_loss_fake = reconst_loss(fake_scalar, fake_labels)
+                true_scalar = discriminator(img, mask)
+                D_loss_real = reconst_loss(true_scalar, real_labels)
+                loss_D = D_loss_fake + D_loss_real
+
             loss_D.backward()
             optimizer_d.step()
 
@@ -139,20 +167,32 @@ def WGAN_trainer(opt):
 
             # Mask L1 Loss
             if opt.loss_region == 1:
-                first_MaskL1Loss = L1Loss(first_out_wholeimg, img)
+                # first_MaskL1Loss = L1Loss(first_out_wholeimg, img)
                 second_MaskL1Loss = L1Loss(second_out_wholeimg, img)
+                if opt.phase == 1:
+                    mag_L1Loss = L1Loss(second_out_wholeimg[:,0,:,:], img[:,0,:,:])
+                    phase_L1Loss = L1Loss(second_out_wholeimg[:,1,:,:], img[:,1,:,:])
             elif opt.loss_region == 2:
-                first_MaskL1Loss = L1Loss(first_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
-                second_MaskL1Loss = L1Loss(second_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
+                # first_MaskL1Loss = L1Loss(first_out_wholeimg*mask, img*mask) / mask_sum * 10250
+                second_MaskL1Loss = L1Loss(second_out_wholeimg*mask, img*mask) / mask_sum * 10250
+                if opt.phase == 1:
+                    mag_L1Loss = L1Loss(second_out_wholeimg[:,0,:,:]*mask, img[:,0,:,:]*mask)
+                    phase_L1Loss = L1Loss(second_out_wholeimg[:,1,:,:]*mask, img[:,1,:,:]*mask)
             elif opt.loss_region == 3:
                 step_lr = max(0.1, 0.9**(steps/1000))
-                first_MaskL1Loss = step_lr*L1Loss(first_out_wholeimg, img) + L1Loss(first_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
-                second_MaskL1Loss = step_lr*L1Loss(second_out_wholeimg, img) + L1Loss(second_out_wholeimg*mask, img*mask) / torch.sum(mask) * 10250
+                # first_MaskL1Loss = step_lr*L1Loss(first_out_wholeimg, img) + L1Loss(first_out_wholeimg*mask, img*mask) / mask_sum * 10250
+                second_MaskL1Loss = step_lr*L1Loss(second_out_wholeimg, img) + L1Loss(second_out_wholeimg*mask, img*mask) / mask_sum * 10250
+                if opt.phase == 1:
+                    mag_L1Loss = step_lr*L1Loss(second_out_wholeimg[:,0,:,:], img[:,0,:,:]) + L1Loss(second_out_wholeimg[:,0,:,:]*mask, img[:,0,:,:]*mask) / mask_sum * 10250
+                    phase_L1Loss = step_lr*L1Loss(second_out_wholeimg[:,1,:,:], img[:,1,:,:]) + L1Loss(second_out_wholeimg[:,1,:,:]*mask, img[:,1,:,:]*mask) / mask_sum * 10250
                 steps += 1
             
             # GAN Loss
             fake_scalar = discriminator(second_out_wholeimg, mask)
+            # fake_scalar = discriminator((second_out*mask).detach(), mask)
+
             GAN_Loss = - torch.mean(fake_scalar)
+            # GAN_Loss = - torch.mean(fake_scalar) / mask_sum * 10250
 
             # Get the deep semantic feature maps, and compute Perceptual Loss
             # img_featuremaps = perceptualnet(img)                            # feature maps
@@ -162,9 +202,9 @@ def WGAN_trainer(opt):
             # Compute losses
             # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
                 # opt.lambda_perceptual * second_PerceptualLoss + opt.lambda_gan * GAN_Loss
-            loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
-                + opt.lambda_gan * GAN_Loss
-            # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss
+            # loss = opt.lambda_l1 * first_MaskL1Loss + opt.lambda_l1 * second_MaskL1Loss + \
+                # + opt.lambda_gan * GAN_Loss
+            loss = opt.lambda_l1 * second_MaskL1Loss + opt.lambda_gan * GAN_Loss
 
             loss.backward()
             optimizer_g.step()
@@ -177,24 +217,32 @@ def WGAN_trainer(opt):
 
             loss_Ds.append(loss_D)
             GAN_Losses.append(GAN_Loss)
-            first_MaskL1Losses.append(first_MaskL1Loss)
+            # first_MaskL1Losses.append(first_MaskL1Loss)
             second_MaskL1Losses.append(second_MaskL1Loss)
+            mag_L1Losses.append(mag_L1Loss.detach().cpu())
+            phase_L1Losses.append(phase_L1Loss.detach().cpu())
 
             # Print log
-            print("\r[Epoch %d/%d] [Batch %d/%d] [first Mask L1 Loss: %.5f] [second Mask L1 Loss: %.5f]" %
-                ((epoch + 1), opt.epochs, batch_idx, len(dataloader), first_MaskL1Loss.item(), second_MaskL1Loss.item()))
+            # print("\r[Epoch %d/%d] [Batch %d/%d] [first Mask L1 Loss: %.5f] [second Mask L1 Loss: %.5f]" %
+                # ((epoch + 1), opt.epochs, batch_idx, len(dataloader), first_MaskL1Loss.item(), second_MaskL1Loss.item()))
+            print("\r[Epoch %d/%d] [Batch %d/%d] [second Mask L1 Loss: %.5f]" %
+                ((epoch + 1), opt.epochs, batch_idx, len(dataloader), second_MaskL1Loss.item()))
             # print("\r[D Loss: %.5f] [G Loss: %.5f] [Perceptual Loss: %.5f] time_left: %s" %
                 # (loss_D.item(), GAN_Loss.item(), second_PerceptualLoss.item(), time_left))
             print("\r[D Loss: %.5f] [G Loss: %.5f] time_left: %s" %
                 (loss_D.item(), GAN_Loss.item(), time_left))
-            wandb.log({"epoch": epoch, "D_loss": loss_D, "G_loss": GAN_Loss, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
+            # wandb.log({"D_loss": loss_D, "G_loss": GAN_Loss, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
+            wandb.log({"D_loss": loss_D, "G_loss": GAN_Loss, "recon loss": second_MaskL1Loss, "mag loss": mag_L1Loss, "phase loss":phase_L1Loss})
             # print("\rtime_left: %s" % (time_left))
             # wandb.log({"epoch": epoch, "first_mask loss": first_MaskL1Loss, "second_mask loss": second_MaskL1Loss,})
 
             # if batch_idx > 5:
                 # break
 
-        wandb.log({"Avg_D_loss": torch.mean(torch.tensor(loss_Ds)), "Avg_G_loss": torch.mean(torch.tensor(GAN_Losses)), "Avg_fm_loss": torch.mean(torch.tensor(first_MaskL1Losses)), "Avg_sm_loss": torch.mean(torch.tensor(second_MaskL1Losses))})
+        # wandb.log({"epoch": epoch, "Avg_D_loss": torch.mean(torch.tensor(loss_Ds)), "Avg_G_loss": torch.mean(torch.tensor(GAN_Losses)), "Avg_fm_loss": torch.mean(torch.tensor(first_MaskL1Losses)), "Avg_sm_loss": torch.mean(torch.tensor(second_MaskL1Losses))})
+        wandb.log({"epoch": epoch, "Avg_D_loss": torch.mean(torch.tensor(loss_Ds)), "Avg_G_loss": torch.mean(torch.tensor(GAN_Losses)),
+                    "Avg_recon_loss": torch.mean(torch.tensor(second_MaskL1Losses)), "Avg_mag_loss": torch.mean(torch.tensor(mag_L1Losses)), "Avg_phase_loss": torch.mean(torch.tensor(phase_L1Losses))})
+
         # Learning rate decrease
         adjust_learning_rate(opt.lr_g, optimizer_g, (epoch + 1), opt)
         adjust_learning_rate(opt.lr_d, optimizer_d, (epoch + 1), opt)
@@ -207,20 +255,62 @@ def WGAN_trainer(opt):
 
         # mask = torch.cat((mask, mask, mask), 1)
         if (epoch + 1) % 1 == 0:
-            gt = img[0,0,:,:] * scaler
+            # gt = img[0,0,:,:] * scaler
+            # mask = mask[0,0,:,:]
+            # mask_init = mask_init[0,0,:,:]
+            # masked_gt = gt * (1 - mask) + mask_init
+            # masked_gt = masked_gt * scaler
+            # # first = first_out[0,0,:,:] * scaler
+            # # firsted_img = gt * (1 - mask) + first * mask
+            # second = second_out[0,0,:,:] * scaler
+            # seconded_img = gt * (1 - mask) + second * mask
+
+            # # img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt.detach().cpu(), first.detach().cpu(), firsted_img.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
+            # img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
+
+            # # name_list = ['gt_mag', 'mask', 'masked_gt_mag', 'first_out', 'second_out']
+            # utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, dbpow='db')
+
+            gt = db_to_power(img[0,0,:,:] * scaler, ref=1.0, power=1)
             mask = mask[0,0,:,:]
-            mask_init = mask_init[0,0,:,:]
-            masked_gt = gt * (1 - mask) + mask_init
-            masked_gt = masked_gt * scaler
-            first = first_out[0,0,:,:] * scaler
-            firsted_img = gt * (1 - mask) + first * mask
-            second = second_out[0,0,:,:] * scaler
+            mask_init = db_to_power(mask_init[0,0,:,:], ref=1.0, power=1) * mask
+            masked_gt = gt * (1 - mask)
+            masked_gt_lerp = gt * (1 - mask) + mask_init
+            # first = db_to_power(first_out[0,0,:,:] * scaler, ref=1.0, power=1)
+            # firsted_img = gt * (1 - mask) + first * mask
+            second = db_to_power(second_out[0,0,:,:] * scaler, ref=1.0, power=1)
             seconded_img = gt * (1 - mask) + second * mask
 
-            img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt.detach().cpu(), first.detach().cpu(), firsted_img.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
+            # img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt_lerp.detach().cpu(), first.detach().cpu(), firsted_img.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
+            img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt_lerp.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
 
-            # name_list = ['gt_mag', 'mask', 'masked_gt_mag', 'first_out', 'second_out']
-            utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, scaler = scaler)
+            utils.save_samples(sample_folder = sample_folder, sample_name = 'epoch%d' % (epoch + 1), img_list = img_list, dbpow='pow')
+
+            gt_pad = torch.nn.functional.pad(gt, (0, 3, 0, 1), mode='constant', value=0)
+            mask_pad = torch.nn.functional.pad(mask, (0, 3, 0, 1), mode='constant', value=0)
+            masked_gt_pad = torch.nn.functional.pad(masked_gt, (0, 3, 0, 1), mode='constant', value=0)
+            masked_gt_lerp_pad = torch.nn.functional.pad(masked_gt_lerp, (0, 3, 0, 1), mode='constant', value=0)
+            second_pad = torch.nn.functional.pad(second, (0, 3, 0, 1), mode='constant', value=0)
+            seconded_img_pad = torch.nn.functional.pad(seconded_img, (0, 3, 0, 1), mode='constant', value=0)
+
+            audio = audio.cuda()
+            complex_spec = audio_utils.get_complex_spectrogram(audio[0])
+            complex_spec_comp = torch.view_as_complex(complex_spec.squeeze(0))
+            
+            gfl_gt_pad = custom_gflim(gt_pad.unsqueeze(0), complex_spec_comp, mask_pad)
+            gfl_masked_gt_pad = custom_gflim(masked_gt_pad.unsqueeze(0), complex_spec_comp, mask_pad)
+            gfl_masked_gt_lerp_pad = custom_gflim(masked_gt_lerp_pad.unsqueeze(0), complex_spec_comp, mask_pad)
+            gfl_second_pad = custom_gflim(second_pad.unsqueeze(0), complex_spec_comp, mask_pad)
+            gfl_second_img_pad = custom_gflim(seconded_img_pad.unsqueeze(0), complex_spec_comp, mask_pad)
+            
+            torchaudio.save(os.path.join(sample_folder, 'epoch' + str(epoch+1) + '_gt.wav'), audio[0].detach().cpu(), sample_rate=44100)
+            torchaudio.save(os.path.join(sample_folder, 'epoch' + str(epoch+1) + '_gt_gflim.wav'), gfl_gt_pad.detach().cpu(), sample_rate=44100)
+            torchaudio.save(os.path.join(sample_folder, 'epoch' + str(epoch+1) + '_gt_masked_gflim.wav'), gfl_masked_gt_pad.detach().cpu(), sample_rate=44100)
+            torchaudio.save(os.path.join(sample_folder, 'epoch' + str(epoch+1) + '_gt_masked_lerp_gflim.wav'), gfl_masked_gt_lerp_pad.detach().cpu(), sample_rate=44100)
+            torchaudio.save(os.path.join(sample_folder, 'epoch' + str(epoch+1) + '_pred_gfli.wav'), gfl_second_pad.detach().cpu(), sample_rate=44100)
+            torchaudio.save(os.path.join(sample_folder, 'epoch' + str(epoch+1) + '_pred_gflim.wav'), gfl_second_img_pad.detach().cpu(), sample_rate=44100)
+            
+
 
 def LSGAN_trainer(opt):
     # ----------------------------------------
