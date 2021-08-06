@@ -24,8 +24,11 @@ class InpaintDataset(Dataset):
     def __init__(self, opt, split):
         self.opt = opt
         self.split = split
-        self.pow_to_db = torchaudio.transforms.AmplitudeToDB('power')
         self.get_list()
+        if opt.spec_pow == 1:
+            self.linear_to_db = torchaudio.transforms.AmplitudeToDB('magnitude')
+        elif opt.spec_pow == 2:
+            self.linear_to_db = torchaudio.transforms.AmplitudeToDB('power')
         
     def __getitem__(self, index):
         if self.split == 'TRAIN':
@@ -47,27 +50,41 @@ class InpaintDataset(Dataset):
                 masks_dir = '../split/fixedmask_freeform_2048'
                 mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
             audio = self.get_valid_audio(index)
-        # spec = self.get_comlex_spectrogram(audio)
-        spec = self.get_spectrogram(audio).unsqueeze(-1)
-        spec = self.pow_to_db(spec)
-        spec = spec.squeeze(0).permute(2, 0, 1).contiguous()
         mask = torch.from_numpy(mask.astype(np.float32)).contiguous()
+        mask_init = mask.clone()
 
-        phase = 0
-        if self.opt.phase == 1:
-            complex_spec = self.get_complex_spectrogram(audio)
-            complex_spec_comp = torch.view_as_complex(complex_spec)
-            phase = torch.angle(complex_spec_comp)
-            phase_np = np.asarray(phase)
-            phase_unwrapped = np.unwrap(phase_np)
-            phase = torch.tensor(phase_unwrapped).float()
-            spec = torch.cat([spec, phase], 0)
+        complex_spec = self.get_spectrogram(audio, power=None, return_complex=1)
+        spec = torch.abs(complex_spec)
+        spec = spec ** self.opt.spec_pow
+        spec_phase = torch.angle(complex_spec)
 
         if self.opt.mask_init == 'lerp':
-            lerp_mask = self.make_lerp_mask(spec, mask)
-            return audio, spec, mask, lerp_mask
+            mask_init = self.make_lerp_mask(spec[0:1], mask_init)
+            mask_init = self.linear_to_db(mask_init) * mask
+            spec = self.linear_to_db(spec)
+            if self.opt.phase == 1:
+                lerp_mask_phase = torch.tensor(np.random.uniform(low=-np.pi, high=np.pi, size=lerp_mask.shape)).float() * mask
+                # lerp_mask_phase = self.make_lerp_mask(spec_phase[0:1], mask)
+                # lerp_mask_phase_np = np.asarray(lerp_mask_phase)
+                # lerp_mask_phase_np_unwrapped = np.unwrap(lerp_mask_phase_np)
+                # lerp_mask_phase_unwrapped = torch.tensor(lerp_mask_phase_np_unwrapped).float() * mask
+                # lerp_mask = torch.cat([lerp_mask, lerp_mask_phase_unwrapped], 0)
+                mask_init = torch.cat([mask_init, lerp_mask_phase], 0)
+                # spec_phase_np = np.asarray(spec_phase)
+                # spec_phase_np_unwrapped = np.unwrap(spec_phase_np)
+                # spec_phase_unwrapped = torch.tensor(spec_phase_np_unwrapped).float()
+                # spec = torch.cat([spec, spec_phase_unwrapped], 0)
+                spec = torch.cat([spec, spec_phase], 0)
         else:
-            return audio, spec, mask, mask
+            spec = self.linear_to_db(spec)
+            if self.opt.phase == 1:
+                spec = torch.cat([spec, spec_phase], 0)
+
+        if self.opt.pos_enc != None:
+            pos_enc = self.get_poistional_encoding(self.opt.image_height, 44100/2, scale=self.opt.pos_enc)
+            spec = torch.cat([spec, pos_enc], 0)
+
+        return audio, spec, mask, mask_init
 
     
     def get_list(self):
@@ -123,7 +140,7 @@ class InpaintDataset(Dataset):
             audio, sr = torchaudio.load(audio_path, frame_offset=0, num_frames=self.opt.input_length)
         return audio
 
-    def get_complex_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=None):
+    def get_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=2, return_complex=0):
         spectrogram = T.Spectrogram(
         n_fft=n_fft,
         win_length=win_len,
@@ -131,20 +148,15 @@ class InpaintDataset(Dataset):
         center=True,
         pad_mode="reflect",
         power=power,
-        return_complex=0,
+        return_complex=return_complex,
         )
         return spectrogram(waveform)
 
-    def get_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=2):
-        spectrogram = T.Spectrogram(
-        n_fft=n_fft,
-        win_length=win_len,
-        hop_length=hop_len,
-        center=True,
-        pad_mode="reflect",
-        power=power,
-        )
-        return spectrogram(waveform)
+    # def linear_to_db(self, spec):
+    #     spec_sum = torch.sum(spec, -2)
+    #     nonzero_area = torch.where(spec_sum != 0)[-1]
+    #     spec[...,nonzero_area] = self.to_db(spec[...,nonzero_area])
+    #     return spec
 
     def random_bbox(self):
         max_freq_ix = self.opt.image_height - self.opt.bbox_shape
@@ -210,10 +222,20 @@ class InpaintDataset(Dataset):
         start = torch.min(mask_range[-1])
         end = torch.max(mask_range[-1])
         merged = torch.cat([spec_pad[:,:,start], spec_pad[:,:,end+2]], 0)
-        lerp = torch.nn.functional.interpolate(merged.permute(1, 0).unsqueeze(0), size=end-start+1, mode='linear')
+        lerp = torch.nn.functional.interpolate(merged.permute(1, 0).unsqueeze(0), size=end-start+1, mode='linear', align_corners=True)
         lerp_mask = torch.zeros(mask.shape)
         lerp_mask[:, :, start:end+1] = lerp
         return lerp_mask
         
+    def get_poistional_encoding(self, freq_bin, max_freq, scale='cartesian'):
+        freq = np.linspace(0, max_freq, freq_bin)
+        if scale == 'mel':
+            freq = 2595 * np.log10(1+freq/700)
+        freq = freq / np.max(freq)
+        freq = torch.from_numpy(freq.astype(np.float32)).contiguous()
+        freq = freq.reshape(1, -1, 1)
+        freq = freq.expand(1, 1025, 431)
+        return freq
+
     def __len__(self):
         return len(self.fl)

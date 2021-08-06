@@ -20,7 +20,7 @@ def _get_complex_dtype(real_dtype: torch.dtype):
         return torch.complex32
     raise ValueError(f'Unexpected dtype {real_dtype}')
 
-def get_complex_spectrogram(waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=None, device='cuda'):
+def get_spectrogram(waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=2, return_complex=0, device=None):
     spectrogram = T.Spectrogram(
     n_fft=n_fft,
     win_length=win_len,
@@ -28,21 +28,10 @@ def get_complex_spectrogram(waveform, n_fft = 2048, win_len = 2048, hop_len = 51
     center=True,
     pad_mode="reflect",
     power=power,
-    return_complex=0,
+    return_complex=return_complex,
     )
     if device == 'cuda':
         spectrogram.cuda()
-    return spectrogram(waveform)
-
-def get_spectrogram(waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=2):
-    spectrogram = T.Spectrogram(
-    n_fft=n_fft,
-    win_length=win_len,
-    hop_length=hop_len,
-    center=True,
-    pad_mode="reflect",
-    power=power,
-    )
     return spectrogram(waveform)
 
 def custom_griffinlim(specgram, input_angle, mask, window, n_fft, hop_length, win_length, power, n_iter,
@@ -72,7 +61,8 @@ def custom_griffinlim(specgram, input_angle, mask, window, n_fft, hop_length, wi
         angles = torch.full(
             specgram.size(), 0,
             dtype=_get_complex_dtype(specgram.dtype), device=specgram.device)
-
+    elif angle_init == 'pred':
+        angles = input_angle
 
     # And initialize the previous iterate to 0
     tprev = torch.tensor(0., dtype=specgram.dtype, device=specgram.device)

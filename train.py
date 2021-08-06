@@ -17,7 +17,7 @@ if __name__ == "__main__":
     parser.add_argument('--data_dir', type = str, default = '/data1/singing_inpainting/dataset', help = 'dataset directory')
     parser.add_argument('--gan_type', type = str, default = 'WGAN', help = 'the type of GAN for training')
     parser.add_argument('--multi_gpu', type = bool, default = True, help = 'nn.Parallel needs or not')
-    parser.add_argument('--gpu_ids', type = str, default = "3, 4, 5", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
+    parser.add_argument('--gpu_ids', type = str, default = "5, 6", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
     parser.add_argument('--cudnn_benchmark', type = bool, default = True, help = 'True for unchanged input data type')
     parser.add_argument('--checkpoint_interval', type = int, default = 1, help = 'interval between model checkpoints')
     # parser.add_argument('--load_name', type = str, default = '/data2/personal/jaejun/inpainting/results/210717/time/models/deepfillv2_WGAN_epoch30_batchsize4.pth', help = '')
@@ -37,6 +37,7 @@ if __name__ == "__main__":
     parser.add_argument('--lambda_gan', type = float, default = 1, help = 'the parameter of valid loss of AdaReconL1Loss; 0 is recommended')
     parser.add_argument('--num_workers', type = int, default = 8, help = 'number of cpu threads to use during batch generation')
     parser.add_argument('--loss_region', type=int, default=3, help= '1 for whole loss, 2 for mask only loss, 3 for combination')
+    parser.add_argument('--gp_weight', type=int, default=None, help='gradient penalty weight for wgan gp')
     # Network parameters
     parser.add_argument('--stage_num', type = int, default = 1, help = 'two stage method or just only stage')
     parser.add_argument('--in_channels', type = int, default = 2, help = 'input real&complex spec + 1 channel mask')
@@ -48,7 +49,7 @@ if __name__ == "__main__":
     parser.add_argument('--init_type', type = str, default = 'xavier', help = 'the initialization type')
     parser.add_argument('--init_gain', type = float, default = 0.02, help = 'the initialization gain')
     parser.add_argument('--discriminator', type = str, default = 'patch', help = 'the initialization gain')
-    
+    parser.add_argument('--pos_enc', type=str, default=None, help = 'positinoal embedding')
     # Dataset parameters
     parser.add_argument('--baseroot', type = str, default = "C:\\Users\\yzzha\\Desktop\\dataset\\ILSVRC2012_val_256", help = 'the training folder')
     parser.add_argument('--mask_type', type = str, default = 'time', help = 'mask type')
@@ -56,6 +57,7 @@ if __name__ == "__main__":
     parser.add_argument('--image_height', type = int, default = 1025, help = 'height of image')
     parser.add_argument('--image_width', type = int, default = 431, help = 'width of image')
     parser.add_argument('--input_length', type = int, default = 220500, help = 'input length (sample)')
+    parser.add_argument('--spec_pow', type=int, default=2, help='1 for amplitude spec, 2 for power spec')
     parser.add_argument('--phase', type=int, default = 0, help = 'whether give phase information or not')
     parser.add_argument('--margin', type = int, default = 10, help = 'margin of image')
     # parser.add_argument('--mask_num', type = int, default = 15, help = 'number of mask')
@@ -67,6 +69,9 @@ if __name__ == "__main__":
     opt.save_path = os.path.join('/data2/personal/jaejun/inpainting/results', opt.save_folder, opt.save_model, 'models')
     opt.sample_path = os.path.join('/data2/personal/jaejun/inpainting/results', opt.save_folder, opt.save_model, 'samples')
     if opt.phase == 1:
+        opt.in_channels = opt.in_channels + 1
+        opt.out_channels = opt.out_channels + 1
+    if opt.pos_enc != None:
         opt.in_channels = opt.in_channels + 1
     print(opt)
     

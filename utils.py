@@ -223,7 +223,8 @@ def plot_spectrogram(spec, ax , title=None, ylabel='freq_bin', aspect='auto', xm
         im = ax.imshow(spec, origin='lower', aspect=aspect)
     elif dbpow == 'pow':
         im = ax.imshow(librosa.power_to_db(spec), origin='lower', aspect=aspect)
-
+    elif dbpow == 'amp':
+        im = ax.imshow(librosa.amplitude_to_db(spec), origin='lower', aspect=aspect)
     if xmax:
         ax.set_xlim((0, xmax))
     return im

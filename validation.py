@@ -29,8 +29,6 @@ if __name__ == "__main__":
     # General parameters
     parser.add_argument('--load_folder', type = str, default = 'test', help = 'saving path that is a folder')
     parser.add_argument('--load_model_folder', type = str, default = 'test', help = 'saving path that is a sub-folder')
-    # parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210723/1/models', help = 'saving path that is a folder')
-    # parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210723/1/samples', help = 'training samples path that is a folder')
     parser.add_argument('--data_dir', type = str, default = '/data1/singing_inpainting/dataset', help = 'dataset directory')
     parser.add_argument('--gan_type', type = str, default = 'WGAN', help = 'the type of GAN for training')
     parser.add_argument('--gpu_ids', type = str, default = "6", help = '')
@@ -42,6 +40,8 @@ if __name__ == "__main__":
     parser.add_argument('--image_height', type = int, default = 1025, help = 'height of image')
     parser.add_argument('--image_width', type = int, default = 431, help = 'width of image')
     parser.add_argument('--input_length', type = int, default = 220500, help = 'input length (sample)')
+    parser.add_argument('--spec_pow', type=int, default=2, help='1 for amplitude spec, 2 for power spec')
+    parser.add_argument('--phase', type=int, default = 0, help = 'whether give phase information or not')
     # Network parameters
     parser.add_argument('--stage_num', type = int, default = 1, help = 'two stage method or just only stage')
     parser.add_argument('--in_channels', type = int, default = 2, help = 'input mag + 1 channel mask')
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     parser.add_argument('--pad_type', type = str, default = 'zero', help = 'the padding type')
     parser.add_argument('--activation', type = str, default = 'lrelu', help = 'the activation type')
     parser.add_argument('--norm', type = str, default = 'in', help = 'normalization type')
-    
+    parser.add_argument('--pos_enc', type=str, default=None, help = 'positinoal embedding')
     # Other parameters
     parser.add_argument('--num_workers', type = int, default = 8, help = 'number of cpu threads to use during batch generation')
     parser.add_argument('--save_interval', type = int, default = 14, help = 'interval length for save png and audio')
@@ -59,6 +59,11 @@ if __name__ == "__main__":
     opt.load_dir = os.path.join('/data2/personal/jaejun/inpainting/results', opt.load_folder, opt.load_model_folder, 'models')
     opt.model_name = 'deepfillv2_WGAN_epoch' + str(opt.epoched) + '_batchsize' + str(opt.batch_sized) + '.pth'
     opt.result_dir = os.path.join('/data2/personal/jaejun/inpainting/results', opt.load_folder, opt.load_model_folder, 'validation_' + str(opt.epoched))
+    if opt.phase == 1:
+        opt.in_channels = opt.in_channels + 1
+        opt.out_channels = opt.out_channels + 1
+    if opt.pos_enc != None:
+        opt.in_channels = opt.in_channels + 1
     print(opt)
 
     warnings.filterwarnings("ignore")
@@ -89,14 +94,22 @@ if __name__ == "__main__":
     L1Loss = nn.L1Loss()
     relu = nn.ReLU()
 
-    # torch_gflim = torchaudio.transforms.GriffinLim(n_fft=2048, n_iter=60, win_length=2048, hop_length=512)
-    # torch_gflim.cuda()
-    custom_gflim = audio_utils.Custom_GriffinLim(n_fft=2048, n_iter=60, win_length=2048, hop_length=512)
+    torch_gflim = torchaudio.transforms.GriffinLim(n_fft=2048, n_iter=60, win_length=2048, hop_length=512, power=opt.spec_pow)
+    torch_gflim.cuda()
+    custom_gflim = audio_utils.Custom_GriffinLim(n_fft=2048, n_iter=60, win_length=2048, hop_length=512, power=opt.spec_pow)
     custom_gflim.cuda()
+    if opt.phase == 1:
+        custom_gflim_phase = audio_utils.Custom_GriffinLim(n_fft=2048, n_iter=60, win_length=2048, hop_length=512, power=opt.spec_pow, rand_init='pred')
+        custom_gflim_phase.cuda()
 
-    # def db_to_power(db, ref=1.0, power=1):
+    # def db_to_linear(db, ref=1.0, power=1):
         # return 10.0**(db/10.0) * torch.tensor(ref)
-    db_to_power = torchaudio.functional.DB_to_amplitude
+    def db_to_linear(db_input, opt):
+        if opt.spec_pow == 2:
+            linear_output = torchaudio.functional.DB_to_amplitude(db_input, ref=1.0, power=1)
+        elif opt.spec_pow == 1:
+            linear_output = torchaudio.functional.DB_to_amplitude(db_input, ref=1.0, power=0.5)
+        return linear_output
 
     first_MaskL1Losses = []
     second_MaskL1Losses = []
@@ -114,8 +127,9 @@ if __name__ == "__main__":
             img = img.cuda()
             mask = mask.cuda()
             mask_init = mask_init.cuda()
+            mask_sum = torch.sum(mask).detach().cpu()
 
-            first_out, second_out = model(img, mask, mask_init)
+            second_out = model(img, mask, mask_init)
             
             img = img * scaler
             # first_out = first_out * scaler
@@ -124,18 +138,17 @@ if __name__ == "__main__":
             # first_out_wholeimg = img * (1 - mask) + first_out * mask        # in range [0, 1]
             second_out_wholeimg = img * (1 - mask) + second_out * mask
             # first_MaskL1Loss = L1Loss(first_out_wholeimg, img)
-            second_MaskL1Loss = L1Loss(second_out_wholeimg, img)
+            second_MaskL1Loss = L1Loss(second_out_wholeimg[:,0:1,:,:], img[:,0:1,:,:])
 
-            mask_sum = torch.sum(mask).detach().cpu()
 
             if mask_sum == 0:
                 only_mask_region_loss = 0
             else:
-                only_mask_region_loss = L1Loss(img*mask, second_out*mask) / mask_sum * 10250
+                only_mask_region_loss = L1Loss(img[:,0:1,:,:]*mask, second_out[:,0:1,:,:]*mask) / mask_sum * 10250
             
             mask_idx = torch.where(mask[...,:]==1)[-1]
-            psnr = utils.mask_psnr(second_out, img, mask_idx, pixel_max_cnt=100)
-            ssim = utils.mask_ssim(second_out, img, mask_idx)
+            psnr = utils.mask_psnr(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx, pixel_max_cnt=100)
+            ssim = utils.mask_ssim(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx)
             
             # first_MaskL1Losses.append(first_MaskL1Loss.detach().cpu().numpy())
             second_MaskL1Losses.append(second_MaskL1Loss.detach().cpu().numpy())
@@ -144,20 +157,23 @@ if __name__ == "__main__":
             ssims.append(ssim)
 
             if batch_idx % opt.save_interval == 0:
-                gt = db_to_power(img[0,0,:,:] * scaler, ref=1.0, power=1)
+                gt = db_to_linear(img[0,0,:,:] * scaler, opt)
                 mask = mask[0,0,:,:]
-                mask_init = db_to_power(mask_init[0,0,:,:], ref=1.0, power=1) * mask
+                mask_init = db_to_linear(mask_init[0,0,:,:], opt) * mask
                 masked_gt = gt * (1 - mask)
                 masked_gt_lerp = gt * (1 - mask) + mask_init
-                # first = db_to_power(first_out[0,0,:,:] * scaler, ref=1.0, power=1)
+                # first = db_to_linear(first_out[0,0,:,:] * scaler, ref=1.0, power=1)
                 # firsted_img = gt * (1 - mask) + first * mask
-                second = db_to_power(second_out[0,0,:,:] * scaler, ref=1.0, power=1)
+                second = db_to_linear(second_out[0,0,:,:] * scaler, opt)
                 seconded_img = gt * (1 - mask) + second * mask
 
-                # img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt_lerp.detach().cpu(), first.detach().cpu(), firsted_img.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
                 img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt_lerp.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
 
-                utils.save_samples(sample_folder = save_dir, sample_name = str(batch_idx), img_list = img_list, dbpow='pow')
+                if opt.spec_pow == 2:
+                    dbpow = 'pow'
+                elif opt.spec_pow == 1:
+                    dbpow = 'amp'
+                utils.save_samples(sample_folder = save_dir, sample_name = str(batch_idx), img_list = img_list, dbpow=dbpow)
 
                 gt_pad = torch.nn.functional.pad(gt, (0, 3, 0, 1), mode='constant', value=0)
                 mask_pad = torch.nn.functional.pad(mask, (0, 3, 0, 1), mode='constant', value=0)
@@ -167,25 +183,43 @@ if __name__ == "__main__":
                 seconded_img_pad = torch.nn.functional.pad(seconded_img, (0, 3, 0, 1), mode='constant', value=0)
 
                 audio = audio.cuda()
-                complex_spec = audio_utils.get_complex_spectrogram(audio)
-                complex_spec_comp = torch.view_as_complex(complex_spec.squeeze(0))
-                # complex_spec_comp = complex_spec_comp / torch.abs(complex_spec_comp)
-
-                # gfl_gt_pad = torch_gflim(gt_pad)
-                # gfl_masked_gt_pad = torch_gflim(masked_gt_pad)
-                # gfl_masked_gt_lerp_pad = torch_gflim(masked_gt_lerp_pad)
-                # gfl_second_pad = torch_gflim(second_pad)
-                # gfl_second_img_pad = torch_gflim(seconded_img_pad)
+                complex_spec = audio_utils.get_spectrogram(audio[0], power=None, return_complex=1, device='cuda')
                 
+                if opt.phase == 1:
+                    seconded_mag_img_pad = seconded_img_pad ** (1 / opt.spec_pow)
+                    gt_phase = torch.angle(complex_spec)
+                    second_phase = second_out[0,1,:,:]
+                    second_phase_pad = torch.nn.functional.pad(second_phase, (0, 3, 0, 1), mode='constant', value=0)
+                    seconded_img_pad_phase = gt_phase * (1 - mask_pad) + second_phase_pad * mask_pad
+                    
+                    seconded_img_real = seconded_mag_img_pad * torch.cos(seconded_img_pad_phase)
+                    seconded_img_imaginary = seconded_mag_img_pad * torch.sin(seconded_img_pad_phase)
+                    seconded_img_cat = torch.cat([seconded_img_real, seconded_img_imaginary], 0)
+                    seconded_img_cat = seconded_img_cat.permute(1, 2, 0).contiguous()
+                    seconded_img_cat_complex = torch.view_as_complex(seconded_img_cat)
+
+                gfl_gt_pad = torch_gflim(gt_pad).unsqueeze(0)
+                gfl_masked_gt_pad = torch_gflim(masked_gt_pad).unsqueeze(0)
+                gfl_masked_gt_lerp_pad = torch_gflim(masked_gt_lerp_pad).unsqueeze(0)
+                gfl_second_pad = torch_gflim(second_pad).unsqueeze(0)
+                gfl_second_img_pad = torch_gflim(seconded_img_pad).unsqueeze(0)
+                # print(gfl_gt_pad.shape, gfl_masked_gt_pad.shape, gfl_masked_gt_lerp_pad.shape, gfl_second_pad.shape)
+
                 # print(complex_spec_comp.shape, gt_pad.shape, masked_gt_pad.shape, masked_gt_lerp.shape, second_pad.shape, seconded_img_pad.shape)
                 
-                mask_pad = torch.ones(mask_pad.shape).cuda()
-                gfl_gt_pad = custom_gflim(gt_pad.unsqueeze(0), complex_spec_comp, mask_pad)
-                gfl_masked_gt_pad = custom_gflim(masked_gt_pad.unsqueeze(0), complex_spec_comp, mask_pad)
-                gfl_masked_gt_lerp_pad = custom_gflim(masked_gt_lerp_pad.unsqueeze(0), complex_spec_comp, mask_pad)
-                gfl_second_pad = custom_gflim(second_pad.unsqueeze(0), complex_spec_comp, mask_pad)
-                gfl_second_img_pad = custom_gflim(seconded_img_pad.unsqueeze(0), complex_spec_comp, mask_pad)
+                # gfl_gt_pad = custom_gflim(gt_pad.unsqueeze(0), complex_spec, mask_pad)
+                # gfl_masked_gt_pad = custom_gflim(masked_gt_pad.unsqueeze(0), complex_spec, mask_pad)
+                # gfl_masked_gt_lerp_pad = custom_gflim(masked_gt_lerp_pad.unsqueeze(0), complex_spec, mask_pad)
+                # gfl_second_pad = custom_gflim(second_pad.unsqueeze(0), complex_spec, mask_pad)
+                # gfl_second_img_pad = custom_gflim(seconded_img_pad.unsqueeze(0), complex_spec, mask_pad)
                 
+                if opt.phase == 1:
+                    second_pred_phase_istft = torch.istft(seconded_img_cat_complex, n_fft=2048, hop_length=512, win_length=2048)
+                    complex_spec_pred = complex_spec * (1-mask_pad) + seconded_img_cat_complex * mask_pad
+                    second_pred_phase_gflim = custom_gflim_phase(seconded_img_pad.unsqueeze(0), complex_spec_pred, mask_pad)
+                    torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_pred_phase_istft.wav'), second_pred_phase_istft.unsqueeze(0).detach().cpu(), sample_rate=44100)
+                    torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_pred_phase_gflim_init.wav'), second_pred_phase_gflim.detach().cpu(), sample_rate=44100)
+
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt.wav'), audio[0].detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt_gflim.wav'), gfl_gt_pad.detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt_masked_gflim.wav'), gfl_masked_gt_pad.detach().cpu(), sample_rate=44100)

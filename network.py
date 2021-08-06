@@ -131,7 +131,7 @@ class GatedGenerator(nn.Module):
             second_masked_img = img * (1 - mask) + mask_init
             second_in = torch.cat((second_masked_img, mask), 1)
             second_out = self.refinement(second_in)
-            return second_out, second_out
+            return second_out
 
 
 #-----------------------------------------------
@@ -165,31 +165,31 @@ class jj_Discriminator(nn.Module):
     def __init__(self, opt):
         super(jj_Discriminator, self).__init__()
         # Down sampling
-        self.block1 = Conv2dLayer(opt.in_channels, opt.latent_channels, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = True)
-        self.block2 = Conv2dLayer(opt.latent_channels, opt.latent_channels * 2, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block3 = Conv2dLayer(opt.latent_channels * 2, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block4 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block5 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block6 = Conv2dLayer(opt.latent_channels * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = 'none', norm = 'none', sn = True)
-        self.fc1 = nn.Linear(32*13, 512)
-        self.fc2 = nn.Linear(512, 1)
-        self.sigmoid = nn.Sigmoid()
-
+        self.block1 = Conv2dLayer(opt.in_channels, opt.latent_channels, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = 0)
+        self.block2 = Conv2dLayer(opt.latent_channels, opt.latent_channels * 2, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
+        self.block3 = Conv2dLayer(opt.latent_channels * 2, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
+        self.block4 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
+        self.block5 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
+        self.block6 = Conv2dLayer(opt.latent_channels * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = 0)
+        self.features_to_prob = nn.Sequential(
+            nn.Linear(32 * 13, 1),
+            nn.Sigmoid()
+        )        
     def forward(self, img, mask):
         # the input x should contain 4 channels because it is a combination of recon image and mask
-        x = torch.cat((img, mask), 1)
-        x = self.block1(x)                                      # out: [B, 64, 256, 256]
+        x1 = torch.cat((img, mask), 1)
+        x = self.block1(x1)                                      # out: [B, 64, 256, 256]
         x = self.block2(x)                                      # out: [B, 128, 128, 128]
         x = self.block3(x)                                      # out: [B, 256, 64, 64]
         x = self.block4(x)                                      # out: [B, 256, 32, 32]
         x = self.block5(x)                                      # out: [B, 256, 16, 16]
         x = self.block6(x)                                      # out: [B, 256, 8, 8]
-        x = x.reshape(-1, 32*13)
-        x = self.fc1(x)
-        x = self.fc2(x)
-        x = self.sigmoid(x)
+        batch_size = x1.shape[0]
+        x = x.view(batch_size, -1)        
+        x = self.features_to_prob(x)
         return x
-        
+
+
 # ----------------------------------------
 #            Perceptual Network
 # ----------------------------------------
