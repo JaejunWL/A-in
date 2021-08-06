@@ -15,6 +15,8 @@ if __name__ == "__main__":
     # parser.add_argument('--save_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210723/1/models', help = 'saving path that is a folder')
     # parser.add_argument('--sample_path', type = str, default = '/data2/personal/jaejun/inpainting/results/210723/1/samples', help = 'training samples path that is a folder')
     parser.add_argument('--data_dir', type = str, default = '/data1/singing_inpainting/dataset', help = 'dataset directory')
+    parser.add_argument('--add_datasets', type = str, default = [], help = 'datasets to use')
+    # parser.add_argument('--add_datasets', type = str, default = ['artistscard-eng_singing', 'artistscard_singing', 'bighit_singing', 'changjo_singing', 'supertone_singing'], help = 'datasets to use')
     parser.add_argument('--gan_type', type = str, default = 'WGAN', help = 'the type of GAN for training')
     parser.add_argument('--multi_gpu', type = bool, default = True, help = 'nn.Parallel needs or not')
     parser.add_argument('--gpu_ids', type = str, default = "5, 6", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
@@ -51,7 +53,6 @@ if __name__ == "__main__":
     parser.add_argument('--discriminator', type = str, default = 'patch', help = 'the initialization gain')
     parser.add_argument('--pos_enc', type=str, default=None, help = 'positinoal embedding')
     # Dataset parameters
-    parser.add_argument('--baseroot', type = str, default = "C:\\Users\\yzzha\\Desktop\\dataset\\ILSVRC2012_val_256", help = 'the training folder')
     parser.add_argument('--mask_type', type = str, default = 'time', help = 'mask type')
     parser.add_argument('--mask_init', type = str, default = 'lerp', help = 'mask initialie point')
     parser.add_argument('--image_height', type = int, default = 1025, help = 'height of image')
@@ -103,3 +104,4 @@ if __name__ == "__main__":
     if opt.gan_type == 'LSGAN':
         trainer.LSGAN_trainer(opt)
     
+# python train.py --save_folder=210807 --save_model=4 --gpu_ids='7,8' --lambda_l1=1 --spec_pow=1 --pos_enc=mel

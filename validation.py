@@ -30,6 +30,7 @@ if __name__ == "__main__":
     parser.add_argument('--load_folder', type = str, default = 'test', help = 'saving path that is a folder')
     parser.add_argument('--load_model_folder', type = str, default = 'test', help = 'saving path that is a sub-folder')
     parser.add_argument('--data_dir', type = str, default = '/data1/singing_inpainting/dataset', help = 'dataset directory')
+    parser.add_argument('--dataset', type = str, default = ['margs_test', 'nuss_test', 'vocals_test', 'artistscard-eng', 'artistscard', 'bighit', 'changjo', 'supertone'], help = 'datasets to use')
     parser.add_argument('--gan_type', type = str, default = 'WGAN', help = 'the type of GAN for training')
     parser.add_argument('--gpu_ids', type = str, default = "6", help = '')
     parser.add_argument('--epoched', type = int, default = None, help = 'which epoch model you want to use')
@@ -92,7 +93,7 @@ if __name__ == "__main__":
     model.cuda()
 
     L1Loss = nn.L1Loss()
-    relu = nn.ReLU()
+    bw_L1Loss = nn.L1Loss(reduction='none')
 
     torch_gflim = torchaudio.transforms.GriffinLim(n_fft=2048, n_iter=60, win_length=2048, hop_length=512, power=opt.spec_pow)
     torch_gflim.cuda()
@@ -113,13 +114,10 @@ if __name__ == "__main__":
 
     first_MaskL1Losses = []
     second_MaskL1Losses = []
-    only_mask_region_losses = []
     psnrs = []
     ssims = []
     with torch.no_grad():
         for batch_idx, (audio, img, mask, mask_init) in enumerate(tqdm(dataloader)):
-            scaler = 1
-            img = img / scaler
             img = img[:,:,:opt.image_height-1,:opt.image_width-3]
             mask = mask[:,:,:opt.image_height-1,:opt.image_width-3]
             mask_init = mask_init[:,:,:opt.image_height-1,:opt.image_width-3]
@@ -127,44 +125,36 @@ if __name__ == "__main__":
             img = img.cuda()
             mask = mask.cuda()
             mask_init = mask_init.cuda()
-            mask_sum = torch.sum(mask).detach().cpu()
+
+            mask_sum = torch.sum(mask, [-3, -2, -1]).detach()
+            mask_loss_scaler = opt.image_height * opt.image_width / mask_sum
 
             second_out = model(img, mask, mask_init)
             
-            img = img * scaler
-            # first_out = first_out * scaler
-            second_out = second_out * scaler
-
-            # first_out_wholeimg = img * (1 - mask) + first_out * mask        # in range [0, 1]
             second_out_wholeimg = img * (1 - mask) + second_out * mask
-            # first_MaskL1Loss = L1Loss(first_out_wholeimg, img)
-            second_MaskL1Loss = L1Loss(second_out_wholeimg[:,0:1,:,:], img[:,0:1,:,:])
 
+            bw_second_MaskL1Loss = torch.mean(bw_L1Loss(second_out_wholeimg[:,0:1,:,:]*mask, img[:,0:1,:,:]*mask), [1,2,3]) * mask_loss_scaler
+            second_MaskL1Loss = torch.mean(bw_second_MaskL1Loss)
 
-            if mask_sum == 0:
-                only_mask_region_loss = 0
-            else:
-                only_mask_region_loss = L1Loss(img[:,0:1,:,:]*mask, second_out[:,0:1,:,:]*mask) / mask_sum * 10250
-            
             mask_idx = torch.where(mask[...,:]==1)[-1]
             psnr = utils.mask_psnr(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx, pixel_max_cnt=100)
             ssim = utils.mask_ssim(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx)
             
             # first_MaskL1Losses.append(first_MaskL1Loss.detach().cpu().numpy())
             second_MaskL1Losses.append(second_MaskL1Loss.detach().cpu().numpy())
-            only_mask_region_losses.append(only_mask_region_loss.detach().cpu().numpy())
             psnrs.append(psnr)
             ssims.append(ssim)
 
             if batch_idx % opt.save_interval == 0:
-                gt = db_to_linear(img[0,0,:,:] * scaler, opt)
+                gt = db_to_linear(img[0,0,:,:], opt)
                 mask = mask[0,0,:,:]
-                mask_init = db_to_linear(mask_init[0,0,:,:], opt) * mask
+                if opt.mask_init == 'lerp':
+                    mask_init = db_to_linear(mask_init[0,0,:,:], opt) * mask
+                else:
+                    mask_init = mask_init[0,0,:,:] * mask
                 masked_gt = gt * (1 - mask)
                 masked_gt_lerp = gt * (1 - mask) + mask_init
-                # first = db_to_linear(first_out[0,0,:,:] * scaler, ref=1.0, power=1)
-                # firsted_img = gt * (1 - mask) + first * mask
-                second = db_to_linear(second_out[0,0,:,:] * scaler, opt)
+                second = db_to_linear(second_out[0,0,:,:], opt)
                 seconded_img = gt * (1 - mask) + second * mask
 
                 img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt_lerp.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
@@ -227,7 +217,6 @@ if __name__ == "__main__":
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_pred_gfli.wav'), gfl_second_pad.detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_pred_gflim.wav'), gfl_second_img_pad.detach().cpu(), sample_rate=44100)
 
-        print("Whole L1:", np.mean(second_MaskL1Losses))
-        print("Mask  L1:", np.mean(only_mask_region_losses))
-        print("PSNR    :", np.mean(psnrs))
-        print("SSIM    :", np.mean(ssims))
+        print("Mask L1:", np.mean(second_MaskL1Losses))
+        print("PSNR   :", np.mean(psnrs))
+        print("SSIM   :", np.mean(ssims))

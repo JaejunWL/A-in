@@ -3,6 +3,11 @@ import cv2
 import argparse
 import librosa
 import numpy as np
+import easydict
+import matplotlib
+import matplotlib.pyplot as plt
+from IPython.display import Audio, display
+from sklearn.model_selection import train_test_split
 
 import torch
 import torchaudio
@@ -11,14 +16,9 @@ from torch.utils import data
 from torchvision import transforms
 from torch.utils.data import Dataset
 
-import matplotlib
-import matplotlib.pyplot as plt
-from IPython.display import Audio, display
+import audio_utils
 
-import easydict
-from sklearn.model_selection import train_test_split
 ALLMASKTYPES = ['time', 'bbox', 'freeform']
-
 
 class InpaintDataset(Dataset):
     def __init__(self, opt, split):
@@ -54,31 +54,22 @@ class InpaintDataset(Dataset):
         mask_init = mask.clone()
 
         complex_spec = self.get_spectrogram(audio, power=None, return_complex=1)
-        spec = torch.abs(complex_spec)
-        spec = spec ** self.opt.spec_pow
-        spec_phase = torch.angle(complex_spec)
+        mag_spec = torch.abs(complex_spec)
+        mag_spec = mag_spec ** self.opt.spec_pow
 
         if self.opt.mask_init == 'lerp':
-            mask_init = self.make_lerp_mask(spec[0:1], mask_init)
+            mask_init = self.make_lerp_mask(mag_spec[0:1], mask_init)
             mask_init = self.linear_to_db(mask_init) * mask
-            spec = self.linear_to_db(spec)
+            spec = self.linear_to_db(mag_spec)
             if self.opt.phase == 1:
-                lerp_mask_phase = torch.tensor(np.random.uniform(low=-np.pi, high=np.pi, size=lerp_mask.shape)).float() * mask
-                # lerp_mask_phase = self.make_lerp_mask(spec_phase[0:1], mask)
-                # lerp_mask_phase_np = np.asarray(lerp_mask_phase)
-                # lerp_mask_phase_np_unwrapped = np.unwrap(lerp_mask_phase_np)
-                # lerp_mask_phase_unwrapped = torch.tensor(lerp_mask_phase_np_unwrapped).float() * mask
-                # lerp_mask = torch.cat([lerp_mask, lerp_mask_phase_unwrapped], 0)
-                mask_init = torch.cat([mask_init, lerp_mask_phase], 0)
-                # spec_phase_np = np.asarray(spec_phase)
-                # spec_phase_np_unwrapped = np.unwrap(spec_phase_np)
-                # spec_phase_unwrapped = torch.tensor(spec_phase_np_unwrapped).float()
-                # spec = torch.cat([spec, spec_phase_unwrapped], 0)
-                spec = torch.cat([spec, spec_phase], 0)
+                phase_spec = torch.angle(complex_spec)
+                mask_init = torch.cat([mask_init, mask], 0)
+                spec = torch.cat([spec, phase_spec], 0)
         else:
-            spec = self.linear_to_db(spec)
+            spec = self.linear_to_db(mag_spec)
             if self.opt.phase == 1:
-                spec = torch.cat([spec, spec_phase], 0)
+                phase_spec = torch.angle(complex_spec)
+                spec = torch.cat([spec, phase_spec], 0)
 
         if self.opt.pos_enc != None:
             pos_enc = self.get_poistional_encoding(self.opt.image_height, 44100/2, scale=self.opt.pos_enc)
@@ -86,58 +77,53 @@ class InpaintDataset(Dataset):
 
         return audio, spec, mask, mask_init
 
-    
     def get_list(self):
-        margs_trainvalid = np.loadtxt('../split/margs_trainvalid.txt', delimiter=',', dtype=str)
-        margs_test = np.loadtxt('../split/margs_test.txt', delimiter=',', dtype=str)
-        nuss_trainvalid = np.loadtxt('../split/nuss_trainvalid.txt', delimiter=',', dtype=str)
-        nuss_test = np.loadtxt('../split/nuss_test.txt', delimiter=',', dtype=str)
-        vocals_trainvalid = np.loadtxt('../split/vocals_trainvalid.txt', delimiter=',', dtype=str)
-        vocals_test = np.loadtxt('../split/vocals_test.txt', delimiter=',', dtype=str)
-
-        margs_train, margs_valid = train_test_split(margs_trainvalid, test_size=0.1, shuffle=False, random_state=21)
-        nuss_train, nuss_valid = train_test_split(nuss_trainvalid, test_size=0.1, shuffle=False, random_state=21)
-        vocals_train, vocals_valid = train_test_split(vocals_trainvalid, test_size=0.1, shuffle=False, random_state=21)
-
-        if self.split == 'TRAIN':
-            train_list = self.dataset_merge(list(margs_train) + list(nuss_train) + list(vocals_train))
-            self.fl = train_list
-        elif self.split == 'VALID':
-            valid_list = self.dataset_merge(list(margs_valid) + list(nuss_valid) + list(vocals_valid))
-            self.fl = valid_list
-        elif self.split == 'TEST':
-            test_list = self.dataset_merge(list(margs_test) + list(nuss_test) + list(vocals_test))
-            self.fl = test_list
-    
-    def dataset_merge(self, dataset):
         merged_dataset = []
-        for ix, lis in enumerate(dataset):
-            dat = torchaudio.info(os.path.join(self.opt.data_dir, lis))
-            if dat.num_frames > 44100*2.5:
-                merged_dataset.append(lis)
-        return merged_dataset
+        if self.split == 'TRAIN':
+            margs_train = np.loadtxt('../split/margs_trainvalid.txt', delimiter=',', dtype=str)
+            nuss_train = np.loadtxt('../split/nuss_trainvalid.txt', delimiter=',', dtype=str)
+            vocals_train = np.loadtxt('../split/vocals_trainvalid.txt', delimiter=',', dtype=str)
+            merged_dataset += list(margs_train) + list(nuss_train) + list(vocals_train)
+            if len(self.opt.add_datasets) > 0:
+                for add_dataset in self.opt.add_datasets:
+                    add_list = glob.glob(os.path.join(add_dataset, '*', '*.wav'))
+                    merged_dataset += add_list
+        elif self.split == 'VALID':
+            margs_test = np.loadtxt('../split/margs_test.txt', delimiter=',', dtype=str)
+            nuss_test = np.loadtxt('../split/nuss_test.txt', delimiter=',', dtype=str)
+            vocals_test = np.loadtxt('../split/vocals_test.txt', delimiter=',', dtype=str)
+            merged_dataset += list(margs_test) + list(nuss_test) + list(vocals_test)
+        self.fl = merged_dataset
 
     def get_audio(self, index):
         fn = self.fl[index]
         audio_path = os.path.join(self.opt.data_dir, fn)
         num_frames = torchaudio.info(audio_path).num_frames
-        if num_frames <= self.opt.input_length:
-            audio, sr = torchaudio.load(audio_path)
-            audio = torch.nn.functional.pad(audio, (0, self.opt.input_length-num_frames), mode='constant', value=0)
-        else:
+        if num_frames > self.opt.input_length:
             random_idx = np.random.randint(num_frames - self.opt.input_length)
             audio, sr = torchaudio.load(audio_path, frame_offset=random_idx, num_frames=self.opt.input_length)
+        else:
+            div = np.min([self.opt.input_length // num_frames, 3])
+            audio, sr = torchaudio.load(audio_path)
+            temp = audio.clone()
+            for i in range(div-1):
+                audio = torch.cat([audio, temp], -1)
+            audio = torch.nn.functional.pad(audio, (0, self.opt.input_length-num_frames*div), mode='constant', value=0)
         return audio
 
     def get_valid_audio(self, index):
         fn = self.fl[index]
         audio_path = os.path.join(self.opt.data_dir, fn)
         num_frames = torchaudio.info(audio_path).num_frames
-        if num_frames <= self.opt.input_length:
-            audio, sr = torchaudio.load(audio_path)
-            audio = torch.nn.functional.pad(audio, (0, self.opt.input_length-num_frames), mode='constant', value=0)
-        else:
+        if num_frames > self.opt.input_length:
             audio, sr = torchaudio.load(audio_path, frame_offset=0, num_frames=self.opt.input_length)
+        else:
+            div = np.min([self.opt.input_length // num_frames, 3])
+            audio, sr = torchaudio.load(audio_path)
+            temp = audio.clone()
+            for i in range(div-1):
+                audio = torch.cat([audio, temp], -1)
+            audio = torch.nn.functional.pad(audio, (0, self.opt.input_length-num_frames*div), mode='constant', value=0)
         return audio
 
     def get_spectrogram(self, waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power=2, return_complex=0):
@@ -151,12 +137,6 @@ class InpaintDataset(Dataset):
         return_complex=return_complex,
         )
         return spectrogram(waveform)
-
-    # def linear_to_db(self, spec):
-    #     spec_sum = torch.sum(spec, -2)
-    #     nonzero_area = torch.where(spec_sum != 0)[-1]
-    #     spec[...,nonzero_area] = self.to_db(spec[...,nonzero_area])
-    #     return spec
 
     def random_bbox(self):
         max_freq_ix = self.opt.image_height - self.opt.bbox_shape
@@ -216,6 +196,7 @@ class InpaintDataset(Dataset):
                 start_x, start_y = end_x, end_y
         return mask.reshape((1, ) + mask.shape).astype(np.float32)
 
+    # initial training point with linear interpolated mask (for opt.mask_init='lerp')
     def make_lerp_mask(self, spec, mask):
         spec_pad = torch.nn.functional.pad(spec, (1, 1, 0, 0), mode='constant', value=0)
         mask_range = torch.where(mask[:,0,:]==1)
@@ -234,7 +215,7 @@ class InpaintDataset(Dataset):
         freq = freq / np.max(freq)
         freq = torch.from_numpy(freq.astype(np.float32)).contiguous()
         freq = freq.reshape(1, -1, 1)
-        freq = freq.expand(1, 1025, 431)
+        freq = freq.expand(1, self.opt.image_height, self.opt.image_width)
         return freq
 
     def __len__(self):

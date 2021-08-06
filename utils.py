@@ -140,8 +140,6 @@ def save_samples(sample_folder, sample_name, img_list, dbpow):
     mask = img_list[1].numpy()
     mask_init = img_list[2].numpy()
     masked_gt = img_list[3].numpy()
-    # first = img_list[4].cpu().numpy()
-    # firsted_img = img_list[5].numpy()
     second = img_list[4].numpy()
     seconded_img = img_list[5].numpy()
 
@@ -150,8 +148,6 @@ def save_samples(sample_folder, sample_name, img_list, dbpow):
     plot_spectrogram(mask, axes[0, 1], dbpow=dbpow)
     plot_spectrogram(mask_init, axes[0, 2], dbpow=dbpow)
     plot_spectrogram(masked_gt, axes[1, 0], dbpow=dbpow)
-    # plot_spectrogram(first, axes[1, 0], dbpow=dbpow)
-    # plot_spectrogram(firsted_img, axes[1, 1], dbpow=dbpow)
     plot_spectrogram(second, axes[1, 1], dbpow=dbpow)
     plot_spectrogram(seconded_img, axes[1, 2], dbpow=dbpow)
 
@@ -215,7 +211,7 @@ def save_spectrogram(spec, sample_folder, sample_img_name, title=None, ylabel='f
         fig.colorbar(im, ax=axs)
     plt.savefig(os.path.join(sample_folder, sample_img_name))
 
-def plot_spectrogram(spec, ax , title=None, ylabel='freq_bin', aspect='auto', xmax=None, dbpow='db'):
+def plot_spectrogram(spec, ax, title=None, ylabel='freq_bin', aspect='auto', xmax=None, dbpow='db'):
 #   ax.set_title(title or 'Spectrogram (db)')
 #   ax.set_ylabel(ylabel)
 #   ax.set_xlabel('frame')
