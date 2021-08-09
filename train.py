@@ -22,8 +22,8 @@ if __name__ == "__main__":
     parser.add_argument('--gpu_ids', type = str, default = "5, 6", help = 'gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
     parser.add_argument('--cudnn_benchmark', type = bool, default = True, help = 'True for unchanged input data type')
     parser.add_argument('--checkpoint_interval', type = int, default = 1, help = 'interval between model checkpoints')
-    # parser.add_argument('--load_name', type = str, default = '/data2/personal/jaejun/inpainting/results/210717/time/models/deepfillv2_WGAN_epoch30_batchsize4.pth', help = '')
     parser.add_argument('--load_name', type = str, default = '', help = '')
+    parser.add_argument('--test', type=str, default=None, help='whether it is just test try or not')
     # Training parameters
     parser.add_argument('--epochs', type = int, default = 200, help = 'number of epochs of training')
     parser.add_argument('--batch_size', type = int, default = 4, help = 'size of the batches')
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     parser.add_argument('--weight_decay', type = float, default = 0, help = 'Adam: weight decay')
     parser.add_argument('--lr_decrease_epoch', type = int, default = 5, help = 'lr decrease at certain epoch and its multiple')
     parser.add_argument('--lr_decrease_factor', type = float, default = 0.8, help = 'lr decrease factor, for classification default 0.1')
-    parser.add_argument('--lambda_l1', type = float, default = 10, help = 'the parameter of L1Loss')
+    parser.add_argument('--lambda_l1', type = float, default = 1, help = 'the parameter of L1Loss')
     parser.add_argument('--lambda_perceptual', type = float, default = 10, help = 'the parameter of FML1Loss (perceptual loss)')
     parser.add_argument('--lambda_gan', type = float, default = 1, help = 'the parameter of valid loss of AdaReconL1Loss; 0 is recommended')
     parser.add_argument('--num_workers', type = int, default = 8, help = 'number of cpu threads to use during batch generation')
@@ -74,6 +74,8 @@ if __name__ == "__main__":
         opt.out_channels = opt.out_channels + 1
     if opt.pos_enc != None:
         opt.in_channels = opt.in_channels + 1
+    if opt.test != None:
+        opt.save_folder='test'
     print(opt)
     
     # ----------------------------------------
@@ -99,9 +101,17 @@ if __name__ == "__main__":
     wandb.run.save(wandb_save_dir)
     wandb.config.update(opt)
 
-    if opt.gan_type == 'WGAN':
-        trainer.WGAN_trainer(opt)
-    if opt.gan_type == 'LSGAN':
-        trainer.LSGAN_trainer(opt)
+    # if opt.gan_type == 'WGAN':
+    trainer.WGAN_trainer(opt)
+    # if opt.gan_type == 'LSGAN':
+        # trainer.LSGAN_trainer(opt)
     
-# python train.py --save_folder=210807 --save_model=4 --gpu_ids='7,8' --lambda_l1=1 --spec_pow=1 --pos_enc=mel
+# 1 python train.py --save_folder=test --save_model=1 --gpu_ids='1,2' --gp_weight=10
+# 3 python train.py --save_folder=test --save_model=2 --gpu_ids='3,4' --discriminator=jj --gan_type=GAN --lambda_gan=10
+# 5 python train.py --save_folder=test --save_model=3 --gpu_ids='5,6' --discriminator=jj
+# 7 python train.py --save_folder=test --save_model=4 --gpu_ids='7,8' --discriminator=jj --gp_weight=10
+# 3 python train.py --save_folder=test --save_model=5 --gpu_ids='3,4' --gp_weight=10 --pos_enc=mel
+# 5 python train.py --save_folder=210808 --save_model=6 --gpu_ids='5,6' --gp_weight=10 --pos_enc=mel
+
+
+

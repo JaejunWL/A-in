@@ -143,7 +143,7 @@ class PatchDiscriminator(nn.Module):
     def __init__(self, opt):
         super(PatchDiscriminator, self).__init__()
         # Down sampling
-        self.block1 = Conv2dLayer(opt.in_channels, opt.latent_channels, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = True)
+        self.block1 = Conv2dLayer(2, opt.latent_channels, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = True)
         self.block2 = Conv2dLayer(opt.latent_channels, opt.latent_channels * 2, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
         self.block3 = Conv2dLayer(opt.latent_channels * 2, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
         self.block4 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
@@ -164,31 +164,51 @@ class PatchDiscriminator(nn.Module):
 class jj_Discriminator(nn.Module):
     def __init__(self, opt):
         super(jj_Discriminator, self).__init__()
-        # Down sampling
-        self.block1 = Conv2dLayer(opt.in_channels, opt.latent_channels, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = 0)
-        self.block2 = Conv2dLayer(opt.latent_channels, opt.latent_channels * 2, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
-        self.block3 = Conv2dLayer(opt.latent_channels * 2, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
-        self.block4 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
-        self.block5 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = 0)
-        self.block6 = Conv2dLayer(opt.latent_channels * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = 0)
-        self.features_to_prob = nn.Sequential(
-            nn.Linear(32 * 13, 1),
-            nn.Sigmoid()
-        )        
-    def forward(self, img, mask):
-        # the input x should contain 4 channels because it is a combination of recon image and mask
-        x1 = torch.cat((img, mask), 1)
-        x = self.block1(x1)                                      # out: [B, 64, 256, 256]
-        x = self.block2(x)                                      # out: [B, 128, 128, 128]
-        x = self.block3(x)                                      # out: [B, 256, 64, 64]
-        x = self.block4(x)                                      # out: [B, 256, 32, 32]
-        x = self.block5(x)                                      # out: [B, 256, 16, 16]
-        x = self.block6(x)                                      # out: [B, 256, 8, 8]
-        batch_size = x1.shape[0]
-        x = x.view(batch_size, -1)        
-        x = self.features_to_prob(x)
-        return x
+        self.n_layers = 3
+        self.use_sigmoid = True
+        use_bias = 1
+        norm_layer = nn.InstanceNorm2d
+        self.relu = nn.LeakyReLU(0.2, True)
 
+        self.conv1 = nn.Conv2d(2, opt.latent_channels*2, kernel_size=(1, 4), stride=(1, 2), padding=(0, 1), bias=use_bias)
+        self.bn1 = norm_layer(opt.latent_channels*2)
+        nf_mult = 1
+        for n in range(1, self.n_layers):
+            nf_mult_prev = nf_mult
+            nf_mult = min(2**n, 8)
+            self.add_module('conv2_' + str(n), nn.Conv2d(opt.latent_channels*2 * nf_mult_prev, opt.latent_channels*2 * nf_mult,
+                          kernel_size=(3, 3), stride=2, padding=1, bias=use_bias))
+            self.add_module('norm_' + str(n), norm_layer(opt.latent_channels*2 * nf_mult))
+        nf_mult_prev = nf_mult
+        nf_mult = min(2**self.n_layers, 8)
+
+        self.conv3 = nn.Conv2d(opt.latent_channels*2 * nf_mult_prev, opt.latent_channels*2 * nf_mult,
+                      kernel_size=3, stride=1, padding=1, bias=use_bias)
+        self.norm3 = norm_layer(opt.latent_channels*2 * nf_mult)
+        self.conv4 = nn.Conv2d(opt.latent_channels*2 * nf_mult, 1,
+                      kernel_size=3, stride=1, padding=1, bias=use_bias)
+        self.fc1 = nn.Linear(256*54, 1)
+        if self.use_sigmoid:
+            self.sig = nn.Sigmoid()
+
+    def forward(self, input, mask):
+        batch_size = input.shape[0]
+        input_cat = torch.cat([input, mask], 1)
+        net = self.conv1(input_cat)
+        netn = self.relu(self.bn1(net))
+        for n in range(1, self.n_layers):
+            netn = self._modules['conv2_' + str(n)](netn)
+            netn = self._modules['norm_' + str(n)](netn)
+            netn = self.relu(netn)
+        net = self.conv3(netn)
+        net = self.norm3(net)
+        net = self.relu(net)
+        net = self.conv4(net)
+        net = net.view(batch_size, -1)
+        net = self.fc1(net)
+        if self.use_sigmoid:
+            net = self.sig(net)
+        return net
 
 # ----------------------------------------
 #            Perceptual Network

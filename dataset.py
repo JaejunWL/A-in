@@ -42,13 +42,13 @@ class InpaintDataset(Dataset):
         elif self.split in ['VALID', 'TEST']:
             if self.opt.mask_type == 'time':
                 masks_dir = '../split/fixedmask_time_2048'
-                mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
+                mask = np.load(os.path.join(masks_dir, str(index % 1000)) + '.npy')
             if self.opt.mask_type == 'bbox':
                 masks_dir = '../split/fixedmask_bbox_2048'
-                mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
+                mask = np.load(os.path.join(masks_dir, str(index % 1000)) + '.npy')
             if self.opt.mask_type == 'freeform':
                 masks_dir = '../split/fixedmask_freeform_2048'
-                mask = np.load(os.path.join(masks_dir, str(index)) + '.npy')
+                mask = np.load(os.path.join(masks_dir, str(index % 1000)) + '.npy')
             audio = self.get_valid_audio(index)
         mask = torch.from_numpy(mask.astype(np.float32)).contiguous()
         mask_init = mask.clone()

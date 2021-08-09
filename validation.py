@@ -220,3 +220,5 @@ if __name__ == "__main__":
         print("Mask L1:", np.mean(second_MaskL1Losses))
         print("PSNR   :", np.mean(psnrs))
         print("SSIM   :", np.mean(ssims))
+
+# python validation.py --load_folder=210808 --load_model=1 --epoched=21 --gpu_ids=10
