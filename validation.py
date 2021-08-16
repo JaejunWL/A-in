@@ -52,6 +52,7 @@ if __name__ == "__main__":
     parser.add_argument('--activation', type = str, default = 'lrelu', help = 'the activation type')
     parser.add_argument('--norm', type = str, default = 'in', help = 'normalization type')
     parser.add_argument('--pos_enc', type=str, default=None, help = 'positinoal embedding')
+    parser.add_argument('--perceptual', type=str, default=None, help='whether use perceptual loss or not')
     # Other parameters
     parser.add_argument('--num_workers', type = int, default = 8, help = 'number of cpu threads to use during batch generation')
     parser.add_argument('--save_interval', type = int, default = 14, help = 'interval length for save png and audio')
@@ -117,7 +118,7 @@ if __name__ == "__main__":
     psnrs = []
     ssims = []
     with torch.no_grad():
-        for batch_idx, (audio, img, mask, mask_init) in enumerate(tqdm(dataloader)):
+        for batch_idx, (audio, img, mask, mask_init, mask_start, mask_end) in enumerate(tqdm(dataloader)):
             img = img[:,:,:opt.image_height-1,:opt.image_width-3]
             mask = mask[:,:,:opt.image_height-1,:opt.image_width-3]
             mask_init = mask_init[:,:,:opt.image_height-1,:opt.image_width-3]
@@ -163,7 +164,7 @@ if __name__ == "__main__":
                     dbpow = 'pow'
                 elif opt.spec_pow == 1:
                     dbpow = 'amp'
-                utils.save_samples(sample_folder = save_dir, sample_name = str(batch_idx), img_list = img_list, dbpow=dbpow)
+                utils.save_samples_val(sample_folder = save_dir, sample_name = str(batch_idx), img_list = img_list, dbpow=dbpow)
 
                 gt_pad = torch.nn.functional.pad(gt, (0, 3, 0, 1), mode='constant', value=0)
                 mask_pad = torch.nn.functional.pad(mask, (0, 3, 0, 1), mode='constant', value=0)
@@ -221,4 +222,19 @@ if __name__ == "__main__":
         print("PSNR   :", np.mean(psnrs))
         print("SSIM   :", np.mean(ssims))
 
-# python validation.py --load_folder=210808 --load_model=1 --epoched=21 --gpu_ids=10
+# python validation.py --load_folder=210808 --load_model=1 --epoched=70 --gpu_ids=9
+# python validation.py --load_folder=210808 --load_model=5 --epoched=70 --gpu_ids=10 --pos_enc=mel
+# python validation.py --load_folder=210808 --load_model=6 --epoched=70 --gpu_ids=11 --pos_enc=mel
+# python validation.py --load_folder=210808 --load_model=6 --epoched=70 --gpu_ids=9 --pos_enc=mel --discriminator=jj
+
+# python validation.py --load_folder=210811 --load_model=1 --epoched=24 --gpu_ids=9 --pos_enc=cartesian
+# python validation.py --load_folder=210811 --load_model=2 --epoched=24 --gpu_ids=10 --pos_enc=cartesian
+# python validation.py --load_folder=210811 --load_model=3 --epoched=24 --gpu_ids=11 --pos_enc=cartesian
+# python validation.py --load_folder=210811 --load_model=4 --epoched=24 --gpu_ids=12 --pos_enc=cartesian
+
+# python validation.py --load_folder=210811 --load_model=2 --epoched=70 --gpu_ids=9 --pos_enc=cartesian
+# python validation.py --load_folder=210811 --load_model=5 --epoched=70 --gpu_ids=10 --pos_enc=cartesian
+# python validation.py --load_folder=210811 --load_model=6 --epoched=70 --gpu_ids=11 --pos_enc=cartesian
+# python validation.py --load_folder=210811 --load_model=7 --epoched=70 --gpu_ids=12 --pos_enc=cartesian --mask_init=randn
+
+

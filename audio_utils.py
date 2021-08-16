@@ -34,6 +34,11 @@ def get_spectrogram(waveform, n_fft = 2048, win_len = 2048, hop_len = 512, power
         spectrogram.cuda()
     return spectrogram(waveform)
 
+def convert_mel_scale(linear_spectrogram):
+    mel_scale = torchaudio.transforms.MelScale(n_mels = 128, sample_rate = 44100, n_stft=1025, f_min=0, f_max=22050/2)
+    mel_scale = mel_scale.cuda()
+    return mel_scale(linear_spectrogram)
+
 def custom_griffinlim(specgram, input_angle, mask, window, n_fft, hop_length, win_length, power, n_iter,
                       momentum, length: Optional, angle_init='rand'):
     assert momentum < 1, 'momentum={} > 1 can be unstable'.format(momentum)

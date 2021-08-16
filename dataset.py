@@ -39,7 +39,7 @@ class InpaintDataset(Dataset):
             if self.opt.mask_type == 'freeform':
                 mask = self.random_ff_mask()
             audio = self.get_audio(index)
-        elif self.split in ['VALID', 'TEST']:
+        elif self.split == 'VALID':
             if self.opt.mask_type == 'time':
                 masks_dir = '../split/fixedmask_time_2048'
                 mask = np.load(os.path.join(masks_dir, str(index % 1000)) + '.npy')
@@ -50,21 +50,34 @@ class InpaintDataset(Dataset):
                 masks_dir = '../split/fixedmask_freeform_2048'
                 mask = np.load(os.path.join(masks_dir, str(index % 1000)) + '.npy')
             audio = self.get_valid_audio(index)
+        elif self.split == 'TEST':
+            mask = np.asarray(self.make_test_mask())
+            audio, sr = torchaudio.load(os.path.join(self.opt.data_dir, self.opt.test_audio))
+            if self.opt.audio_end == None:
+                audio = audio[:,self.opt.audio_start*44100:]
+            else:
+                audio = audio[:,self.opt.audio_start*44100:self.opt.audio_end*44100 + 1]
+            audio = torch.nn.functional.pad(audio[:,:self.opt.input_length + 1], (0, self.opt.input_length-audio.shape[-1]), mode='constant', value=0)
+
+
         mask = torch.from_numpy(mask.astype(np.float32)).contiguous()
         mask_init = mask.clone()
 
         complex_spec = self.get_spectrogram(audio, power=None, return_complex=1)
         mag_spec = torch.abs(complex_spec)
         mag_spec = mag_spec ** self.opt.spec_pow
-
         if self.opt.mask_init == 'lerp':
-            mask_init = self.make_lerp_mask(mag_spec[0:1], mask_init)
+            mask_init, mask_start, mask_end = self.make_lerp_mask(mag_spec[0:1], mask_init)
             mask_init = self.linear_to_db(mask_init) * mask
             spec = self.linear_to_db(mag_spec)
             if self.opt.phase == 1:
                 phase_spec = torch.angle(complex_spec)
                 mask_init = torch.cat([mask_init, mask], 0)
                 spec = torch.cat([spec, phase_spec], 0)
+        elif self.opt.mask_init == 'randn':
+            spec = self.linear_to_db(mag_spec)
+            randn = torch.randn(mask.shape) + 1
+            mask_init = mask_init * randn
         else:
             spec = self.linear_to_db(mag_spec)
             if self.opt.phase == 1:
@@ -75,7 +88,10 @@ class InpaintDataset(Dataset):
             pos_enc = self.get_poistional_encoding(self.opt.image_height, 44100/2, scale=self.opt.pos_enc)
             spec = torch.cat([spec, pos_enc], 0)
 
-        return audio, spec, mask, mask_init
+        if self.opt.mask_init != 'lerp' and self.opt.perceptual == None:
+            mask_start, mask_end = self.get_mask_region(mask)
+
+        return audio, spec, mask, mask_init, mask_start, mask_end
 
     def get_list(self):
         merged_dataset = []
@@ -196,17 +212,24 @@ class InpaintDataset(Dataset):
                 start_x, start_y = end_x, end_y
         return mask.reshape((1, ) + mask.shape).astype(np.float32)
 
-    # initial training point with linear interpolated mask (for opt.mask_init='lerp')
-    def make_lerp_mask(self, spec, mask):
-        spec_pad = torch.nn.functional.pad(spec, (1, 1, 0, 0), mode='constant', value=0)
+    def get_mask_region(self, mask):
         mask_range = torch.where(mask[:,0,:]==1)
         start = torch.min(mask_range[-1])
         end = torch.max(mask_range[-1])
+        return start, end
+
+    # initial training point with linear interpolated mask (for opt.mask_init='lerp')
+    def make_lerp_mask(self, spec, mask):
+        spec_pad = torch.nn.functional.pad(spec, (1, 1, 0, 0), mode='constant', value=0)
+        # mask_range = torch.where(mask[:,0,:]==1)
+        # start = torch.min(mask_range[-1])
+        # end = torch.max(mask_range[-1])
+        start, end = self.get_mask_region(mask)
         merged = torch.cat([spec_pad[:,:,start], spec_pad[:,:,end+2]], 0)
         lerp = torch.nn.functional.interpolate(merged.permute(1, 0).unsqueeze(0), size=end-start+1, mode='linear', align_corners=True)
         lerp_mask = torch.zeros(mask.shape)
         lerp_mask[:, :, start:end+1] = lerp
-        return lerp_mask
+        return lerp_mask, start, end
         
     def get_poistional_encoding(self, freq_bin, max_freq, scale='cartesian'):
         freq = np.linspace(0, max_freq, freq_bin)
@@ -217,6 +240,24 @@ class InpaintDataset(Dataset):
         freq = freq.reshape(1, -1, 1)
         freq = freq.expand(1, self.opt.image_height, self.opt.image_width)
         return freq
+
+    def make_test_mask(self):
+        mask_start_time = float(self.opt.mask_xs) - self.opt.audio_start
+        mask_end_time = float(self.opt.mask_xe) - self.opt.audio_start
+        mask_start_sample = int(mask_start_time * 44100)
+        mask_end_sample = int(np.round(mask_end_time * 44100))
+        mask = torch.zeros([1, self.opt.input_length])
+        mask[:,mask_start_sample:mask_end_sample] = 1
+        mask_spec = audio_utils.get_spectrogram(mask)
+        mask_range = torch.where((mask_spec.sum(axis=1)) != 0)
+        mask_start = torch.min(mask_range[-1])
+        mask_end = torch.max(mask_range[-1])
+        mask_spec = torch.zeros(mask_spec.shape)
+        if self.opt.mask_ys != None and self.opt.mask_ye != None:
+            mask_spec[:,int(self.opt.mask_ys):int(self.opt.mask_ye)+1,mask_start:mask_end] = 1
+        else:
+            mask_spec[..., mask_start:mask_end] = 1
+        return mask_spec
 
     def __len__(self):
         return len(self.fl)

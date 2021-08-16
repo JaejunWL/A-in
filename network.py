@@ -143,16 +143,17 @@ class PatchDiscriminator(nn.Module):
     def __init__(self, opt):
         super(PatchDiscriminator, self).__init__()
         # Down sampling
-        self.block1 = Conv2dLayer(2, opt.latent_channels, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = True)
-        self.block2 = Conv2dLayer(opt.latent_channels, opt.latent_channels * 2, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block3 = Conv2dLayer(opt.latent_channels * 2, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block4 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block5 = Conv2dLayer(opt.latent_channels * 4, opt.latent_channels * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
-        self.block6 = Conv2dLayer(opt.latent_channels * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = 'none', norm = 'none', sn = True)
-        
-    def forward(self, img, mask):
+        self.block1 = Conv2dLayer(opt.discriminator_in_channel, opt.msd_latent, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = False)
+        self.block2 = Conv2dLayer(opt.msd_latent, opt.msd_latent * 2, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = False)
+        self.block3 = Conv2dLayer(opt.msd_latent * 2, opt.msd_latent * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = False)
+        self.block4 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = False)
+        self.block5 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = False)
+        self.block6 = Conv2dLayer(opt.msd_latent * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = 'none', norm = 'none', sn = False)
+
+    def forward(self, img, mask, mask_start, mask_end):
         # the input x should contain 4 channels because it is a combination of recon image and mask
-        x = torch.cat((img, mask), 1)
+        # x = torch.cat((img, mask), 1)
+        x = img
         x = self.block1(x)                                      # out: [B, 64, 256, 256]
         x = self.block2(x)                                      # out: [B, 128, 128, 128]
         x = self.block3(x)                                      # out: [B, 256, 64, 64]
@@ -164,8 +165,11 @@ class PatchDiscriminator(nn.Module):
 class jj_Discriminator(nn.Module):
     def __init__(self, opt):
         super(jj_Discriminator, self).__init__()
-        self.n_layers = 3
-        self.use_sigmoid = True
+        self.n_layers = 5
+        if opt.gan_type == 'WGAN':
+            self.use_sigmoid = False
+        else:
+            self.use_sigmoid = True
         use_bias = 1
         norm_layer = nn.InstanceNorm2d
         self.relu = nn.LeakyReLU(0.2, True)
@@ -187,8 +191,9 @@ class jj_Discriminator(nn.Module):
         self.norm3 = norm_layer(opt.latent_channels*2 * nf_mult)
         self.conv4 = nn.Conv2d(opt.latent_channels*2 * nf_mult, 1,
                       kernel_size=3, stride=1, padding=1, bias=use_bias)
-        self.fc1 = nn.Linear(256*54, 1)
         if self.use_sigmoid:
+            self.linear1 = nn.Linear(896, 1024)
+            self.linear2 = nn.Linear(1024, 1)
             self.sig = nn.Sigmoid()
 
     def forward(self, input, mask):
@@ -205,42 +210,139 @@ class jj_Discriminator(nn.Module):
         net = self.relu(net)
         net = self.conv4(net)
         net = net.view(batch_size, -1)
-        net = self.fc1(net)
         if self.use_sigmoid:
+            net = self.linear1(net)
+            net = self.linear2(net)
             net = self.sig(net)
         return net
 
-# ----------------------------------------
-#            Perceptual Network
-# ----------------------------------------
-# VGG-16 conv4_3 features
-class PerceptualNet(nn.Module):
-    def __init__(self):
-        super(PerceptualNet, self).__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 64, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.Conv2d(64, 64, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.MaxPool2d(2, 2),
-            nn.Conv2d(64, 128, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.Conv2d(128, 128, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.MaxPool2d(2, 2),
-            nn.Conv2d(128, 256, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.Conv2d(256, 256, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.Conv2d(256, 256, 3, 1, 1),
-            nn.MaxPool2d(2, 2),
-            nn.Conv2d(256, 512, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.Conv2d(512, 512, 3, 1, 1),
-            nn.ReLU(inplace = True),
-            nn.Conv2d(512, 512, 3, 1, 1)
-        )
+# # ----------------------------------------
+# #            Perceptual Network
+# # ----------------------------------------
+# # VGG-16 conv4_3 features
+# class PerceptualNet(nn.Module):
+#     def __init__(self):
+#         super(PerceptualNet, self).__init__()
+#         self.features = nn.Sequential(
+#             nn.Conv2d(3, 64, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.Conv2d(64, 64, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.MaxPool2d(2, 2),
+#             nn.Conv2d(64, 128, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.Conv2d(128, 128, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.MaxPool2d(2, 2),
+#             nn.Conv2d(128, 256, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.Conv2d(256, 256, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.Conv2d(256, 256, 3, 1, 1),
+#             nn.MaxPool2d(2, 2),
+#             nn.Conv2d(256, 512, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.Conv2d(512, 512, 3, 1, 1),
+#             nn.ReLU(inplace = True),
+#             nn.Conv2d(512, 512, 3, 1, 1)
+#         )
 
-    def forward(self, x):
-        x = self.features(x)
+#     def forward(self, x):
+#         x = self.features(x)
+#         return x
+
+
+class Scale_Discriminator(nn.Module):
+    def __init__(self, opt):
+        super(Scale_Discriminator, self).__init__()
+        # Down sampling
+        self.block1 = Conv2dLayer(opt.discriminator_in_channel, opt.msd_latent, 7, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = True)
+        self.block2 = Conv2dLayer(opt.msd_latent, opt.msd_latent * 2, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block3 = Conv2dLayer(opt.msd_latent * 2, opt.msd_latent * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block4 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block5 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 4, 2, 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block6 = Conv2dLayer(opt.msd_latent * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = 'none', norm = 'none', sn = True)
+        
+    def forward(self, img):
+        # the input x should contain 4 channels because it is a combination of recon image and mask
+        x = img
+        x = self.block1(x)                                      # out: [B, 64, 256, 256]
+        x = self.block2(x)                                      # out: [B, 128, 128, 128]
+        x = self.block3(x)                                      # out: [B, 256, 64, 64]
+        x = self.block4(x)                                      # out: [B, 256, 32, 32]
+        x = self.block5(x)                                      # out: [B, 256, 16, 16]
+        x = self.block6(x)  
         return x
+
+class Scale_Discriminator_small(nn.Module):
+    def __init__(self, opt):
+        super(Scale_Discriminator_small, self).__init__()
+        # Down sampling
+        self.block1 = Conv2dLayer(opt.discriminator_in_channel, opt.msd_latent, (7,4), 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = True)
+        self.block2 = Conv2dLayer(opt.msd_latent, opt.msd_latent * 2, 4, (2,1), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block3 = Conv2dLayer(opt.msd_latent * 2, opt.msd_latent * 4, 4, (2,2), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block4 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 4, (2,2), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block5 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 4, (2,2), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block6 = Conv2dLayer(opt.msd_latent * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = 'none', norm = 'none', sn = True)
+        
+    def forward(self, img):
+        # the input x should contain 4 channels because it is a combination of recon image and mask
+        x = img
+        x = self.block1(x)                                      # out: [B, 64, 256, 256]
+        x = self.block2(x)                                      # out: [B, 128, 128, 128]
+        x = self.block3(x)                                      # out: [B, 256, 64, 64]
+        x = self.block4(x)                                      # out: [B, 256, 32, 32]
+        x = self.block5(x)                                      # out: [B, 256, 16, 16]
+        x = self.block6(x)                                      # out: [B, 256, 8, 8]
+        return x
+
+class Multi_Scale_Discriminator(nn.Module):
+    def __init__(self, opt):
+        super(Multi_Scale_Discriminator, self).__init__()
+        self.frame_lengths = [16, 32, 64, 128]
+        self.scale0_discriminator = Scale_Discriminator_small(opt)
+        self.scale1_discriminator = Scale_Discriminator(opt)
+        self.scale2_discriminator = Scale_Discriminator(opt)
+        self.scale3_discriminator = Scale_Discriminator(opt)
+        self.opt = opt
+
+    def make_scale_input(self, frame_length, mask_start, mask_end, max_time_index):
+        spec_end_start = mask_start + 0.5 * frame_length
+        spec_end_end = mask_end + 0.5 * frame_length
+        spec_end = (torch.rand(self.batch_size).cuda() * (spec_end_end - spec_end_start + 1) + spec_end_start).int()        
+        spec_end = torch.min(spec_end, torch.tensor(max_time_index).cuda())
+        spec_start = spec_end - frame_length
+        spec_start = torch.max(spec_start, torch.zeros(self.batch_size).cuda())
+        return spec_start.cuda()
+    
+    def make_gather_input(self, img, spec_start, frame_length):
+        index_matrix = torch.zeros([self.batch_size, frame_length], requires_grad=False).cuda()
+        index_matrix += torch.arange(0, frame_length).cuda()
+        index_matrix += spec_start.unsqueeze(-1)
+        index_matrix = index_matrix.unsqueeze(1).unsqueeze(1)
+        index_matrix = index_matrix.expand(self.batch_size, img.shape[1], img.shape[2], index_matrix.shape[-1])
+        index_matrix = index_matrix.type(torch.int64)
+        gathered_img = torch.gather(img, -1, index_matrix)
+        return gathered_img
+
+    def forward(self, img, mask, mask_start, mask_end):
+        self.batch_size = img.shape[0]
+        scale0_spec_start = self.make_scale_input(self.frame_lengths[0], mask_start, mask_end, img.shape[-1]-1)
+        scale1_spec_start = self.make_scale_input(self.frame_lengths[1], mask_start, mask_end, img.shape[-1]-1)
+        scale2_spec_start = self.make_scale_input(self.frame_lengths[2], mask_start, mask_end, img.shape[-1]-1)
+        scale3_spec_start = self.make_scale_input(self.frame_lengths[3], mask_start, mask_end, img.shape[-1]-1)
+                
+        gathered_img0 = self.make_gather_input(img, scale0_spec_start, self.frame_lengths[0])
+        gathered_img1 = self.make_gather_input(img, scale1_spec_start, self.frame_lengths[1])
+        gathered_img2 = self.make_gather_input(img, scale2_spec_start, self.frame_lengths[2])
+        gathered_img3 = self.make_gather_input(img, scale3_spec_start, self.frame_lengths[3])
+
+        scale0_output = self.scale0_discriminator(gathered_img0)
+        scale1_output = self.scale1_discriminator(gathered_img1)
+        scale2_output = self.scale2_discriminator(gathered_img2)
+        scale3_output = self.scale3_discriminator(gathered_img3)
+        multi_scale_output = torch.cat([scale0_output, scale1_output], -1)
+        multi_scale_output = torch.cat([multi_scale_output, scale2_output], -1)
+        multi_scale_output = torch.cat([multi_scale_output, scale3_output], -1)
+        # return scale1_output, scale2_output, scale3_output, scale4_output
+        return multi_scale_output

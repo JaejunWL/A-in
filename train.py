@@ -40,6 +40,8 @@ if __name__ == "__main__":
     parser.add_argument('--num_workers', type = int, default = 8, help = 'number of cpu threads to use during batch generation')
     parser.add_argument('--loss_region', type=int, default=3, help= '1 for whole loss, 2 for mask only loss, 3 for combination')
     parser.add_argument('--gp_weight', type=int, default=None, help='gradient penalty weight for wgan gp')
+    parser.add_argument('--perceptual', type=str, default=None, help='whether use perceptual loss or not')
+    # parser.add_argument('--conformer_layer', type=int, default=4, help='use n th output layer of conformers')
     # Network parameters
     parser.add_argument('--stage_num', type = int, default = 1, help = 'two stage method or just only stage')
     parser.add_argument('--in_channels', type = int, default = 2, help = 'input real&complex spec + 1 channel mask')
@@ -51,7 +53,9 @@ if __name__ == "__main__":
     parser.add_argument('--init_type', type = str, default = 'xavier', help = 'the initialization type')
     parser.add_argument('--init_gain', type = float, default = 0.02, help = 'the initialization gain')
     parser.add_argument('--discriminator', type = str, default = 'patch', help = 'the initialization gain')
+    parser.add_argument('--discriminator_in_channel', type = int, default = 1, help = 'whether positional encoding is input to discriminator or not')
     parser.add_argument('--pos_enc', type=str, default=None, help = 'positinoal embedding')
+    parser.add_argument('--msd_latent', type=int, default=64, help = 'latent channel dims of multi-scale discriminator (msd)')
     # Dataset parameters
     parser.add_argument('--mask_type', type = str, default = 'time', help = 'mask type')
     parser.add_argument('--mask_init', type = str, default = 'lerp', help = 'mask initialie point')
@@ -111,7 +115,27 @@ if __name__ == "__main__":
 # 5 python train.py --save_folder=test --save_model=3 --gpu_ids='5,6' --discriminator=jj
 # 7 python train.py --save_folder=test --save_model=4 --gpu_ids='7,8' --discriminator=jj --gp_weight=10
 # 3 python train.py --save_folder=test --save_model=5 --gpu_ids='3,4' --gp_weight=10 --pos_enc=mel
-# 5 python train.py --save_folder=210808 --save_model=6 --gpu_ids='5,6' --gp_weight=10 --pos_enc=mel
+# 5 python train.py --save_folder=210808 --save_model=7 --gpu_ids='7,8' --gp_weight=10 --pos_enc=cartesian
+# 5 python train.py --save_folder=210808 --save_model=8 --gpu_ids='1,2' --pos_enc=mel --discriminator=jj --gan_type=GAN
+# 5 python train.py --save_folder=210808 --save_model=9 --gpu_ids='9,10' --pos_enc=mel --discriminator=jj --gan_type=WGAN --gp_weight=10 --perceptual=1 --test=1
 
+# python train.py --save_folder=210808 --save_model=10 --gpu_ids='9,10' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --test=1 
+# python train.py --save_folder=210808 --save_model=11 --gpu_ids='5,6' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=8 --test=1 
+# 12 python train.py --save_folder=210808 --save_model=12 --gpu_ids='7,8' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=16 --test=1 
+# 13 python train.py --save_folder=210808 --save_model=13 --gpu_ids='3,4' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --loss_region=1 --test=1
+# 14 python train.py --save_folder=210808 --save_model=14 --gpu_ids='5,6' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --test=1
+# 15 python train.py --save_folder=210808 --save_model=15 --gpu_ids='7,8' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --test=1
+
+# 1 python train.py --save_folder=210811 --save_model=1 --gpu_ids='1,2' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --test=1
+# 2 python train.py --save_folder=210811 --save_model=2 --gpu_ids='3,4' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --test=1
+# 3 python train.py --save_folder=210811 --save_model=3 --gpu_ids='5,6' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --discriminator_in_channel=2 --test=1
+# 4 python train.py --save_folder=210811 --save_model=4 --gpu_ids='7,8' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --discriminator_in_channel=2 --test=1
+
+
+# 4 python train.py --save_folder=210811 --save_model=5 --gpu_ids='5,6' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --discriminator_in_channel=2 --test=1
+# 4 python train.py --save_folder=210811 --save_model=6 --gpu_ids='7,8' --pos_enc=cartesian --gp_weight=10 --discriminator=patch --msd_latent=32 --discriminator_in_channel=2 --test=1
+# 4 python train.py --save_folder=210811 --save_model=7 --gpu_ids='1,2' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --mask_init=randn --test=1
+
+# 4 python train.py --save_folder=210811 --save_model=8 --gpu_ids='5,6,7,8' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --mask_init=randn --batch_size=8 --latent_channels=48 --norm=bn --test=1
 
 

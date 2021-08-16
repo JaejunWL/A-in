@@ -1,0 +1,120 @@
+# model architecture configurations
+
+# Conformer
+Conformer:
+
+  ### conformer medium model + no decoding layers
+  default:
+    # supsampling configurations
+    subsample_out_dim: 128
+    subsample_kernel_size: 3
+    subsample_stride_size: 2
+    subsample_padding_size: 1
+    # conformer encoding block configurations
+    nums_encoder_layers: 16
+    encoder_dim: 256
+    num_attention_heads: 4
+    conv_expansion_factor: 2
+    conv_kernel_size: 31
+    feed_forward_expansion_rate: 4
+    attention_dropout_rate: 0.1
+    # decoder
+    num_decoder_layers: 0
+    decoder_dim: 640
+
+  ### conformer small model
+  small:
+    # supsampling configurations
+    subsample_out_dim: 128
+    subsample_kernel_size: 3
+    subsample_stride_size: 2
+    subsample_padding_size: 1
+    # conformer encoding block configurations
+    nums_encoder_layers: 16
+    encoder_dim: 144
+    num_attention_heads: 4
+    conv_expansion_factor: 2
+    conv_kernel_size: 31
+    feed_forward_expansion_rate: 4
+    attention_dropout_rate: 0.1
+    # decoder
+    num_decoder_layers: 1
+    decoder_dim: 320
+    
+  ### conformer small model without decoder (lstm) module
+  small_no_decoder:
+    # supsampling configurations
+    subsample_out_dim: 128
+    subsample_kernel_size: 3
+    subsample_stride_size: 2
+    subsample_padding_size: 1
+    # conformer encoding block configurations
+    nums_encoder_layers: 16
+    encoder_dim: 144
+    num_attention_heads: 4
+    conv_expansion_factor: 2
+    conv_kernel_size: 31
+    feed_forward_expansion_rate: 4
+    attention_dropout_rate: 0.1
+    # decoder
+    num_decoder_layers: 0
+    decoder_dim: 320
+
+  ### conformer medium model
+  medium:
+    # supsampling configurations
+    subsample_out_dim: 128
+    subsample_kernel_size: 3
+    subsample_stride_size: 2
+    subsample_padding_size: 1
+    # conformer encoding block configurations
+    nums_encoder_layers: 16
+    encoder_dim: 256
+    num_attention_heads: 4
+    conv_expansion_factor: 2
+    conv_kernel_size: 31
+    feed_forward_expansion_rate: 4
+    attention_dropout_rate: 0.1
+    # decoder
+    num_decoder_layers: 1
+    decoder_dim: 640
+
+  ### conformer large model
+  large:
+    # supsampling configurations
+    subsample_out_dim: 128
+    subsample_kernel_size: 3
+    subsample_stride_size: 2
+    subsample_padding_size: 1
+    # conformer encoding block configurations
+    nums_encoder_layers: 17
+    encoder_dim: 512
+    num_encoder_layers: 16
+    num_attention_heads: 8
+    conv_expansion_factor: 2
+    conv_kernel_size: 31
+    feed_forward_expansion_rate: 4
+    attention_dropout_rate: 0.1
+    # decoder
+    num_decoder_layers: 1
+    decoder_dim: 640
+
+  ### conformer large model without decoder (lstm) module
+  large_no_decoder:
+    # supsampling configurations
+    subsample_out_dim: 128
+    subsample_kernel_size: 3
+    subsample_stride_size: 2
+    subsample_padding_size: 1
+    # conformer encoding block configurations
+    nums_encoder_layers: 17
+    encoder_dim: 512
+    num_encoder_layers: 16
+    num_attention_heads: 8
+    conv_expansion_factor: 2
+    conv_kernel_size: 31
+    feed_forward_expansion_rate: 4
+    attention_dropout_rate: 0.1
+    # decoder
+    num_decoder_layers: 0
+    decoder_dim: 640
