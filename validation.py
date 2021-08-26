@@ -43,6 +43,7 @@ if __name__ == "__main__":
     parser.add_argument('--input_length', type = int, default = 220500, help = 'input length (sample)')
     parser.add_argument('--spec_pow', type=int, default=2, help='1 for amplitude spec, 2 for power spec')
     parser.add_argument('--phase', type=int, default = 0, help = 'whether give phase information or not')
+    parser.add_argument('--bbox', type = bool, default = False, help = 'whether use bbox shaping or not')
     # Network parameters
     parser.add_argument('--stage_num', type = int, default = 1, help = 'two stage method or just only stage')
     parser.add_argument('--in_channels', type = int, default = 2, help = 'input mag + 1 channel mask')
@@ -79,11 +80,11 @@ if __name__ == "__main__":
     #       Initialize testing dataset
     # ----------------------------------------
     # Define the dataset
-    testset = dataset.InpaintDataset(opt, split='VALID')
-    print('The overall number of images equals to %d' % len(testset))
+    validationset = dataset.InpaintDataset(opt, split='VALID')
+    print('The overall number of images equals to %d' % len(validationset))
 
     # Define the dataloader
-    dataloader = DataLoader(testset, batch_size = 1, pin_memory = True, num_workers=opt.num_workers)
+    dataloader = DataLoader(validationset, batch_size = 1, pin_memory = True, num_workers=opt.num_workers)
 
     # ----------------------------------------
     #                 Testing
@@ -118,14 +119,16 @@ if __name__ == "__main__":
     psnrs = []
     ssims = []
     with torch.no_grad():
-        for batch_idx, (audio, img, mask, mask_init, mask_start, mask_end) in enumerate(tqdm(dataloader)):
+        for batch_idx, (audio, img, mask, mask_init, mask_lerp, mask_start, mask_end) in enumerate(tqdm(dataloader)):
             img = img[:,:,:opt.image_height-1,:opt.image_width-3]
             mask = mask[:,:,:opt.image_height-1,:opt.image_width-3]
             mask_init = mask_init[:,:,:opt.image_height-1,:opt.image_width-3]
+            mask_lerp = mask_lerp[:,:,:opt.image_height-1,:opt.image_width-3]
 
             img = img.cuda()
             mask = mask.cuda()
             mask_init = mask_init.cuda()
+            mask_lerp = mask_lerp.cuda()
 
             mask_sum = torch.sum(mask, [-3, -2, -1]).detach()
             mask_loss_scaler = opt.image_height * opt.image_width / mask_sum
@@ -138,13 +141,12 @@ if __name__ == "__main__":
             second_MaskL1Loss = torch.mean(bw_second_MaskL1Loss)
 
             mask_idx = torch.where(mask[...,:]==1)[-1]
-            psnr = utils.mask_psnr(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx, pixel_max_cnt=100)
-            ssim = utils.mask_ssim(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx)
+            # psnr = utils.mask_psnr(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx, pixel_max_cnt=100)
+            # ssim = utils.mask_ssim(second_out[:,0:1,:,:], img[:,0:1,:,:], mask_idx)
             
-            # first_MaskL1Losses.append(first_MaskL1Loss.detach().cpu().numpy())
             second_MaskL1Losses.append(second_MaskL1Loss.detach().cpu().numpy())
-            psnrs.append(psnr)
-            ssims.append(ssim)
+            # psnrs.append(psnr)
+            # ssims.append(ssim)
 
             if batch_idx % opt.save_interval == 0:
                 gt = db_to_linear(img[0,0,:,:], opt)
@@ -153,12 +155,14 @@ if __name__ == "__main__":
                     mask_init = db_to_linear(mask_init[0,0,:,:], opt) * mask
                 else:
                     mask_init = mask_init[0,0,:,:] * mask
+                mask_lerp = db_to_linear(mask_lerp[0,0,:,:], opt) * mask
                 masked_gt = gt * (1 - mask)
-                masked_gt_lerp = gt * (1 - mask) + mask_init
+                masked_gt_init = gt * (1 - mask) + mask_init
+                masked_gt_lerp = gt * (1 - mask) + mask_lerp
                 second = db_to_linear(second_out[0,0,:,:], opt)
                 seconded_img = gt * (1 - mask) + second * mask
 
-                img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt_lerp.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu()]
+                img_list = [gt.detach().cpu(), mask.detach().cpu(), mask_init.detach().cpu(), masked_gt_init.detach().cpu(), second.detach().cpu(), seconded_img.detach().cpu(), masked_gt_lerp.detach().cpu()]
 
                 if opt.spec_pow == 2:
                     dbpow = 'pow'
@@ -169,6 +173,7 @@ if __name__ == "__main__":
                 gt_pad = torch.nn.functional.pad(gt, (0, 3, 0, 1), mode='constant', value=0)
                 mask_pad = torch.nn.functional.pad(mask, (0, 3, 0, 1), mode='constant', value=0)
                 masked_gt_pad = torch.nn.functional.pad(masked_gt, (0, 3, 0, 1), mode='constant', value=0)
+                masked_gt_init_pad = torch.nn.functional.pad(masked_gt_init, (0, 3, 0, 1), mode='constant', value=0)
                 masked_gt_lerp_pad = torch.nn.functional.pad(masked_gt_lerp, (0, 3, 0, 1), mode='constant', value=0)
                 second_pad = torch.nn.functional.pad(second, (0, 3, 0, 1), mode='constant', value=0)
                 seconded_img_pad = torch.nn.functional.pad(seconded_img, (0, 3, 0, 1), mode='constant', value=0)
@@ -191,6 +196,7 @@ if __name__ == "__main__":
 
                 gfl_gt_pad = torch_gflim(gt_pad).unsqueeze(0)
                 gfl_masked_gt_pad = torch_gflim(masked_gt_pad).unsqueeze(0)
+                gfl_masked_gt_init_pad = torch_gflim(masked_gt_init_pad).unsqueeze(0)
                 gfl_masked_gt_lerp_pad = torch_gflim(masked_gt_lerp_pad).unsqueeze(0)
                 gfl_second_pad = torch_gflim(second_pad).unsqueeze(0)
                 gfl_second_img_pad = torch_gflim(seconded_img_pad).unsqueeze(0)
@@ -214,27 +220,40 @@ if __name__ == "__main__":
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt.wav'), audio[0].detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt_gflim.wav'), gfl_gt_pad.detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt_masked_gflim.wav'), gfl_masked_gt_pad.detach().cpu(), sample_rate=44100)
+                torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt_masked_init_gflim.wav'), gfl_masked_gt_init_pad.detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_gt_masked_lerp_gflim.wav'), gfl_masked_gt_lerp_pad.detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_pred_gfli.wav'), gfl_second_pad.detach().cpu(), sample_rate=44100)
                 torchaudio.save(os.path.join(save_dir, str(batch_idx) + '_pred_gflim.wav'), gfl_second_img_pad.detach().cpu(), sample_rate=44100)
 
         print("Mask L1:", np.mean(second_MaskL1Losses))
-        print("PSNR   :", np.mean(psnrs))
-        print("SSIM   :", np.mean(ssims))
+        # print("PSNR   :", np.mean(psnrs))
+        # print("SSIM   :", np.mean(ssims))
 
 # python validation.py --load_folder=210808 --load_model=1 --epoched=70 --gpu_ids=9
 # python validation.py --load_folder=210808 --load_model=5 --epoched=70 --gpu_ids=10 --pos_enc=mel
-# python validation.py --load_folder=210808 --load_model=6 --epoched=70 --gpu_ids=11 --pos_enc=mel
-# python validation.py --load_folder=210808 --load_model=6 --epoched=70 --gpu_ids=9 --pos_enc=mel --discriminator=jj
+# python validation.py --load_folder=210808 --load_model=114 --epoched=120 --gpu_ids=11 --pos_enc=cartesian --perceptual=1
+# python validation.py --load_folder=210808 --load_model=115 --epoched=120 --gpu_ids=9 --pos_enc=cartesian --perceptual=1
 
 # python validation.py --load_folder=210811 --load_model=1 --epoched=24 --gpu_ids=9 --pos_enc=cartesian
 # python validation.py --load_folder=210811 --load_model=2 --epoched=24 --gpu_ids=10 --pos_enc=cartesian
 # python validation.py --load_folder=210811 --load_model=3 --epoched=24 --gpu_ids=11 --pos_enc=cartesian
 # python validation.py --load_folder=210811 --load_model=4 --epoched=24 --gpu_ids=12 --pos_enc=cartesian
 
-# python validation.py --load_folder=210811 --load_model=2 --epoched=70 --gpu_ids=9 --pos_enc=cartesian
+# python validation.py --load_folder=210811 --load_model=2 --epoched=140 --gpu_ids=9 --pos_enc=cartesian
 # python validation.py --load_folder=210811 --load_model=5 --epoched=70 --gpu_ids=10 --pos_enc=cartesian
 # python validation.py --load_folder=210811 --load_model=6 --epoched=70 --gpu_ids=11 --pos_enc=cartesian
 # python validation.py --load_folder=210811 --load_model=7 --epoched=70 --gpu_ids=12 --pos_enc=cartesian --mask_init=randn
 
+# 210819
+# python validation.py --load_folder=210811 --load_model=7 --epoched=180 --gpu_ids=9 --pos_enc=cartesian --mask_init=None
+# python validation.py --load_folder=210811 --load_model=8 --epoched=120 --gpu_ids=10 --latent_channels=48 --norm=bn --pos_enc=cartesian --batch_sized=8 --mask_init=None
+# python validation.py --load_folder=210817 --load_model=1 --epoched=60 --gpu_ids=11 --pos_enc=cartesian --mask_init=None
+# python validation.py --load_folder=210811_sp --load_model=7 --epoched=40 --gpu_ids=12 --latent_channels=48 --pos_enc=cartesian --batch_sized=8 --mask_init=None
 
+# python validation.py --load_folder=210811_sp --load_model=7 --epoched=100 --gpu_ids=11 --latent_channels=48 --pos_enc=cartesian --batch_sized=8 --mask_init=None
+
+
+
+
+# python validation.py --load_folder=210826 --load_model=1 --epoched=44 --gpu_ids=9 --pos_enc=cartesian --mask_init=None --mask_type=ctime --batch_size=8
+# python validation.py --load_folder=210826 --load_model=2 --epoched=44 --gpu_ids=10 --pos_enc=cartesian --mask_init=None --mask_type=cbtime --batch_size=8

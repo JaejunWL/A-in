@@ -41,7 +41,7 @@ if __name__ == "__main__":
     parser.add_argument('--loss_region', type=int, default=3, help= '1 for whole loss, 2 for mask only loss, 3 for combination')
     parser.add_argument('--gp_weight', type=int, default=None, help='gradient penalty weight for wgan gp')
     parser.add_argument('--perceptual', type=str, default=None, help='whether use perceptual loss or not')
-    # parser.add_argument('--conformer_layer', type=int, default=4, help='use n th output layer of conformers')
+    parser.add_argument('--conformer_layer', type=int, default=4, help='use n th output layer of conformers')
     # Network parameters
     parser.add_argument('--stage_num', type = int, default = 1, help = 'two stage method or just only stage')
     parser.add_argument('--in_channels', type = int, default = 2, help = 'input real&complex spec + 1 channel mask')
@@ -59,18 +59,22 @@ if __name__ == "__main__":
     # Dataset parameters
     parser.add_argument('--mask_type', type = str, default = 'time', help = 'mask type')
     parser.add_argument('--mask_init', type = str, default = 'lerp', help = 'mask initialie point')
+    parser.add_argument('--bbox', type = bool, default = False, help = 'whether use bbox shaping or not')
     parser.add_argument('--image_height', type = int, default = 1025, help = 'height of image')
     parser.add_argument('--image_width', type = int, default = 431, help = 'width of image')
     parser.add_argument('--input_length', type = int, default = 220500, help = 'input length (sample)')
     parser.add_argument('--spec_pow', type=int, default=2, help='1 for amplitude spec, 2 for power spec')
     parser.add_argument('--phase', type=int, default = 0, help = 'whether give phase information or not')
     parser.add_argument('--margin', type = int, default = 10, help = 'margin of image')
+
     # parser.add_argument('--mask_num', type = int, default = 15, help = 'number of mask')
     parser.add_argument('--bbox_shape', type = int, default = 120, help = 'margin of image for bbox mask')
     # parser.add_argument('--max_angle', type = int, default = 4, help = 'parameter of angle for free form mask')
     # parser.add_argument('--max_len', type = int, default = 40, help = 'parameter of length for free form mask')
     # parser.add_argument('--max_width', type = int, default = 10, help = 'parameter of width for free form mask')
     opt = parser.parse_args()
+    if opt.test != None:
+        opt.save_folder='test'
     opt.save_path = os.path.join('/data2/personal/jaejun/inpainting/results', opt.save_folder, opt.save_model, 'models')
     opt.sample_path = os.path.join('/data2/personal/jaejun/inpainting/results', opt.save_folder, opt.save_model, 'samples')
     if opt.phase == 1:
@@ -78,8 +82,6 @@ if __name__ == "__main__":
         opt.out_channels = opt.out_channels + 1
     if opt.pos_enc != None:
         opt.in_channels = opt.in_channels + 1
-    if opt.test != None:
-        opt.save_folder='test'
     print(opt)
     
     # ----------------------------------------
@@ -123,8 +125,8 @@ if __name__ == "__main__":
 # python train.py --save_folder=210808 --save_model=11 --gpu_ids='5,6' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=8 --test=1 
 # 12 python train.py --save_folder=210808 --save_model=12 --gpu_ids='7,8' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=16 --test=1 
 # 13 python train.py --save_folder=210808 --save_model=13 --gpu_ids='3,4' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --loss_region=1 --test=1
-# 14 python train.py --save_folder=210808 --save_model=14 --gpu_ids='5,6' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --test=1
-# 15 python train.py --save_folder=210808 --save_model=15 --gpu_ids='7,8' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --test=1
+# 114 python train.py --save_folder=210808 --save_model=114 --gpu_ids='5,6' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --lambda_l1=1 --lambda_perceptual=100 --lambda_gan=10 --test=1
+# 115 python train.py --save_folder=210808 --save_model=115 --gpu_ids='7,8' --pos_enc=cartesian --gp_weight=10 --perceptual=1 --conformer_layer=4 --lambda_l1=1 --lambda_perceptual=100 --lambda_gan=10 --test=1
 
 # 1 python train.py --save_folder=210811 --save_model=1 --gpu_ids='1,2' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --test=1
 # 2 python train.py --save_folder=210811 --save_model=2 --gpu_ids='3,4' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --test=1
@@ -138,4 +140,12 @@ if __name__ == "__main__":
 
 # 4 python train.py --save_folder=210811 --save_model=8 --gpu_ids='5,6,7,8' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --mask_init=randn --batch_size=8 --latent_channels=48 --norm=bn --test=1
 
+
+# python train.py --save_folder=210811 --save_model=7 --gpu_ids='3,4' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --mask_init=randn --bbox=True --test=1
+
+# python train.py --save_folder=210820 --save_model=1 --gpu_ids='1,2' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --mask_init=randn --batch_size=8 --test=1
+
+
+# python train.py --save_folder=210826 --save_model=1 --batch_size=8 --gpu_ids='1,2,3,4' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --mask_type=ctime --mask_init=randn --test=1
+# python train.py --save_folder=210826 --save_model=2 --batch_size=8 --gpu_ids='5,6,7,8' --pos_enc=cartesian --gp_weight=10 --discriminator=multi --mask_type=cbtime --mask_init=randn --test=1
 

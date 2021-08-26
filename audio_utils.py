@@ -72,7 +72,8 @@ def custom_griffinlim(specgram, input_angle, mask, window, n_fft, hop_length, wi
     # And initialize the previous iterate to 0
     tprev = torch.tensor(0., dtype=specgram.dtype, device=specgram.device)
     for _ in range(n_iter):
-        angles = _input_angle*(1-_mask) + angles * _mask
+        # angles = _input_angle*(1-_mask) + angles * _mask
+
         # Invert with our current estimate of the phases
         inverse = torch.istft(specgram * angles,
                               n_fft=n_fft,

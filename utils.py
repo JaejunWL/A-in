@@ -44,7 +44,7 @@ def create_discriminator(opt):
         discriminator = network.jj_Discriminator(opt)
     elif opt.discriminator == 'multi':
         discriminator = network.Multi_Scale_Discriminator(opt)
-        
+
     print('Discriminator is created!')
     # Init the networks
     network.weights_init(discriminator, init_type = opt.init_type, init_gain = opt.init_gain)
@@ -185,6 +185,7 @@ def save_samples_val(sample_folder, sample_name, img_list, dbpow):
     masked_gt = img_list[3].numpy()
     second = img_list[4].numpy()
     seconded_img = img_list[5].numpy()
+    mask_lerp = img_list[6].numpy()
 
     fig, axes = plt.subplots(2, 3)
 
@@ -195,6 +196,7 @@ def save_samples_val(sample_folder, sample_name, img_list, dbpow):
         axes[0, 2].imshow(masked_gt, origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
         axes[1, 0].imshow(seconded_img, origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
         axes[1, 1].imshow(second, origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
+        axes[1, 2].imshow(mask_lerp, origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
     elif dbpow == 'pow':
         vmin, vmax = librosa.power_to_db(gt).min()-10, librosa.power_to_db(gt).max()+10
         axes[0, 0].imshow(librosa.power_to_db(gt), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
@@ -202,6 +204,7 @@ def save_samples_val(sample_folder, sample_name, img_list, dbpow):
         axes[0, 2].imshow(librosa.power_to_db(masked_gt), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
         axes[1, 0].imshow(librosa.power_to_db(seconded_img), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
         axes[1, 1].imshow(librosa.power_to_db(second), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
+        axes[1, 2].imshow(librosa.power_to_db(mask_lerp), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
     elif dbpow == 'amp':
         vmin, vmax = librosa.amplitude_to_db(gt).min()-10, librosa.amplitude_to_db(gt).max()+10
         axes[0, 0].imshow(librosa.amplitude_to_db(gt), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
@@ -209,6 +212,7 @@ def save_samples_val(sample_folder, sample_name, img_list, dbpow):
         axes[0, 2].imshow(librosa.amplitude_to_db(masked_gt), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
         axes[1, 0].imshow(librosa.amplitude_to_db(seconded_img), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
         axes[1, 1].imshow(librosa.amplitude_to_db(second), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
+        axes[1, 2].imshow(librosa.amplitude_to_db(mask_lerp), origin='lower', aspect='auto', cmap='inferno', vmin=vmin, vmax=vmax)
 
 
     fig.set_size_inches(24, 12)
@@ -314,44 +318,44 @@ def db_to_linear(db_input, opt):
     return linear_output
 
 
-# def make_perceptual_input(fake_data, mask_start, mask_end, opt):
-#     mel_length = torch.tensor(240).cuda()
-#     left_length = torch.round(mel_length/2).int()
-#     mask_region_length = mask_end - mask_start + 1
-#     center_point = mask_start + torch.round((mask_region_length)/2).int()
-#     spec_start = torch.max(center_point - left_length, torch.tensor(0).cuda())
-#     spec_start = torch.min(spec_start, fake_data.shape[-1] - mel_length - torch.tensor(1).cuda())
+def make_perceptual_input(fake_data, mask_start, mask_end, opt):
+    mel_length = torch.tensor(240).cuda()
+    left_length = torch.round(mel_length/2).int()
+    mask_region_length = mask_end - mask_start + 1
+    center_point = mask_start + torch.round((mask_region_length)/2).int()
+    spec_start = torch.max(center_point - left_length, torch.tensor(0).cuda())
+    spec_start = torch.min(spec_start, fake_data.shape[-1] - mel_length - torch.tensor(1).cuda())
 
-#     # 1 make receptive index matrix (near mask region)
-#     index_matrix = torch.zeros([fake_data.shape[0], mel_length], requires_grad=False).cuda()
-#     index_matrix += torch.arange(0, mel_length).cuda()
-#     index_matrix += spec_start.unsqueeze(-1)
-#     index_matrix = index_matrix.unsqueeze(1).unsqueeze(1)
-#     index_matrix = index_matrix.expand(fake_data.shape[0], fake_data.shape[1], 128, index_matrix.shape[-1])
-#     index_matrix = index_matrix.type(torch.int64)
+    # 1 make receptive index matrix (near mask region)
+    # index_matrix = torch.zeros([fake_data.shape[0], mel_length], requires_grad=False).cuda()
+    # index_matrix += torch.arange(0, mel_length).cuda()
+    # index_matrix += spec_start.unsqueeze(-1)
+    # index_matrix = index_matrix.unsqueeze(1).unsqueeze(1)
+    # index_matrix = index_matrix.expand(fake_data.shape[0], fake_data.shape[1], 128, index_matrix.shape[-1])
+    # index_matrix = index_matrix.type(torch.int64)
 
-#     fake_data = db_to_linear(fake_data, opt)
-#     fake_data_pad = torch.nn.functional.pad(fake_data, (0, 0, 0, 1), mode='constant', value=0)
-#     mel_fake_data = audio_utils.convert_mel_scale(fake_data_pad)
-#     log_mel_fake_data = torch.log10(mel_fake_data+1e-7)
-#     mel_spec_22050 = torch.gather(log_mel_fake_data, -1, index_matrix)
+    # fake_data = db_to_linear(fake_data, opt)
+    # fake_data_pad = torch.nn.functional.pad(fake_data, (0, 0, 0, 1), mode='constant', value=0)
+    # mel_fake_data = audio_utils.convert_mel_scale(fake_data_pad)
+    # log_mel_fake_data = torch.log10(mel_fake_data+1e-7)
+    # mel_spec_22050 = torch.gather(log_mel_fake_data, -1, index_matrix)
 
-#     # 2
-#     # repeateds = torch.zeros(fake_data.shape[0], fake_data.shape[1], fake_data.shape[2], mel_length)
-#     # for i in range(fake_data.shape[0]):
-#     #     repeat_num = torch.ceil(mel_length / mask_region_length[i])
-#     #     mask_region = fake_data[i,:,:,mask_start[i]:mask_end[i]+1]
-#     #     repeated = mask_region.repeat(1, 1, 1, repeat_num.int())
-#     #     repeated = torch.nn.functional.pad(repeated, (0, torch.max(torch.tensor(0), mel_length - repeated.shape[-1])), mode='constant', value=0)
-#     #     repeated = repeated[:,:,:,:mel_length]
-#     #     repeateds[i] = repeated
+    # 2
+    repeateds = torch.zeros(fake_data.shape[0], fake_data.shape[1], fake_data.shape[2], mel_length)
+    for i in range(fake_data.shape[0]):
+        repeat_num = torch.ceil(mel_length / mask_region_length[i])
+        mask_region = fake_data[i,:,:,mask_start[i]:mask_end[i]+1]
+        repeated = mask_region.repeat(1, 1, 1, repeat_num.int())
+        repeated = torch.nn.functional.pad(repeated, (0, torch.max(torch.tensor(0), mel_length - repeated.shape[-1])), mode='constant', value=0)
+        repeated = repeated[:,:,:,:mel_length]
+        repeateds[i] = repeated
 
-#     # fake_data = db_to_linear(repeateds, opt)
-#     # fake_data_pad = torch.nn.functional.pad(fake_data, (0, 0, 0, 1), mode='constant', value=0)
-#     # mel_fake_data = audio_utils.convert_mel_scale(fake_data_pad)
-#     # log_mel_fake_data = torch.log10(mel_fake_data+1e-7)
-#     # mel_spec_22050 = log_mel_fake_data
+    fake_data = db_to_linear(repeateds, opt)
+    fake_data_pad = torch.nn.functional.pad(fake_data, (0, 0, 0, 1), mode='constant', value=0)
+    mel_fake_data = audio_utils.convert_mel_scale(fake_data_pad)
+    log_mel_fake_data = torch.log10(mel_fake_data+1e-7)
+    mel_spec_22050 = log_mel_fake_data
 
-#     return mel_spec_22050.cuda()
+    return mel_spec_22050.cuda()
 
 

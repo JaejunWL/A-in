@@ -296,15 +296,45 @@ class Scale_Discriminator_small(nn.Module):
         x = self.block6(x)                                      # out: [B, 256, 8, 8]
         return x
 
+class Scale_Discriminator_very_small(nn.Module):
+    def __init__(self, opt):
+        super(Scale_Discriminator_very_small, self).__init__()
+        # Down sampling
+        self.block1 = Conv2dLayer(opt.discriminator_in_channel, opt.msd_latent, 2, 1, 3, pad_type = opt.pad_type, activation = opt.activation, norm = 'none', sn = True)
+        self.block2 = Conv2dLayer(opt.msd_latent, opt.msd_latent * 2, 2, (2,1), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block3 = Conv2dLayer(opt.msd_latent * 2, opt.msd_latent * 4, 2, (2,2), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block4 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 2, (2,2), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block5 = Conv2dLayer(opt.msd_latent * 4, opt.msd_latent * 4, 2, (2,2), 1, pad_type = opt.pad_type, activation = opt.activation, norm = opt.norm, sn = True)
+        self.block6 = Conv2dLayer(opt.msd_latent * 4, 1, 4, 2, 1, pad_type = opt.pad_type, activation = 'none', norm = 'none', sn = True)
+        
+    def forward(self, img):
+        # the input x should contain 4 channels because it is a combination of recon image and mask
+        x = img
+        x = self.block1(x)                                      # out: [B, 64, 256, 256]
+        x = self.block2(x)                                      # out: [B, 128, 128, 128]
+        x = self.block3(x)                                      # out: [B, 256, 64, 64]
+        x = self.block4(x)                                      # out: [B, 256, 32, 32]
+        x = self.block5(x)                                      # out: [B, 256, 16, 16]
+        x = self.block6(x)                                      # out: [B, 256, 8, 8]
+        return x
+
+
 class Multi_Scale_Discriminator(nn.Module):
     def __init__(self, opt):
         super(Multi_Scale_Discriminator, self).__init__()
-        self.frame_lengths = [16, 32, 64, 128]
-        self.scale0_discriminator = Scale_Discriminator_small(opt)
-        self.scale1_discriminator = Scale_Discriminator(opt)
-        self.scale2_discriminator = Scale_Discriminator(opt)
-        self.scale3_discriminator = Scale_Discriminator(opt)
         self.opt = opt
+        if self.opt.input_length == 220500:
+            self.frame_lengths = [16, 32, 64, 128]
+            self.scale0_discriminator = Scale_Discriminator_small(opt)
+            self.scale1_discriminator = Scale_Discriminator(opt)
+            self.scale2_discriminator = Scale_Discriminator(opt)
+            self.scale3_discriminator = Scale_Discriminator(opt)
+        elif self.opt.input_length == 132300:
+            self.frame_lengths = [4, 8, 16, 32]
+            self.scale0_discriminator = Scale_Discriminator_very_small(opt)
+            self.scale1_discriminator = Scale_Discriminator_very_small(opt)
+            self.scale2_discriminator = Scale_Discriminator_very_small(opt)
+            self.scale3_discriminator = Scale_Discriminator_very_small(opt)
 
     def make_scale_input(self, frame_length, mask_start, mask_end, max_time_index):
         spec_end_start = mask_start + 0.5 * frame_length

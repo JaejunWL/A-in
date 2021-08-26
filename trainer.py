@@ -156,15 +156,17 @@ def WGAN_trainer(opt):
         mag_L1Losses = []
         phase_L1Losses = []
         PerceptualLosses = []
-        for batch_idx, (audio, img, mask, mask_init, mask_start, mask_end) in enumerate(dataloader):
+        for batch_idx, (audio, img, mask, mask_init, mask_lerp, mask_start, mask_end) in enumerate(dataloader):
 
             img = img[:,:,:opt.image_height-1,:opt.image_width-3]
             mask = mask[:,:,:opt.image_height-1,:opt.image_width-3]
             mask_init = mask_init[:,:,:opt.image_height-1,:opt.image_width-3]
+            mask_lerp = mask_lerp[:,:,:opt.image_height-1,:opt.image_width-3]
 
             img = img.cuda()
             mask = mask.cuda()
             mask_init = mask_init.cuda()
+            mask_lerp = mask_lerp.cuda()
             mask_start = mask_start.cuda()
             mask_end = mask_end.cuda()
 
@@ -241,25 +243,25 @@ def WGAN_trainer(opt):
                 GAN_Loss = bce_loss(fake_scalar, real_label)
 
             # Get the deep semantic feature maps, and compute Perceptual Loss
-            # if opt.perceptual != None:
-            #     mel_22050_fake = utils.make_perceptual_input(fake_data, mask_start.detach(), mask_end.detach(), opt)
-            #     mel_22050_real = utils.make_perceptual_input(real_data.detach(), mask_start.detach(), mask_end.detach(), opt)
-            #     prcptl_input_fake = {'mel':mel_22050_fake[:,0,:,:]}
-            #     prcptl_input_real = {'mel':mel_22050_real[:,0,:,:]}
-            #     featuremaps_fake = perceptualnet(prcptl_input_fake)          # feature maps
-            #     featuremaps_real = perceptualnet(prcptl_input_real)          # feature maps
+            if opt.perceptual != None:
+                mel_22050_fake = utils.make_perceptual_input(fake_data, mask_start.detach(), mask_end.detach(), opt)
+                mel_22050_real = utils.make_perceptual_input(real_data.detach(), mask_start.detach(), mask_end.detach(), opt)
+                prcptl_input_fake = {'mel':mel_22050_fake[:,0,:,:]}
+                prcptl_input_real = {'mel':mel_22050_real[:,0,:,:]}
+                featuremaps_fake = perceptualnet(prcptl_input_fake)          # feature maps
+                featuremaps_real = perceptualnet(prcptl_input_real)          # feature maps
                 
-            #     bw_PerceptualLoss = torch.mean(bw_L1Loss(featuremaps_fake, featuremaps_real), [1,2]) * mask_loss_scaler
-            #     PerceptualLoss = torch.mean(bw_PerceptualLoss)
-            #     # PerceptualLoss = L1Loss(featuremaps_fake, featuremaps_real)
+                bw_PerceptualLoss = torch.mean(bw_L1Loss(featuremaps_fake, featuremaps_real), [1,2]) * mask_loss_scaler
+                PerceptualLoss = torch.mean(bw_PerceptualLoss)
+                # PerceptualLoss = L1Loss(featuremaps_fake, featuremaps_real)
 
             # Compute losses
             if epoch < 2:
                 loss = opt.lambda_l1 * second_MaskL1Loss
             else:
                 loss = opt.lambda_l1 * second_MaskL1Loss + opt.lambda_gan * GAN_Loss            
-            # if opt.perceptual != None:
-                # loss += opt.lambda_perceptual * PerceptualLoss
+            if opt.perceptual != None:
+                loss += opt.lambda_perceptual * PerceptualLoss
 
             loss.backward()
             optimizer_g.step()
@@ -278,8 +280,8 @@ def WGAN_trainer(opt):
                 mag_L1Losses.append(mag_L1Loss.detach().cpu())
                 phase_L1Losses.append(phase_L1Loss.detach().cpu())
 
-            # if opt.perceptual != None:
-                # PerceptualLosses.append(PerceptualLoss.detach().cpu())
+            if opt.perceptual != None:
+                PerceptualLosses.append(PerceptualLoss.detach().cpu())
 
             # Print log
             # print("\r[Epoch %d/%d] [Batch %d/%d] [first Mask L1 Loss: %.5f] [second Mask L1 Loss: %.5f]" %
@@ -298,8 +300,8 @@ def WGAN_trainer(opt):
             elif opt.phase == 1:
                 wandb.log({"D_loss": loss_D, "G_loss": GAN_Loss, "recon loss": second_MaskL1Loss, "mag loss": mag_L1Loss, "phase loss":phase_L1Loss})
             # print("\rtime_left: %s" % (time_left))
-            # if opt.perceptual != None:
-                # wandb.log({"Perceptual": PerceptualLoss})
+            if opt.perceptual != None:
+                wandb.log({"Perceptual": PerceptualLoss})
 
             steps += 1
 
@@ -313,8 +315,8 @@ def WGAN_trainer(opt):
         elif opt.phase == 1:
             wandb.log({"epoch": epoch, "Avg_D_loss": torch.mean(torch.tensor(D_losses)), "Avg_G_loss": torch.mean(torch.tensor(GAN_Losses)),
                         "Avg_recon_loss": torch.mean(torch.tensor(second_MaskL1Losses)), "Avg_mag_loss": torch.mean(torch.tensor(mag_L1Losses)), "Avg_phase_loss": torch.mean(torch.tensor(phase_L1Losses))})
-        # if opt.perceptual != None:
-            # wandb.log({"epoch": epoch, "Avg_prcptl_loss": torch.mean(torch.tensor(PerceptualLosses))})
+        if opt.perceptual != None:
+            wandb.log({"epoch": epoch, "Avg_prcptl_loss": torch.mean(torch.tensor(PerceptualLosses))})
 
         # Learning rate decrease
         adjust_learning_rate(opt.lr_g, optimizer_g, (epoch + 1), opt)
